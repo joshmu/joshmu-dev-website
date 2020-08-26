@@ -1,51 +1,36 @@
 import Head from 'next/head'
 import Reveal from '../src/components/Reveal'
-import Slider from '../src/components/Slider'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
+import Header from '../src/components/Header'
 
 export default function Home() {
-  const companies = [
-    'Sydney Dance Company',
-    'Chunky Move',
-    'Marrugeku',
-    'Force Majeure',
-  ]
-
   return (
-    <div className='font-sans text-gray-900 bg-gray-50'>
+    <div className='font-sans text-gray-900 bg-white'>
       <Head>
         <title>Josh Mu</title>
       </Head>
 
-      {/* header */}
-      <div className='fixed z-10 w-full'>
-        <div className='container flex items-center justify-between py-2 mx-auto'>
-          <div className='text-xl font-semibold uppercase'>
-            <h1>Josh Mu</h1>
-          </div>
-          <div className='uppercase'>
-            <ul className='flex items-center text-sm'>
-              <li className='px-2 py-1'>home</li>
-              <li className='px-2 py-1'>about</li>
-              <li className='px-2 py-1'>news</li>
-              <li className='px-2 py-1'>portfolio</li>
-              <li className='px-2 py-1'>critics</li>
-              <li className='px-2 py-1'>contact</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <Slider content={companies} />
+      <Header />
 
       {/* hero */}
-      <div className='relative w-full h-screen bg-blue-300'>
+      <div className='relative w-full h-screen'>
         <div className='flex flex-col items-center justify-center w-full h-full'>
-          <h1 className='font-semibold uppercase text-8xl'>josh mu</h1>
-          <p>
-            <span>performer</span> | <span>choreographer</span> |{' '}
-            <span>teacher</span>
-          </p>
+          <div className='relative'>
+            <div
+              className='absolute top-0 z-0 w-64 h-4 bg-purple-200'
+              style={{
+                top: '2.5rem',
+                mixBlendMode: 'overlay',
+              }}
+            ></div>
+            <h1 className='font-semibold text-indigo-700 uppercase text-8xl'>
+              josh mu
+            </h1>
+            <p>
+              <span>performer</span> | <span>choreographer</span> |{' '}
+              <span>teacher</span>
+            </p>
+          </div>
         </div>
         <div className='absolute bottom-0 flex items-center justify-center w-full mb-8 text-4xl'>
           <ArrowDownIcon className='fill-current animate-bounce' />
@@ -100,7 +85,6 @@ export default function Home() {
           some <span className='font-semibold'>companies</span> I have worked
           with
         </h2>
-        <Slider content={companies} />
         <div className='h-32 text-center'>companies</div>
       </div>
 
