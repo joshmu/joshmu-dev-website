@@ -9,8 +9,12 @@ export default function Reveal({
   ...props
 }) {
   const controls = useAnimation()
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView({
+    // triggerOnce: true,
+    // rootMargin: '300px',
+  })
 
+  // todo: check screen shot from akram
   useEffect(() => {
     if (inView) controls.start('visible')
   }, [controls, inView])
@@ -29,8 +33,8 @@ export default function Reveal({
         }
         transition={
           transition || {
-            delay: 0.4,
             duration: 0.8,
+            ease: [0.6, 0.05, -0.01, 0.9],
           }
         }
         {...props}

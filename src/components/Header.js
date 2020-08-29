@@ -42,7 +42,7 @@ export default function Header() {
     <div className='fixed w-full'>
       <div className='flex items-center justify-between'>
         <div className='text-xl font-semibold uppercase'>
-          <div>
+          <h2>
             <span
               className='transition-colors duration-300 ease-in-out bg-background text-text'
               style={{
@@ -52,7 +52,7 @@ export default function Header() {
               Josh{' '}
             </span>
             Mu
-          </div>
+          </h2>
         </div>
         <div className='uppercase'>
           <motion.ul
