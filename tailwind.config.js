@@ -7,6 +7,10 @@ module.exports = {
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        text: 'var(--text)',
+        background: 'var(--backgroun)',
+      },
     },
   },
   variants: {},

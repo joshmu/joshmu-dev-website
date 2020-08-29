@@ -1,16 +1,9 @@
 import { useTransform } from 'framer-motion'
 import { useGlobalContext } from '../context/globalContext'
-import styled from 'styled-components'
-import { Container, Flex } from '../styles/globalStyles'
 
 import { motion } from 'framer-motion'
 
-export const Logo = styled.h1`
-  color: ${props => props.theme.text};
-  background: ${props => props.theme.background};
-  font-size: 4rem;
-`
-
+// animation
 const parent = {
   hidden: {
     opacity: 0,
@@ -40,74 +33,73 @@ const child = {
 }
 
 export default function Header() {
-  const { scrollYProgress, theme, toggleTheme } = useGlobalContext()
+  const { scrollYProgress } = useGlobalContext()
 
   const widthProgress = useTransform(scrollYProgress, [0, 0.3, 1], [8, 0, 0])
   const opacityProgress = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0, 0])
 
   return (
     <div className='fixed w-full'>
-      <Container fluid>
-        <Flex spaceBetween>
-          <div className='text-xl font-semibold uppercase'>
-            <Logo onClick={toggleTheme}>
-              <span
-                style={{
-                  opacity: opacityProgress.get(),
-                }}
-              >
-                Josh{' '}
-              </span>
-              Mu
-            </Logo>
-          </div>
-          <div className='uppercase'>
-            <motion.ul
-              initial='hidden'
-              animate='show'
-              variants={parent}
-              className='flex items-center text-sm'
+      <div className='flex items-center justify-between'>
+        <div className='text-xl font-semibold uppercase'>
+          <div>
+            <span
+              className='transition-colors duration-300 ease-in-out bg-background text-text'
+              style={{
+                opacity: opacityProgress.get(),
+              }}
             >
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                home
-              </motion.li>
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                about
-              </motion.li>
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                news
-              </motion.li>
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                portfolio
-              </motion.li>
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                critics
-              </motion.li>
-              <motion.li
-                variants={child}
-                style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-              >
-                contact
-              </motion.li>
-            </motion.ul>
+              Josh{' '}
+            </span>
+            Mu
           </div>
-        </Flex>
-      </Container>
+        </div>
+        <div className='uppercase'>
+          <motion.ul
+            initial='hidden'
+            animate='show'
+            variants={parent}
+            className='flex items-center text-sm'
+          >
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              home
+            </motion.li>
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              about
+            </motion.li>
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              news
+            </motion.li>
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              portfolio
+            </motion.li>
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              critics
+            </motion.li>
+            <motion.li
+              variants={child}
+              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+            >
+              contact
+            </motion.li>
+          </motion.ul>
+        </div>
+      </div>
     </div>
   )
 }

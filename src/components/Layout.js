@@ -1,51 +1,26 @@
 import Head from 'next/head'
 import Header from './Header'
-import { useGlobalContext } from '../context/globalContext'
-
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
-
-const GlobalStyle = createGlobalStyle`
-  ${normalize}
- * {
-   text-decoration: none;
- }
-
- html {
-   box-sizing: border-box;
-   --webkit-font-smoothing: antialiased;
-   font-size: 16px;
- }
-
- body {
-   font-family: 'Roboto', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   background: 'white';
-   overscroll-behavior: none;
-   overflow-x: hidden;
- }
-
-`
-
-const darkTheme = {
-  background: 'black',
-  text: 'white',
-}
-const lightTheme = {
-  background: 'white',
-  text: 'black',
-}
+import { motion, AnimatePresence } from 'framer-motion'
+import { useThemeContext } from '../context/themeContext'
 
 export default function Layout({ children }) {
-  const { theme } = useGlobalContext()
+  const { theme } = useThemeContext()
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
-      <GlobalStyle />
-      <Head>
-        <title>Josh Mu</title>
-      </Head>
-      <Header />
-      <main>{children}</main>
-    </ThemeProvider>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <div className={`${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
+          <Head>
+            <title>Josh Mu</title>
+          </Head>
+          <Header />
+          <main>{children}</main>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   )
 }

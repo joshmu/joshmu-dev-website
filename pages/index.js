@@ -2,8 +2,11 @@ import Reveal from '../src/components/Reveal'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 import Header from '../src/components/Header'
 import Layout from '../src/components/Layout'
+import { useThemeContext } from '../src/context/themeContext'
 
 export default function Home() {
+  const { toggleTheme } = useThemeContext()
+
   return (
     <Layout>
       <div className='font-sans'>
@@ -18,7 +21,10 @@ export default function Home() {
                   mixBlendMode: 'overlay',
                 }}
               ></div>
-              <h1 className='font-semibold text-indigo-700 uppercase text-8xl'>
+              <h1
+                onClick={toggleTheme}
+                className='font-semibold text-indigo-700 uppercase text-8xl'
+              >
                 josh mu
               </h1>
               <p>

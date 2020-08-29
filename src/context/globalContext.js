@@ -5,27 +5,7 @@ const globalContext = createContext({})
 
 export function GlobalProvider({ children }) {
   const { scrollYProgress } = useViewportScroll()
-
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [theme, setTheme] = useState(null)
-
-  // initial theme
-  useEffect(() => {
-    // get locally stored theme
-    let savedTheme = window.localStorage.getItem('theme')
-    // if nothing is stored lets initially default to 'dark' and store for user
-    if (!savedTheme) {
-      savedTheme = 'dark'
-      window.localStorage.setItem('theme', savedTheme)
-    }
-    // set theme
-    setTheme(savedTheme)
-  }, [])
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-    window.localStorage.setItem('theme', theme)
-  }
 
   // initial scroll
   useEffect(() => {
@@ -48,8 +28,6 @@ export function GlobalProvider({ children }) {
       value={{
         scrollYProgress,
         scrollProgress,
-        theme,
-        toggleTheme,
       }}
     >
       {children}
