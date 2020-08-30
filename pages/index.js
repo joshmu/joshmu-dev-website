@@ -3,6 +3,7 @@ import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 import Header from '../src/components/Header'
 import Layout from '../src/components/Layout'
 import { useThemeContext } from '../src/context/themeContext'
+import Compress from '../src/components/Compress'
 
 export default function Home() {
   const { toggleTheme } = useThemeContext()
@@ -31,6 +32,7 @@ export default function Home() {
                 <span>performer</span> | <span>choreographer</span> |{' '}
                 <span>teacher</span>
               </p>
+              <Compress />
             </div>
           </div>
           <div className='absolute bottom-0 flex items-center justify-center w-full mb-8 text-4xl'>
