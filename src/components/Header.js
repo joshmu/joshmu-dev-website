@@ -47,7 +47,7 @@ export default function Header() {
         <div className='flex items-center justify-between'>
           <div
             onClick={toggleTheme}
-            className='h-full text-2xl font-semibold uppercase cursor-pointer '
+            className='h-full text-2xl font-semibold uppercase transition-colors duration-300 ease-in-out cursor-pointer hover:text-themeAccent '
           >
             <Compressor text='josh mu' hide='osh ' />
           </div>
@@ -55,7 +55,7 @@ export default function Header() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className='absolute top-0 right-0 w-24 h-full -mr-24 transition-all duration-300 bg-themeText'
+              className='absolute top-0 right-0 w-full h-full transition-all duration-300 -mr-full bg-themeText'
             ></motion.div>
             <motion.ul
               initial='hidden'
@@ -75,8 +75,7 @@ export default function Header() {
                       currentView === item
                         ? 'active font-semibold'
                         : 'font-normal'
-                    } uppercase relative transition-colors duration-300 ease-in-out focus:outline-none`}
-                    whileHover={{ scale: 1.5 }}
+                    } uppercase transition-colors hover:text-themeAccent duration-300 ease-in-out focus:outline-none`}
                   >
                     {item}
                   </motion.button>
