@@ -42,21 +42,26 @@ export default function Header() {
   const widthProgress = useTransform(scrollYProgress, [0, 0.3, 1], [8, 0, 0])
 
   return (
-    <div className='fixed z-10 w-full'>
+    <div className='fixed z-10 w-full mt-4'>
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
           <div
             onClick={toggleTheme}
-            className='text-2xl font-semibold uppercase cursor-pointer'
+            className='h-full text-2xl font-semibold uppercase cursor-pointer '
           >
             <Compressor text='josh mu' hide='osh ' />
           </div>
-          <div className='uppercase'>
+          <div className='relative flex uppercase'>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className='absolute top-0 right-0 w-24 h-full -mr-24 transition-all duration-300 bg-themeText'
+            ></motion.div>
             <motion.ul
               initial='hidden'
               animate='show'
               variants={parentAnimation}
-              className='flex items-center text-sm'
+              className='flex items-center justify-center h-full py-1 pl-4 text-sm transition-all duration-300 rounded-l-sm bg-themeText text-themeBackground'
             >
               {menuItems.map(item => (
                 <li key={item}>
@@ -64,13 +69,13 @@ export default function Header() {
                     variants={childAnimation}
                     style={{
                       padding: '3px ' + widthProgress.get() + 'px',
-                      scale: currentView === item ? 1.6 : 1,
+                      scale: currentView === item ? 1.5 : 1,
                     }}
                     className={`${
                       currentView === item
                         ? 'active font-semibold'
                         : 'font-normal'
-                    } uppercase transition-colors duration-300 ease-in-out focus:outline-none hover:text-themeAccent`}
+                    } uppercase relative transition-colors duration-300 ease-in-out focus:outline-none hover:text-themeAccent`}
                   >
                     {item}
                   </motion.button>
