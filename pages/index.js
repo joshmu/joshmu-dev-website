@@ -23,7 +23,7 @@ export default function Home() {
               ></div>
               <h1
                 onClick={toggleTheme}
-                className='font-semibold text-indigo-700 uppercase text-8xl'
+                className='font-semibold text-indigo-700 uppercase cursor-pointer text-8xl'
               >
                 josh mu
               </h1>

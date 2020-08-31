@@ -13,7 +13,11 @@ export default function Layout({ children }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className={`${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
+        <div
+          className={`${
+            theme === 'dark' ? 'theme-dark' : 'theme-light'
+          } text-themeText bg-themeBackground transition-colors duration-300 ease-in-out`}
+        >
           <Head>
             <title>Josh Mu</title>
           </Head>

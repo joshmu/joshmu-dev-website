@@ -8,8 +8,8 @@ module.exports = {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        text: 'var(--text)',
-        background: 'var(--backgroun)',
+        themeText: 'var(--text)',
+        themeBackground: 'var(--background)',
       },
     },
   },

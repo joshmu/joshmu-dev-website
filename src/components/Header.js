@@ -1,11 +1,12 @@
-import { useTransform } from 'framer-motion'
+import { useTransform, AnimatePresence } from 'framer-motion'
 import { useGlobalContext } from '../context/globalContext'
 
 import { motion } from 'framer-motion'
 import Compressor from './Compressor'
+import { useThemeContext } from '../context/themeContext'
 
 // animation
-const parent = {
+const parentAnimation = {
   hidden: {
     opacity: 0,
   },
@@ -16,8 +17,7 @@ const parent = {
     },
   },
 }
-
-const child = {
+const childAnimation = {
   hidden: {
     y: 50,
     opacity: 0,
@@ -33,62 +33,39 @@ const child = {
   },
 }
 
+const menuItems = ['home', 'about', 'news', 'portfolio', 'critics', 'contact']
+
 export default function Header() {
   const { scrollYProgress } = useGlobalContext()
+  const { toggleTheme } = useThemeContext()
 
   const widthProgress = useTransform(scrollYProgress, [0, 0.3, 1], [8, 0, 0])
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0, 0])
 
   return (
     <div className='fixed w-full'>
-      <div className='flex items-center justify-between'>
-        <div className='text-2xl font-semibold uppercase'>
-          <Compressor text='josh mu' hide='osh ' />
-        </div>
-        <div className='uppercase'>
-          <motion.ul
-            initial='hidden'
-            animate='show'
-            variants={parent}
-            className='flex items-center text-sm'
-          >
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+      <div className='container mx-auto'>
+        <div className='flex items-center justify-between'>
+          <div className='text-2xl font-semibold uppercase cursor-pointer'>
+            <Compressor text='josh mu' hide='osh ' />
+          </div>
+          <div className='uppercase'>
+            <motion.ul
+              initial='hidden'
+              animate='show'
+              variants={parentAnimation}
+              className='flex items-center text-sm'
             >
-              home
-            </motion.li>
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-            >
-              about
-            </motion.li>
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-            >
-              news
-            </motion.li>
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-            >
-              portfolio
-            </motion.li>
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-            >
-              critics
-            </motion.li>
-            <motion.li
-              variants={child}
-              style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-            >
-              contact
-            </motion.li>
-          </motion.ul>
+              {menuItems.map(item => (
+                <motion.li
+                  key={item}
+                  variants={childAnimation}
+                  style={{ padding: '3px ' + widthProgress.get() + 'px' }}
+                >
+                  {item}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </div>
         </div>
       </div>
     </div>
