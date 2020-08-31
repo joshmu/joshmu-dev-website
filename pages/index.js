@@ -2,6 +2,14 @@ import Reveal from '../src/components/Reveal'
 import Layout from '../src/components/Layout'
 import Hero from '../src/components/Hero'
 import About from '../src/components/About'
+import Slider from '../src/components/Slider'
+
+const sliderContent = [
+  'Sydney Dance Company',
+  'Marrugeku',
+  'Force Majeure',
+  'Chunky Move',
+]
 
 export default function Home() {
   return (
@@ -16,7 +24,7 @@ export default function Home() {
             some <span className='font-semibold'>companies</span> I have worked
             with
           </h2>
-          <div className='h-32 text-center'>companies</div>
+          <Slider content={sliderContent} />
         </div>
 
         <Reveal>

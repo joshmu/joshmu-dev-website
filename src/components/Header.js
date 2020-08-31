@@ -75,7 +75,8 @@ export default function Header() {
                       currentView === item
                         ? 'active font-semibold'
                         : 'font-normal'
-                    } uppercase relative transition-colors duration-300 ease-in-out focus:outline-none hover:text-themeAccent`}
+                    } uppercase relative transition-colors duration-300 ease-in-out focus:outline-none`}
+                    whileHover={{ scale: 1.5 }}
                   >
                     {item}
                   </motion.button>
