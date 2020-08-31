@@ -36,16 +36,19 @@ const childAnimation = {
 const menuItems = ['home', 'about', 'news', 'portfolio', 'critics', 'contact']
 
 export default function Header() {
-  const { scrollYProgress } = useGlobalContext()
+  const { scrollYProgress, currentView } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
   const widthProgress = useTransform(scrollYProgress, [0, 0.3, 1], [8, 0, 0])
 
   return (
-    <div className='fixed w-full'>
+    <div className='fixed z-10 w-full'>
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
-          <div className='text-2xl font-semibold uppercase cursor-pointer'>
+          <div
+            onClick={toggleTheme}
+            className='text-2xl font-semibold uppercase cursor-pointer'
+          >
             <Compressor text='josh mu' hide='osh ' />
           </div>
           <div className='uppercase'>
@@ -56,13 +59,22 @@ export default function Header() {
               className='flex items-center text-sm'
             >
               {menuItems.map(item => (
-                <motion.li
-                  key={item}
-                  variants={childAnimation}
-                  style={{ padding: '3px ' + widthProgress.get() + 'px' }}
-                >
-                  {item}
-                </motion.li>
+                <li key={item}>
+                  <motion.button
+                    variants={childAnimation}
+                    style={{
+                      padding: '3px ' + widthProgress.get() + 'px',
+                      scale: currentView === item ? 1.6 : 1,
+                    }}
+                    className={`${
+                      currentView === item
+                        ? 'active font-semibold'
+                        : 'font-normal'
+                    } uppercase transition-colors duration-300 ease-in-out focus:outline-none hover:text-themeAccent`}
+                  >
+                    {item}
+                  </motion.button>
+                </li>
               ))}
             </motion.ul>
           </div>
