@@ -68,7 +68,7 @@ export default function Header() {
                   <motion.button
                     variants={childAnimation}
                     style={{
-                      padding: '3px ' + widthProgress.get() + 'px',
+                      padding: '3px ' + (widthProgress.get() + 6) + 'px',
                       scale: currentView === item ? 1.5 : 1,
                     }}
                     className={`${
