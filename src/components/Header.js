@@ -2,6 +2,7 @@ import { useTransform } from 'framer-motion'
 import { useGlobalContext } from '../context/globalContext'
 
 import { motion } from 'framer-motion'
+import Compressor from './Compressor'
 
 // animation
 const parent = {
@@ -41,18 +42,8 @@ export default function Header() {
   return (
     <div className='fixed w-full'>
       <div className='flex items-center justify-between'>
-        <div className='text-xl font-semibold uppercase'>
-          <h2>
-            <span
-              className='transition-colors duration-300 ease-in-out bg-background text-text'
-              style={{
-                opacity: opacityProgress.get(),
-              }}
-            >
-              Josh{' '}
-            </span>
-            Mu
-          </h2>
+        <div className='text-2xl font-semibold uppercase'>
+          <Compressor text='josh mu' hide='osh ' />
         </div>
         <div className='uppercase'>
           <motion.ul
