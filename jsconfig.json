@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/layout/*": ["src/components/Layout/*"],
+      "@/components/*": ["src/components/*"],
+      "@/shared/*": ["src/components/shared/*"],
+      "@/context/*": ["src/context/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/api/*": ["src/pages/api/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/styles/*": ["./styles/*"]
+    },
+    "checkJs": true,
+    "jsx": "preserve"
+  }
+}

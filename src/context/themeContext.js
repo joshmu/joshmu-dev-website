@@ -1,42 +1,69 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const themeContext = createContext({
   theme: '',
   toggleTheme: () => {},
 })
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(null)
+const LOCALSTORAGE_KEY = 'joshmu.dev:theme'
+const THEME_TYPES = {
+  dark: 'theme-dark',
+  light: 'theme-light',
+}
+
+export function ThemeProvider(props) {
+  const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme
   useEffect(() => {
     // get locally stored theme
-    let savedTheme = window.localStorage.getItem('theme')
-    // if nothing is stored lets initially default to 'dark' and store for user
+    let savedTheme = window.localStorage.getItem(LOCALSTORAGE_KEY)
+
+    // validation check
+    if (!Object.keys(THEME_TYPES).includes(savedTheme)) savedTheme = null
+
+    // if we don't have local stored then lets set it
     if (!savedTheme) {
-      savedTheme = 'dark'
-      window.localStorage.setItem('theme', savedTheme)
+      window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
     }
-    // set theme
-    setTheme(savedTheme)
+
+    // if we have a local stored theme then let's set it
+    if (savedTheme) {
+      setTheme(savedTheme)
+    }
   }, [])
 
+  // when theme changes then assign to body tag
+  useEffect(() => {
+    Object.entries(THEME_TYPES).forEach(([, className]) =>
+      globalThis.document.body.classList.remove(className)
+    )
+    globalThis.document.body.classList.add(THEME_TYPES[theme])
+  }, [theme])
+
   const toggleTheme = () => {
-    console.log('toggle theme')
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-    window.localStorage.setItem('theme', theme)
+    // get list of themeIds
+    const themeIdList = Object.keys(THEME_TYPES)
+    const themeIndex = themeIdList.findIndex(themeId => themeId === theme)
+    // logic to continuously cycle through array
+    const nextThemeIndex =
+      themeIndex === themeIdList.length - 1 ? 0 : themeIndex + 1
+    let newThemeId = themeIdList[nextThemeIndex]
+
+    // validation check & fallback
+    if (!themeIdList.includes(newThemeId)) newThemeId = themeIdList[0]
+
+    setTheme(newThemeId)
+    window.localStorage.setItem(LOCALSTORAGE_KEY, newThemeId)
   }
 
-  return (
-    <themeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
-    >
-      {children}
-    </themeContext.Provider>
-  )
+  const value = {
+    theme,
+    toggleTheme,
+    THEME_TYPES,
+  }
+
+  return <themeContext.Provider value={value} {...props} />
 }
 
 export function useThemeContext() {

@@ -1,7 +1,8 @@
 import React from 'react'
-import { useGlobalContext } from '../context/globalContext'
-import Location from '../hooks/useLocation'
-import useLocation from '../hooks/useLocation'
+
+import { useGlobalContext } from '@/context/globalContext'
+import Location from '@/hooks/useLocation'
+import useLocation from '@/hooks/useLocation'
 
 export default function About() {
   const { ref } = useLocation('about')

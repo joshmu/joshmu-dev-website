@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
-import { useThemeContext } from '../context/themeContext'
-import Location from '../hooks/useLocation'
-import useLocation from '../hooks/useLocation'
+
+import { useThemeContext } from '@/context/themeContext'
+import useLocation from '@/hooks/useLocation'
 
 export default function Hero() {
   const { toggleTheme } = useThemeContext()
@@ -18,8 +18,7 @@ export default function Hero() {
           josh mu
         </h1>
         <p>
-          <span>performer</span> | <span>choreographer</span> |{' '}
-          <span>teacher</span>
+          <span>code + ☕️</span>
         </p>
       </div>
       <div className='absolute bottom-0 flex items-center justify-center w-full mb-8 text-4xl'>

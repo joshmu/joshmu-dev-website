@@ -1,9 +1,9 @@
-import { useTransform, AnimatePresence } from 'framer-motion'
-import { useGlobalContext } from '../context/globalContext'
-
+import { useTransform } from 'framer-motion'
 import { motion } from 'framer-motion'
-import Compressor from './Compressor'
-import { useThemeContext } from '../context/themeContext'
+
+import { useGlobalContext } from '@/context/globalContext'
+import { useThemeContext } from '@/context/themeContext'
+import Compressor from '@/shared/ux/Compressor'
 
 // animation
 const parentAnimation = {
@@ -61,7 +61,7 @@ export default function Header() {
               initial='hidden'
               animate='show'
               variants={parentAnimation}
-              className='flex items-center justify-center h-full py-1 pl-4 text-sm transition-all duration-300 rounded-l-sm bg-themeText text-themeBackground'
+              className='flex items-center justify-center h-full py-1 pl-4 text-sm transition-all duration-300 rounded-l-sm bg-themeText text-themeBg'
             >
               {menuItems.map(item => (
                 <li key={item}>
