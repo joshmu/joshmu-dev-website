@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+        sans: ['Raleway', 'Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         themeText: 'var(--text)',

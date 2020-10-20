@@ -1,18 +1,23 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-const Curtain = ({ children }) => {
+const Curtain = ({ children, padding = 0, stagger = 0.1 }) => {
   const chars = children.split('')
   return (
     <div>
       {chars.map((char, idx) => (
-        <Char key={char + idx} char={char} />
+        <Char
+          key={char + idx}
+          char={char}
+          padding={padding}
+          delay={stagger * idx}
+        />
       ))}
     </div>
   )
 }
 
-const Char = ({ char, key }) => {
+const Char = ({ char, key, padding, delay }) => {
   const charRef = useRef(null)
   const [state, setState] = useState({ width: null, height: null })
 
@@ -21,10 +26,25 @@ const Char = ({ char, key }) => {
     setState({ width: charRect.width, height: charRect.height })
   }, [])
 
+  const charVariants = {
+    initial: { x: '-100%' },
+    animate: {
+      x: 0,
+      transition: {
+        delay: 0.4 + delay,
+        duration: 0.6,
+      },
+    },
+    exit: { x: '100%' },
+  }
+
   return (
     <div
       className='relative inline-block overflow-hidden'
-      style={{ width: state.width + 'px', height: state.height + 'px' }}
+      style={{
+        width: state.width + padding + 'px',
+        height: state.height + 'px',
+      }}
     >
       <motion.span
         key={key}
@@ -39,18 +59,6 @@ const Char = ({ char, key }) => {
       </motion.span>
     </div>
   )
-}
-
-const charVariants = {
-  initial: { x: '-100%' },
-  animate: {
-    x: 0,
-    transition: {
-      delay: 0.4,
-      duration: 0.6,
-    },
-  },
-  exit: { x: '100%' },
 }
 
 export default Curtain

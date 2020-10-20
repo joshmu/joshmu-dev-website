@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 export default function Reveal({
   children,
+  delay = 0,
   variants = null,
   transition = null,
   ...props
@@ -14,7 +15,6 @@ export default function Reveal({
     // rootMargin: '300px',
   })
 
-  // todo: check screen shot from akram
   useEffect(() => {
     if (inView) controls.start('visible')
   }, [controls, inView])
@@ -33,6 +33,7 @@ export default function Reveal({
         }
         transition={
           transition || {
+            delay,
             duration: 0.8,
             ease: [0.6, 0.05, -0.01, 0.9],
           }
