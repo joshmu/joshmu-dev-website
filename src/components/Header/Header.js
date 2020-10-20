@@ -4,7 +4,7 @@ import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
 import Compressor from '@/shared/ux/Compressor'
 
-const menuItems = ['home', 'about', 'news', 'portfolio', 'critics', 'contact']
+const menuItems = ['about', 'portfolio', 'contact']
 
 export default function Header() {
   const { currentView } = useGlobalContext()
