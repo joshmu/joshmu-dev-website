@@ -4,6 +4,8 @@ import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 import { useThemeContext } from '@/context/themeContext'
 import useLocation from '@/hooks/useLocation'
 
+import Curtain from '../shared/ux/Curtain'
+
 export default function Hero() {
   const { toggleTheme } = useThemeContext()
   const { ref } = useLocation('home')
@@ -13,9 +15,9 @@ export default function Hero() {
       <div className='flex flex-col items-center justify-center w-full h-full'>
         <h1
           onClick={toggleTheme}
-          className='font-semibold text-indigo-700 uppercase cursor-pointer text-8xl'
+          className='font-semibold uppercase cursor-pointer text-themeAccent text-8xl'
         >
-          josh mu
+          <Curtain>josh mu</Curtain>
         </h1>
         <p>
           <span>code + ☕️</span>
