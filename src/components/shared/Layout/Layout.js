@@ -1,15 +1,11 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import Header from '@/components/Header/Header'
 
 export default function Layout({ children }) {
-  const { pathname } = useRouter()
-  const LAYOUT_VARIANT_KEY = `layout-${pathname}`
   return (
     <motion.div
-      key={LAYOUT_VARIANT_KEY}
       initial='initial'
       animate='animate'
       exit='exit'
