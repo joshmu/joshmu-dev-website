@@ -13,11 +13,14 @@ const rand = (min = 0, max = 100) => {
   return Math.floor(Math.random() * (+max - +min)) + +min
 }
 
-const Parallax = ({ rate = 0.2, children, ...props }) => {
+const Parallax = ({ rate = 0, children, ...props }) => {
   const ref = useRef(null)
   const { scrollY } = useViewportScroll()
   const [offsetTop, setOffsetTop] = useState(0)
   const [minHeight, setMinHeight] = useState('auto')
+
+  // randomize the rate if we do not specify (0.01-0.4)
+  rate = rate === 0 ? rand(1, 40) / 100 : rate
 
   useLayoutEffect(() => {
     if (!ref.current) return null
@@ -48,7 +51,7 @@ const Parallax = ({ rate = 0.2, children, ...props }) => {
   )
 
   return (
-    <div ref={ref} style={{ minHeight }}>
+    <div ref={ref} style={{ minHeight, margin: 'auto', width: '100%' }}>
       <motion.div style={{ y }} {...props}>
         {children}
       </motion.div>
