@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       exit='exit'
       variants={layoutVariants}
     >
-      <div className='antialiased transition-colors duration-200 ease-in-out'>
+      <div className='font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
         <Head>
           <title>Josh Mu</title>
         </Head>

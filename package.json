@@ -18,7 +18,8 @@
     "babel-plugin-transform-remove-console": "^6.9.4",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.27.0",
-    "tailwindcss": "^1.7.0"
+    "tailwindcss": "^1.7.0",
+    "tailwindcss-debug-screens": "^1.1.0"
   },
   "repository": {
     "type": "git",
