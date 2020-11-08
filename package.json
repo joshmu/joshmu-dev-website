@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "framer-motion": "^2.5.1",
-    "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "next": "^10.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
     "react-intersection-observer": "^8.27.0"
   },

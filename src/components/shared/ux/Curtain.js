@@ -8,6 +8,7 @@ const Curtain = ({ children, padding = 0, stagger = 0.1 }) => {
       {chars.map((char, idx) => (
         <Char
           key={char + idx}
+          motionKey={char + idx}
           char={char}
           padding={padding}
           delay={stagger * idx}
@@ -17,7 +18,7 @@ const Curtain = ({ children, padding = 0, stagger = 0.1 }) => {
   )
 }
 
-const Char = ({ char, key, padding, delay }) => {
+const Char = ({ char, motionKey, padding, delay }) => {
   const charRef = useRef(null)
   const [state, setState] = useState({ width: null, height: null })
 
@@ -47,7 +48,7 @@ const Char = ({ char, key, padding, delay }) => {
       }}
     >
       <motion.span
-        key={key}
+        key={motionKey}
         initial='initial'
         animate='animate'
         exit='exit'
