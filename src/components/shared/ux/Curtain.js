@@ -23,8 +23,14 @@ const Char = ({ char, motionKey, padding, delay }) => {
   const [state, setState] = useState({ width: null, height: null })
 
   useEffect(() => {
-    const charRect = charRef.current.getBoundingClientRect()
-    setState({ width: charRect.width, height: charRect.height })
+    const handler = () => {
+      const charRect = charRef.current.getBoundingClientRect()
+      setState({ width: charRect.width, height: charRect.height })
+    }
+    window.addEventListener('resize', handler)
+    handler()
+
+    return () => window.removeEventListener('resize', handler)
   }, [])
 
   const charVariants = {

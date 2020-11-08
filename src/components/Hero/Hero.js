@@ -16,7 +16,7 @@ export default function Hero() {
       <div className='flex flex-col items-center justify-center w-full h-full'>
         <h1
           onClick={toggleTheme}
-          className='font-semibold tracking-wide uppercase cursor-pointer text-8xl'
+          className='text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl'
         >
           <Curtain>josh mu</Curtain>
         </h1>

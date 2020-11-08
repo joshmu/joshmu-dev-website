@@ -21,7 +21,7 @@ export default function Reveal({
 
   return (
     <>
-      <motion.div
+      <motion.span
         ref={ref}
         animate={controls}
         initial='hidden'
@@ -38,10 +38,11 @@ export default function Reveal({
             ease: [0.6, 0.05, -0.01, 0.9],
           }
         }
+        style={{ display: 'block' }}
         {...props}
       >
         {children}
-      </motion.div>
+      </motion.span>
     </>
   )
 }
