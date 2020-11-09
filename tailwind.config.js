@@ -12,13 +12,26 @@ module.exports = {
         themeBg: 'var(--background)',
         themeAccent: 'var(--accent)',
       },
+      opacity: {
+        1: '0.01',
+        2: '0.02',
+        3: '0.03',
+        4: '0.04',
+        5: '0.05',
+        10: '0.10',
+      },
     },
   },
   variants: {},
   plugins:
     process.env.NODE_ENV === 'production'
-      ? []
-      : [require('tailwindcss-debug-screens')],
+      ? // production
+        [require('tailwindcss-blend-mode')()]
+      : // development
+        [
+          require('tailwindcss-debug-screens'),
+          require('tailwindcss-blend-mode')(),
+        ],
   future: {
     removeDeprecatedGapUtilities: true,
   },

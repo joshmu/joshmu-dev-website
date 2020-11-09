@@ -7,18 +7,19 @@
     "start": "next start"
   },
   "dependencies": {
-    "framer-motion": "^2.5.1",
+    "framer-motion": "^2.9.4",
     "next": "^10.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
-    "react-intersection-observer": "^8.27.0"
+    "react-intersection-observer": "^8.30.1"
   },
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4",
     "postcss-preset-env": "^6.7.0",
-    "sass": "^1.27.0",
-    "tailwindcss": "^1.7.0",
+    "sass": "^1.29.0",
+    "tailwindcss": "^1.9.6",
+    "tailwindcss-blend-mode": "^1.0.0",
     "tailwindcss-debug-screens": "^1.1.0"
   },
   "repository": {

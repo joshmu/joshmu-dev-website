@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-const Curtain = ({ children, padding = 0, stagger = 0.1 }) => {
+const Curtain = ({ children, padding = 1, stagger = 0.1 }) => {
   const chars = children.split('')
   return (
     <div>
