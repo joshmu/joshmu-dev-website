@@ -28,12 +28,13 @@ export function GlobalProvider({ children }) {
     }
   }, [])
 
-  const scrollTo = elemId => {
+  const scrollTo = (elemId, config = {}) => {
     scroller.scrollTo(elemId, {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      offset: -10,
+      offset: -40,
+      ...config,
     })
   }
 
@@ -44,7 +45,7 @@ export function GlobalProvider({ children }) {
         scrollProgress,
         currentView,
         setCurrentView,
-        scrollTo
+        scrollTo,
       }}
     >
       {children}

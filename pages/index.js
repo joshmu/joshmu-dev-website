@@ -9,7 +9,7 @@ export default function Home() {
     <Layout>
       <Hero />
 
-      <About />
+      <About id='about' />
 
       <Projects id='projects' />
 

@@ -2,15 +2,17 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
+import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
 import Curtain from '@/shared/ux/Curtain'
 import RevealInView from '@/shared/ux/RevealInView'
 
 export default function Hero() {
+  const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
   const handleScrollDown = () => {
-    window.alert('scroll down')
+    scrollTo('about')
   }
 
   return (
@@ -34,7 +36,7 @@ export default function Hero() {
       <div className='absolute bottom-0 z-10 flex items-center justify-center w-full mb-8 text-4xl'>
         <ArrowDownIcon
           onClick={handleScrollDown}
-          className='fill-current animate-bounce'
+          className='cursor-pointer fill-current animate-bounce'
         />
       </div>
 
