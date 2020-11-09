@@ -27,7 +27,11 @@ const RevealInView = ({
       custom={custom}
       variants={
         variants || {
-          visible: { opacity: 1, y: 0 },
+          visible: custom => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: custom * 0.2 },
+          }),
           hidden: { opacity: 0, y: 25 },
         }
       }

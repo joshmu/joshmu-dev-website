@@ -9,7 +9,9 @@ module.exports = {
       },
       colors: {
         themeText: 'var(--text)',
+        themeText2: 'var(--text2)',
         themeBg: 'var(--background)',
+        themeBg2: 'var(--background2)',
         themeAccent: 'var(--accent)',
       },
       opacity: {

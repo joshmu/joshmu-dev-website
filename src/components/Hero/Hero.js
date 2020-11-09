@@ -3,16 +3,18 @@ import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
 import { useThemeContext } from '@/context/themeContext'
-import useLocation from '@/hooks/useLocation'
 import Curtain from '@/shared/ux/Curtain'
 import RevealInView from '@/shared/ux/RevealInView'
 
 export default function Hero() {
   const { toggleTheme } = useThemeContext()
-  const { ref } = useLocation('home')
+
+  const handleScrollDown = () => {
+    window.alert('scroll down')
+  }
 
   return (
-    <div ref={ref} className='relative w-full h-screen'>
+    <div className='relative w-full h-screen'>
       {/* center content */}
       <div className='relative z-10 flex flex-col items-center justify-center w-full h-full'>
         <h1
@@ -30,7 +32,10 @@ export default function Hero() {
 
       {/* down arrow */}
       <div className='absolute bottom-0 z-10 flex items-center justify-center w-full mb-8 text-4xl'>
-        <ArrowDownIcon className='fill-current animate-bounce' />
+        <ArrowDownIcon
+          onClick={handleScrollDown}
+          className='fill-current animate-bounce'
+        />
       </div>
 
       {/* background */}

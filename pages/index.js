@@ -1,9 +1,7 @@
 import About from '@/components/About/About'
 import Hero from '@/components/Hero/Hero'
+import Projects from '@/components/Projects/Projects'
 import Layout from '@/components/shared/Layout/Layout'
-import Slider from '@/components/shared/Slider/Slider'
-
-const sliderContent = ['VideoNote', 'JoshMu.Com', 'PaperlessEvents', 'Iris']
 
 export default function Home() {
   return (
@@ -11,7 +9,9 @@ export default function Home() {
       <div className='font-sans'>
         <Hero />
 
-        {/* <About /> */}
+        <About />
+
+        <Projects />
 
         {/* companies */}
         {/* <div className='w-full py-12'>

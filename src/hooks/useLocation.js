@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import { useGlobalContext } from '../context/globalContext'
 import { useInView } from 'react-intersection-observer'
+
+import { useGlobalContext } from '../context/globalContext'
 
 export default function useLocation(location) {
   const { currentView, setCurrentView } = useGlobalContext()
 
-  const [ref, inView] = useInView({
-    threshold: 0.7,
-  })
+  const [ref, inView] = useInView()
 
   useEffect(() => {
     if (inView && currentView !== location) {

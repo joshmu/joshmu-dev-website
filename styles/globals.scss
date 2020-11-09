@@ -10,6 +10,10 @@
   --background: #f3f3f3;
   --background2: #444444;
   --accent: #fac863;
+
+  .neu {
+    @apply neu-dark;
+  }
 }
 
 .theme-light {
@@ -28,7 +32,6 @@ body {
 }
 
 .neu-dark {
-  border-radius: 50px;
-  background: linear-gradient(145deg, #dbdbdb, #ffffff);
-  box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #ffffff;
+  background: linear-gradient(145deg, #ffffff, #dbdbdb);
+  box-shadow: 20px 20px 40px #cfcfcf, -20px -20px 40px #ffffff;
 }
