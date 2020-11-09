@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
 
+import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
 export default function Layout({ children }) {
@@ -75,6 +76,7 @@ export default function Layout({ children }) {
       <div className='font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
         <Header />
         <main>{children}</main>
+        <Footer />
       </div>
     </motion.div>
   )

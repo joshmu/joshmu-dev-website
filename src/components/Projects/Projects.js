@@ -1,7 +1,7 @@
 import RevealInView from '../shared/ux/RevealInView'
 import Project from './Project/Project'
 
-const Projects = () => {
+const Projects = ({ ...props }) => {
   const projects = [
     {
       title: 'VideoNote',
@@ -47,7 +47,7 @@ const Projects = () => {
   ]
 
   return (
-    <div className='container py-12 mx-auto'>
+    <div className='container py-12 mx-auto' {...props}>
       <div className='flex flex-wrap items-start justify-center gap-4'>
         {projects.map((project, idx) => (
           <RevealInView key={idx} custom={idx}>

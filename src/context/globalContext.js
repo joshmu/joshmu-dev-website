@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react'
 import { useViewportScroll } from 'framer-motion'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { scroller } from 'react-scroll'
 
 const globalContext = createContext({
   scrollProgress: 0,
@@ -27,6 +28,15 @@ export function GlobalProvider({ children }) {
     }
   }, [])
 
+  const scrollTo = elemId => {
+    scroller.scrollTo(elemId, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+      offset: -10,
+    })
+  }
+
   return (
     <globalContext.Provider
       value={{
@@ -34,6 +44,7 @@ export function GlobalProvider({ children }) {
         scrollProgress,
         currentView,
         setCurrentView,
+        scrollTo
       }}
     >
       {children}

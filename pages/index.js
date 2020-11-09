@@ -11,9 +11,9 @@ export default function Home() {
 
       <About />
 
-      <Projects />
+      <Projects id='projects' />
 
-      <Contact />
+      <Contact id='contact' />
     </Layout>
   )
 }
