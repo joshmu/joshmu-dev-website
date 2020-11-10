@@ -42,9 +42,9 @@ const Project = ({
           </svg>
           <a
             className='font-bold cursor-pointer hover:underline'
-            href={`https://${website}`}
+            href={`${website}`}
           >
-            {website}
+            {website.split('//')[1]}
           </a>
         </li>
         <li className='flex items-center gap-1'>

@@ -18,7 +18,7 @@ const Projects = ({ ...props }) => {
         'Mongoose',
         'JWT',
       ],
-      website: 'videonote.app',
+      website: 'https://videonote.app',
       github: 'github.com/joshmu/videonote',
     },
     {
@@ -27,7 +27,7 @@ const Projects = ({ ...props }) => {
       description:
         'The official website of professional dancer and yoga practitioner Josh Mu.',
       stack: ['React', 'NextJS', 'Tailwind', 'Serverless', 'Nodejs'],
-      website: 'joshmu.com',
+      website: 'https://joshmu.com',
       github: 'github.com/joshmu/joshmu-dance-website',
     },
     {
@@ -44,7 +44,7 @@ const Projects = ({ ...props }) => {
         'Tracery',
         'Compromise',
       ],
-      website: 'aid.alisdairmacindoe.com',
+      website: 'http://aid.alisdairmacindoe.com',
       github: 'github.com/tebgeronimo/aid-online',
     },
   ]
