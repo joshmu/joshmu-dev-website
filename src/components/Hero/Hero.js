@@ -7,7 +7,7 @@ import { useThemeContext } from '@/context/themeContext'
 import Curtain from '@/shared/ux/Curtain'
 import RevealInView from '@/shared/ux/RevealInView'
 
-const Hero = () => {
+const Hero = ({ ...props }) => {
   const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
@@ -16,7 +16,7 @@ const Hero = () => {
   }
 
   return (
-    <div className='relative w-full h-screen'>
+    <div className='relative w-full h-screen' {...props}>
       {/* center content */}
       <div className='relative z-10 flex flex-col items-center justify-center w-full h-full'>
         <h1

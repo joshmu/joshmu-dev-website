@@ -8,12 +8,46 @@ import Compressor from '@/shared/ux/Compressor'
 // todo: fun drop down for contact instead
 const menuItems = ['projects', 'contact']
 
+// animation
+const navVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+    },
+  },
+}
+const navItemVariants = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      // yoyo: Infinity,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
+}
+
 export default function Header() {
-  const { currentView, scrollTo } = useGlobalContext()
+  const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
   const handleNavItemClick = section => {
     scrollTo(section)
+  }
+
+  const handleLogoClick = () => {
+    toggleTheme()
+    scrollTo('hero')
   }
 
   return (
@@ -22,7 +56,7 @@ export default function Header() {
         <div className='flex items-center justify-between'>
           {/* logo */}
           <div
-            // onClick={toggleTheme}
+            onClick={handleLogoClick}
             className='h-full ml-2 text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent'
           >
             <Compressor text='josh mu' hide='osh ' />
@@ -41,8 +75,8 @@ export default function Header() {
             <motion.ul
               initial='hidden'
               animate='show'
-              variants={navVariant}
-              className='flex items-center justify-center h-full py-1 pl-4 text-sm transition-all duration-200 rounded-l-sm bg-themeText text-themeBg'
+              variants={navVariants}
+              className='flex items-center justify-center h-full py-1 pl-4 overflow-hidden text-sm transition-all duration-200 rounded-l-sm bg-themeText text-themeBg'
             >
               {menuItems.map(item => (
                 <li key={item}>
@@ -50,7 +84,7 @@ export default function Header() {
                     onClick={() => {
                       handleNavItemClick(item)
                     }}
-                    variants={navItemVariant}
+                    variants={navItemVariants}
                     className='px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none'
                   >
                     {item}
@@ -63,32 +97,4 @@ export default function Header() {
       </div>
     </div>
   )
-}
-
-// animation
-const navVariant = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-const navItemVariant = {
-  hidden: {
-    y: 50,
-    opacity: 0,
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      // yoyo: Infinity,
-      ease: [0.6, 0.05, -0.01, 0.9],
-    },
-  },
 }

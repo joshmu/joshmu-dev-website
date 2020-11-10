@@ -2,10 +2,7 @@ import { useViewportScroll } from 'framer-motion'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { scroller } from 'react-scroll'
 
-const globalContext = createContext({
-  scrollProgress: 0,
-  currentView: '',
-})
+const globalContext = createContext({})
 
 export function GlobalProvider({ children }) {
   const [currentView, setCurrentView] = useState('hero')
@@ -38,15 +35,17 @@ export function GlobalProvider({ children }) {
     })
   }
 
+  const value = {
+    scrollYProgress,
+    scrollProgress,
+    currentView,
+    setCurrentView,
+    scrollTo,
+  }
+
   return (
     <globalContext.Provider
-      value={{
-        scrollYProgress,
-        scrollProgress,
-        currentView,
-        setCurrentView,
-        scrollTo,
-      }}
+      value={value}
     >
       {children}
     </globalContext.Provider>
