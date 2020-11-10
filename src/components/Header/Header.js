@@ -21,8 +21,8 @@ export default function Header() {
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
           <div
-            onClick={toggleTheme}
-            className='h-full text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent'
+            // onClick={toggleTheme}
+            className='h-full ml-2 text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent'
           >
             <Compressor text='josh mu' hide='osh ' />
           </div>

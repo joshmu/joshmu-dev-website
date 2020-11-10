@@ -7,7 +7,7 @@ import { useThemeContext } from '@/context/themeContext'
 import Curtain from '@/shared/ux/Curtain'
 import RevealInView from '@/shared/ux/RevealInView'
 
-export default function Hero() {
+const Hero = () => {
   const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
@@ -53,3 +53,5 @@ export default function Hero() {
     </div>
   )
 }
+
+export default Hero

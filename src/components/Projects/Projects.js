@@ -6,7 +6,8 @@ const Projects = ({ ...props }) => {
     {
       title: 'VideoNote',
       type: 'Full Stack Web App',
-      description: 'here is something descibing the application',
+      description:
+        'A slick video review app, with the ability to share projects with guests.',
       stack: [
         'React',
         'NextJS',
@@ -23,7 +24,8 @@ const Projects = ({ ...props }) => {
     {
       title: 'joshmu.com',
       type: 'NextJS React Static Website',
-      description: 'here is something descibing the application',
+      description:
+        'The official website of professional dancer and yoga practitioner Josh Mu.',
       stack: ['React', 'NextJS', 'Tailwind', 'Serverless', 'Nodejs'],
       website: 'joshmu.com',
       github: 'github.com/joshmu/joshmu-dance-website',
@@ -31,7 +33,8 @@ const Projects = ({ ...props }) => {
     {
       title: 'AID Online',
       type: 'Full Stack Web App',
-      description: 'here is something descibing the application',
+      description:
+        ' A web application which delivers auto generated choreographic scores in both text and audio for live performance outcomes and as a teaching tool.',
       stack: [
         'React',
         'Parcel',

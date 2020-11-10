@@ -73,7 +73,7 @@ export default function Layout({ children }) {
         <meta name='twitter:image' content={metaRef.current.imgUrl} />
       </Head>
 
-      <div className='font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
+      <div className='w-screen overflow-y-hidden font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
         <Header />
         <main>{children}</main>
         <Footer />
