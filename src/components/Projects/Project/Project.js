@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const Project = ({
@@ -12,7 +13,10 @@ const Project = ({
       // }}
       {...props}
     >
-      <a href={`https://${website}`}>
+      {/* background filter */}
+      <div className='absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-5'></div>
+
+      <a href={website}>
         <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3'>
           {title}
         </h1>
@@ -22,16 +26,22 @@ const Project = ({
 
       {/* content */}
       <div className='max-w-md'>
-        <div className='relative w-full overflow-hidden rounded h-72'>
-          <Image
-            src={img.src}
-            // width={img.width}
-            // height={img.height}
-            layout='fill'
-            loading='eager'
-            className='object-cover object-top'
-          />
-        </div>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+          className='relative w-full overflow-hidden rounded shadow-lg h-72'
+        >
+          <a href={website}>
+            <Image
+              src={img.src}
+              // width={img.width}
+              // height={img.height}
+              layout='fill'
+              loading='eager'
+              className='object-cover object-top'
+            />
+          </a>
+        </motion.div>
 
         <p className='my-4 text-lg'>{description}</p>
 
@@ -68,7 +78,7 @@ const Project = ({
           </svg>
           <a
             className='font-bold cursor-pointer hover:underline'
-            href={`${website}`}
+            href={website}
           >
             {website.split('//')[1]}
           </a>

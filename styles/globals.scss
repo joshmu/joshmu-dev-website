@@ -38,18 +38,18 @@ body {
   --text: theme('colors.blue.800');
   --text2: theme('colors.blue.500');
 
-  --background: theme('colors.green.100');
+  --background: #ebf6f1;
   --background2: theme('colors.green.300');
 
   --accent: theme('colors.purple.700');
 }
 
 .theme-alt2 {
-  --text: theme('colors.red.800');
-  --text2: theme('colors.red.500');
+  --text: theme('colors.red.200');
+  --text2: theme('colors.red.100');
 
-  --background: theme('colors.indigo.300');
-  --background2: theme('colors.indigo.500');
+  --background: theme('colors.indigo.800');
+  --background2: theme('colors.indigo.400');
 
-  --accent: theme('colors.yellow.700');
+  --accent: #010101;
 }
