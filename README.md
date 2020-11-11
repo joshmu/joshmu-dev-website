@@ -1,7 +1,5 @@
 # My Developer Portfolio Website
 
-Feel free to get in touch or fly my some feedback on how I could improve this. ✌️
-
 ## Tech Stack
 
 - [Next.js](https://nextjs.org/)
