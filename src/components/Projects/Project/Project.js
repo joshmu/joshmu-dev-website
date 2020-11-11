@@ -4,7 +4,7 @@ const Project = ({
 }) => {
   return (
     <div
-      className='relative z-10 p-4 m-4 border rounded-sm shadow sm:m-0 border-themeText2 bg-themeBg'
+      className='relative z-10 p-4 m-4 border rounded-sm shadow sm:m-2 border-themeText2 bg-themeBg'
       {...props}
     >
       <a href={`https://${website}`}>

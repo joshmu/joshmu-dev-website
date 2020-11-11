@@ -29,17 +29,17 @@ const pathVariants = {
 const Contact = ({ ...props }) => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   })
 
   useEffect(() => {
-    if (inView) controls.start('visible')
+    inView ? controls.start('visible') : controls.start('initial')
   }, [controls, inView])
 
   return (
     <div ref={ref} className='pt-12 pb-24 text-center' {...props}>
       <div className='relative inline-block px-8 py-4'>
-        <RevealInView>
+        <RevealInView triggerOnce={false}>
           <a className='hover:underline' href='mailto:hello@joshmu.dev'>
             hello@joshmu.dev
           </a>

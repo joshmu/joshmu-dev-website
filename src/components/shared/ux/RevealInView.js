@@ -8,16 +8,17 @@ const RevealInView = ({
   variants = null,
   transition = null,
   custom = 1,
+  triggerOnce = true,
   ...props
 }) => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce,
     threshold: 0.2,
   })
 
   useEffect(() => {
-    if (inView) controls.start('visible')
+    inView ? controls.start('visible') : controls.start('hidden')
   }, [controls, inView])
 
   return (
