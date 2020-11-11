@@ -20,7 +20,7 @@ const pathVariants = {
     // opacity: 1,
     pathLength: 1,
     transition: {
-      duration: 4,
+      duration: 3,
       ease: 'easeInOut',
     },
   },

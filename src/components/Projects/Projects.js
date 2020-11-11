@@ -20,15 +20,25 @@ const Projects = ({ ...props }) => {
       ],
       website: 'https://videonote.app',
       github: 'github.com/joshmu/videonote',
+      img: {
+        src: '/assets/videonote-hero.png',
+        width: 3186,
+        height: 2138,
+      },
     },
     {
       title: 'joshmu.com',
       type: 'NextJS React Static Website',
       description:
         'The official website of professional dancer and yoga practitioner Josh Mu.',
-      stack: ['React', 'NextJS', 'Tailwind', 'Serverless', 'Nodejs'],
+      stack: ['React', 'NextJS', 'Nodejs', 'Serverless', 'Tailwind'],
       website: 'https://joshmu.com',
       github: 'github.com/joshmu/joshmu-dance-website',
+      img: {
+        src: '/assets/joshmu-hero.png',
+        width: 3166,
+        height: 2138,
+      },
     },
     {
       title: 'AID Online',
@@ -40,12 +50,20 @@ const Projects = ({ ...props }) => {
         'Parcel',
         'Socket.io',
         'Nodejs',
+        'Express',
         'Google TTS Api',
+        'Heroku',
         'Tracery',
         'Compromise',
+        'Tailwind',
       ],
       website: 'http://aid.alisdairmacindoe.com',
       github: 'github.com/tebgeronimo/aid-online',
+      img: {
+        src: '/assets/aidOnline-hero.png',
+        width: 3186,
+        height: 2138,
+      },
     },
   ]
 

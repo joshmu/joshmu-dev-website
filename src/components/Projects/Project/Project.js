@@ -1,10 +1,15 @@
+import Image from 'next/image'
+
 const Project = ({
-  data: { title, type, description, stack, website, github },
+  data: { title, type, description, stack, website, github, img },
   ...props
 }) => {
   return (
     <div
-      className='relative z-10 p-4 m-4 border rounded-sm shadow sm:m-2 border-themeText2 bg-themeBg'
+      className='relative z-10 p-4 m-4 overflow-hidden border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg'
+      // style={{
+      //   backgroundImage: `radial-gradient(${twConfig.theme.colors.themeAccent}, ${twConfig.theme.colors.themeBg}, ${twConfig.theme.colors.themeBg})`,
+      // }}
       {...props}
     >
       <a href={`https://${website}`}>
@@ -17,7 +22,17 @@ const Project = ({
 
       {/* content */}
       <div className='max-w-md'>
-        <p className='mb-4 text-lg'>{description}</p>
+        <div className='relative w-full overflow-hidden rounded h-72'>
+          <Image
+            src={img.src}
+            // width={img.width}
+            // height={img.height}
+            layout='fill'
+            className='object-cover object-top'
+          />
+        </div>
+
+        <p className='my-4 text-lg'>{description}</p>
 
         {/* badges */}
         <div className='flex flex-wrap mb-8 -ml-1'>
