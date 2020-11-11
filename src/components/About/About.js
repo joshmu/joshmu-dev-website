@@ -1,4 +1,9 @@
-import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import {
+  motion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion'
 import { useRef } from 'react'
 
 import useRefScrollProgress from '@/hooks/useRefScrollProgress'
@@ -51,6 +56,8 @@ const Spray = ({
   const randomRotateVelocity = Math.random()
   const randomRotateEnd = randomNum(25, 60)
 
+  const springConfig = { mass: 1, stiffness: 150, damping: 100 }
+
   // not using 'scrollEnd'
   // make scatter infinite instead of defining end therefor '100%' = 1
   const scrollToEndOfPage = 1
@@ -75,14 +82,23 @@ const Spray = ({
     [scrollStart, scrollToEndOfPage],
     [0, 600]
   )
-  const xVel = useTransform(x, value => value * randomVelocityX)
-  const yVel = useTransform(y, value => value / randomVelocityY)
-  const rotateVel = useTransform(rotate, value => value * randomRotateVelocity)
+  const xVel = useSpring(
+    useTransform(x, value => value * randomVelocityX),
+    springConfig
+  )
+  const yVel = useSpring(
+    useTransform(y, value => value / randomVelocityY),
+    springConfig
+  )
+  const rotateVel = useSpring(
+    useTransform(rotate, value => value * randomRotateVelocity),
+    springConfig
+  )
 
   return (
     <motion.span
       className='absolute left-0 z-0'
-      style={{ x: xVel, y: yVel, scale, rotate: rotate }}
+      style={{ x: xVel, y: yVel, scale, rotate: rotateVel }}
     >
       {char}
     </motion.span>
