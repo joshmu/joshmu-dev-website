@@ -51,7 +51,7 @@ const Projects = ({ ...props }) => {
 
   return (
     <div className='container py-12 mx-auto' {...props}>
-      <div className='flex flex-wrap items-start justify-center gap-4'>
+      <div className='flex flex-wrap items-center justify-center gap-4'>
         {projects.map((project, idx) => (
           <RevealInView key={idx} custom={idx}>
             <Project data={project} />

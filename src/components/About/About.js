@@ -1,8 +1,92 @@
+import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import { useRef } from 'react'
+
+import useRefScrollProgress from '@/hooks/useRefScrollProgress'
+
 export default function About({ ...props }) {
-  // todo: useTransform to randomize text scatter
+  const { ref, start, end } = useRefScrollProgress()
+  const { scrollYProgress } = useViewportScroll()
+
   return (
-    <div className='container mx-auto py-96' {...props}>
-      <p className='ml-2'>Isolation, Integration, Improvisation.</p>
+    <div ref={ref} className='container z-0 mx-auto py-96' {...props}>
+      <p className='ml-2'>
+        Isolation, Integration, Improvis
+        <CharSplit
+          scrollStart={start}
+          scrollEnd={end}
+          scrollYProgress={scrollYProgress}
+        >
+          ation
+        </CharSplit>
+      </p>
     </div>
   )
 }
+
+const CharSplit = ({ children, scrollStart, scrollEnd, scrollYProgress }) => {
+  return children.split('').map((char, idx) => (
+    <span key={idx} className='relative'>
+      {/* create height and width with transparent duplicate */}
+      <span className='opacity-0'>{char}</span>
+      <Spray
+        char={char}
+        idx={idx}
+        scrollStart={scrollStart}
+        scrollEnd={scrollEnd}
+        scrollYProgress={scrollYProgress}
+      />
+    </span>
+  ))
+}
+
+const Spray = ({
+  char,
+  idx,
+  scrollStart = 0,
+  scrollEnd = 1,
+  scrollYProgress,
+}) => {
+  const randomVelocityX = (idx + 1) / randomNum(1, 10 / (idx + 1))
+  const randomVelocityY = randomNum(1, 10)
+  const randomRotateVelocity = Math.random()
+  const randomRotateEnd = randomNum(25, 60)
+
+  // not using 'scrollEnd'
+  // make scatter infinite instead of defining end therefor '100%' = 1
+  const scrollToEndOfPage = 1
+
+  const scale = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollToEndOfPage],
+    [1, 2]
+  )
+  const rotate = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollToEndOfPage],
+    [0, randomRotateEnd]
+  )
+  const x = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollToEndOfPage],
+    [0, 600]
+  )
+  const y = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollToEndOfPage],
+    [0, 600]
+  )
+  const xVel = useTransform(x, value => value * randomVelocityX)
+  const yVel = useTransform(y, value => value / randomVelocityY)
+  const rotateVel = useTransform(rotate, value => value * randomRotateVelocity)
+
+  return (
+    <motion.span
+      className='absolute left-0 z-0'
+      style={{ x: xVel, y: yVel, scale, rotate: rotate }}
+    >
+      {char}
+    </motion.span>
+  )
+}
+
+const randomNum = (min, max) => Math.floor(Math.random() * max) + min

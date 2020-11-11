@@ -32,7 +32,6 @@ export default function Layout({ children }) {
     const origin = window.location.origin
     metaRef.current.origin = origin
     metaRef.current.imgUrl = origin + metaRef.current.imgUrl
-    console.log('todo: meta -', metaRef.current)
   }, [])
 
   return (
@@ -73,7 +72,7 @@ export default function Layout({ children }) {
         <meta name='twitter:image' content={metaRef.current.imgUrl} />
       </Head>
 
-      <div className='font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
+      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
         <Header />
         <main>{children}</main>
         <Footer />

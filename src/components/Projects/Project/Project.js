@@ -3,7 +3,10 @@ const Project = ({
   ...props
 }) => {
   return (
-    <div className='p-4 border rounded-sm shadow border-themeText2' {...props}>
+    <div
+      className='relative z-10 p-4 m-4 border rounded-sm shadow sm:m-0 border-themeText2 bg-themeBg'
+      {...props}
+    >
       <a href={`https://${website}`}>
         <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3'>
           {title}
