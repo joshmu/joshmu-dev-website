@@ -51,17 +51,17 @@ const Spray = ({
   scrollEnd = 1,
   scrollYProgress,
 }) => {
-  const randomVelocityX = (idx + 1) / randomNum(1, 10 / (idx + 1))
-  const randomVelocityY = randomNum(1, 10)
-  const randomRotateVelocity = Math.random()
-  const randomRotateEnd = randomNum(25, 60)
+  const randomVelocityX = useRef((idx + 1) / randomNum(1, 10 / (idx + 1)))
+  const randomVelocityY = useRef(randomNum(1, 10))
+  const randomRotateEnd = useRef(randomNum(25, 180))
 
-  const springConfig = { mass: 1, stiffness: 150, damping: 100 }
+  const springConfig = { mass: 1, stiffness: 180, damping: 100 }
 
   // not using 'scrollEnd'
   // make scatter infinite instead of defining end therefor '100%' = 1
   const scrollToEndOfPage = 1
 
+  // initial transform based on scroll
   const scale = useTransform(
     scrollYProgress,
     [scrollStart, scrollToEndOfPage],
@@ -70,7 +70,7 @@ const Spray = ({
   const rotate = useTransform(
     scrollYProgress,
     [scrollStart, scrollToEndOfPage],
-    [0, randomRotateEnd]
+    [0, randomRotateEnd.current]
   )
   const x = useTransform(
     scrollYProgress,
@@ -82,23 +82,20 @@ const Spray = ({
     [scrollStart, scrollToEndOfPage],
     [0, 600]
   )
+  // spring motion to be used
   const xVel = useSpring(
-    useTransform(x, value => value * randomVelocityX),
+    useTransform(x, value => value * randomVelocityX.current),
     springConfig
   )
   const yVel = useSpring(
-    useTransform(y, value => value / randomVelocityY),
-    springConfig
-  )
-  const rotateVel = useSpring(
-    useTransform(rotate, value => value * randomRotateVelocity),
+    useTransform(y, value => value / randomVelocityY.current),
     springConfig
   )
 
   return (
     <motion.span
       className='absolute left-0 z-0'
-      style={{ x: xVel, y: yVel, scale, rotate: rotateVel }}
+      style={{ x: xVel, y: yVel, scale, rotate }}
     >
       {char}
     </motion.span>

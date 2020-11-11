@@ -28,6 +28,7 @@ const Project = ({
             // width={img.width}
             // height={img.height}
             layout='fill'
+            loading='eager'
             className='object-cover object-top'
           />
         </div>
