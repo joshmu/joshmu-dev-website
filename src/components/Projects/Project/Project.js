@@ -3,28 +3,35 @@ const Project = ({
   ...props
 }) => {
   return (
-    <div className='p-4 bg-gray-100 rounded-sm shadow w-96' {...props}>
+    <div className='p-4 border rounded-sm shadow border-themeText2' {...props}>
       <a href={`https://${website}`}>
-        <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer text-themeBg2 -rotate-3'>
+        <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3'>
           {title}
         </h1>
       </a>
+
       <h2 className='mb-4 italic'>{type}</h2>
-      <p className='mb-4 text-lg'>{description}</p>
-      <div className='flex flex-wrap gap-1 mb-8'>
-        {stack.map((tech, idx) => (
-          <span
-            key={idx}
-            className='px-2 py-1 uppercase rounded-sm bg-themeBg2 text-themeBg'
-          >
-            {tech}
-          </span>
-        ))}
+
+      {/* content */}
+      <div className='max-w-md'>
+        <p className='mb-4 text-lg'>{description}</p>
+
+        {/* badges */}
+        <div className='flex flex-wrap gap-2 mb-8'>
+          {stack.map((tech, idx) => (
+            <span
+              key={idx}
+              className='px-2 py-1 uppercase rounded-sm bg-themeText text-themeBg'
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* links */}
       <ul className='text-sm'>
-        <li className='flex items-center gap-1'>
+        <li className='flex items-center gap-2'>
           {/* website icon */}
           <svg
             className='w-4 h-4'
@@ -47,7 +54,7 @@ const Project = ({
             {website.split('//')[1]}
           </a>
         </li>
-        <li className='flex items-center gap-1'>
+        <li className='flex items-center gap-2'>
           {/* github icon */}
           <svg
             className='w-4 h-4'

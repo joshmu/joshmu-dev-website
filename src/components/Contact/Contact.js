@@ -48,7 +48,7 @@ const Contact = ({ ...props }) => {
           initial='initial'
           animate={controls}
           variants={svgVariants}
-          className='absolute top-0 right-0 w-6 h-6 text-themeBg2'
+          className='absolute top-0 right-0 w-6 h-6 text-themeAccent'
           fill='none'
           stroke='currentColor'
           viewBox='0 0 24 24'

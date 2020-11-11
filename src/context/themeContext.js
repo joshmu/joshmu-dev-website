@@ -9,6 +9,8 @@ const LOCALSTORAGE_KEY = 'joshmu.dev:theme'
 const THEME_TYPES = {
   dark: 'theme-dark',
   light: 'theme-light',
+  alt: 'theme-alt',
+  alt2: 'theme-alt2',
 }
 
 export function ThemeProvider(props) {

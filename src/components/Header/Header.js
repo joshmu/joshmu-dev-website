@@ -47,7 +47,7 @@ export default function Header() {
 
   const handleLogoClick = () => {
     toggleTheme()
-    scrollTo('hero')
+    // scrollTo('hero')
   }
 
   return (
