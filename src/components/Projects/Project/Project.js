@@ -20,24 +20,24 @@ const Project = ({
         <p className='mb-4 text-lg'>{description}</p>
 
         {/* badges */}
-        <div className='flex flex-wrap gap-2 mb-8'>
+        <div className='flex flex-wrap mb-8 -ml-1'>
           {stack.map((tech, idx) => (
-            <span
+            <p
               key={idx}
-              className='px-2 py-1 uppercase rounded-sm bg-themeText text-themeBg'
+              className='px-2 py-1 m-1 uppercase rounded-sm bg-themeText text-themeBg'
             >
               {tech}
-            </span>
+            </p>
           ))}
         </div>
       </div>
 
       {/* links */}
       <ul className='text-sm'>
-        <li className='flex items-center gap-2'>
+        <li className='flex items-center'>
           {/* website icon */}
           <svg
-            className='w-4 h-4'
+            className='w-4 h-4 mr-1'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
@@ -57,10 +57,10 @@ const Project = ({
             {website.split('//')[1]}
           </a>
         </li>
-        <li className='flex items-center gap-2'>
+        <li className='flex items-center'>
           {/* github icon */}
           <svg
-            className='w-4 h-4'
+            className='w-4 h-4 mr-1'
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
