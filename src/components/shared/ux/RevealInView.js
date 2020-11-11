@@ -14,7 +14,7 @@ const RevealInView = ({
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce,
-    threshold: 0.2,
+    threshold: 0.15,
   })
 
   useEffect(() => {
