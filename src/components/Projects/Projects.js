@@ -25,10 +25,16 @@ const Projects = ({ ...props }) => {
         width: 3186,
         height: 2138,
       },
+      video: {
+        src:
+          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/videonote.mp4',
+        width: 1200,
+        height: 615,
+      },
     },
     {
       title: 'joshmu.com',
-      type: 'NextJS React Static Website',
+      type: 'NextJS React Website',
       description:
         'The official website of professional dancer and yoga practitioner Josh Mu.',
       stack: ['React', 'NextJS', 'Nodejs', 'Serverless', 'Tailwind'],
@@ -38,6 +44,12 @@ const Projects = ({ ...props }) => {
         src: '/assets/joshmu-hero.png',
         width: 3166,
         height: 2138,
+      },
+      video: {
+        src:
+          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/joshmu-dance-website.mp4',
+        width: 1200,
+        height: 615,
       },
     },
     {
@@ -63,6 +75,12 @@ const Projects = ({ ...props }) => {
         src: '/assets/aidOnline-hero.png',
         width: 3186,
         height: 2138,
+      },
+      video: {
+        src:
+          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/aid-online.mp4',
+        width: 1200,
+        height: 615,
       },
     },
   ]

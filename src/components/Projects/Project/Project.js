@@ -1,8 +1,5 @@
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-
 const Project = ({
-  data: { title, type, description, stack, website, github, img },
+  data: { title, type, description, stack, website, github, img, video },
   ...props
 }) => {
   return (
@@ -26,22 +23,35 @@ const Project = ({
 
       {/* content */}
       <div className='max-w-md'>
-        <motion.div
+        {/* <motion.div
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
-          className='relative w-full overflow-hidden rounded shadow-lg h-72'
+          className='relative w-full h-full overflow-hidden rounded shadow-lg'
         >
-          <a href={website}>
-            <Image
+          <a href={website}> */}
+        <div className='relative w-full h-full overflow-hidden rounded shadow-lg'>
+          <video
+            width={video.width}
+            height={video.height}
+            autoPlay
+            muted
+            loop
+            poster={img.src}
+          >
+            <source src={video.src} type='video/mp4' />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        {/* <Image
               src={img.src}
               // width={img.width}
               // height={img.height}
               layout='fill'
               loading='eager'
               className='object-cover object-top'
-            />
-          </a>
-        </motion.div>
+            /> */}
+        {/* </a>
+        </motion.div> */}
 
         <p className='my-4 text-lg'>{description}</p>
 
