@@ -1,3 +1,7 @@
+import React from 'react'
+
+import ResponsivePlayer from './ResponsivePlayer/ResponsivePlayer'
+
 const Project = ({
   data: { title, type, description, stack, website, github, img, video },
   ...props
@@ -22,26 +26,16 @@ const Project = ({
       <h2 className='mb-4 italic'>{type}</h2>
 
       {/* content */}
-      <div className='max-w-md'>
+      <div className='flex flex-col max-w-xl'>
         {/* <motion.div
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
           className='relative w-full h-full overflow-hidden rounded shadow-lg'
         >
           <a href={website}> */}
-        <div className='relative w-full h-full overflow-hidden rounded shadow-lg'>
-          <video
-            width={video.width}
-            height={video.height}
-            autoPlay
-            muted
-            loop
-            poster={img.src}
-          >
-            <source src={video.src} type='video/mp4' />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {/* <div className='relative w-full h-full rounded shadow-lg'> */}
+        <ResponsivePlayer video={video} img={img} />
+        {/* </div> */}
         {/* <Image
               src={img.src}
               // width={img.width}

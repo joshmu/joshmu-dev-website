@@ -28,8 +28,8 @@ const Projects = ({ ...props }) => {
       video: {
         src:
           'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/videonote.mp4',
-        width: 1200,
-        height: 615,
+        width: 1199,
+        height: 610,
       },
     },
     {
@@ -49,7 +49,7 @@ const Projects = ({ ...props }) => {
         src:
           'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/joshmu-dance-website.mp4',
         width: 1200,
-        height: 615,
+        height: 616,
       },
     },
     {
@@ -80,7 +80,7 @@ const Projects = ({ ...props }) => {
         src:
           'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/aid-online.mp4',
         width: 1200,
-        height: 615,
+        height: 616,
       },
     },
   ]

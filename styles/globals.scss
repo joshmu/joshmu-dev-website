@@ -53,3 +53,7 @@ body {
 
   --accent: #010101;
 }
+
+*:focus {
+  outline: 0 !important;
+}
