@@ -12,6 +12,10 @@ body {
 
   // avoid any horizontal scrolling
   overflow-x: hidden;
+
+  & :focus {
+    outline: 0 !important;
+  }
 }
 
 .theme-light {
@@ -54,6 +58,11 @@ body {
   --accent: #010101;
 }
 
-*:focus {
-  outline: 0 !important;
+// HELPERS
+.radial-bg {
+  background-image: radial-gradient(
+    theme('colors.themeAccent'),
+    theme('colors.themeBg'),
+    theme('colors.themeBg')
+  );
 }

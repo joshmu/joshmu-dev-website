@@ -51,7 +51,7 @@ const Spray = ({
   scrollEnd = 1,
   scrollYProgress,
 }) => {
-  const randomVelocityX = useRef((idx + 1) / randomNum(1, 10 / (idx + 1)))
+  const randomVelocityX = useRef((idx + 1) / (idx + randomNum(1, 4)))
   const randomVelocityY = useRef(randomNum(1, 10))
   const randomRotateEnd = useRef(randomNum(25, 180))
 
@@ -59,29 +59,17 @@ const Spray = ({
 
   // not using 'scrollEnd'
   // make scatter infinite instead of defining end therefor '100%' = 1
-  const scrollToEndOfPage = 1
+  // const scrollToEndOfPage = 1
 
   // initial transform based on scroll
-  const scale = useTransform(
-    scrollYProgress,
-    [scrollStart, scrollToEndOfPage],
-    [1, 2]
-  )
+  const scale = useTransform(scrollYProgress, [scrollStart, scrollEnd], [1, 2])
   const rotate = useTransform(
     scrollYProgress,
-    [scrollStart, scrollToEndOfPage],
+    [scrollStart, scrollEnd],
     [0, randomRotateEnd.current]
   )
-  const x = useTransform(
-    scrollYProgress,
-    [scrollStart, scrollToEndOfPage],
-    [0, 600]
-  )
-  const y = useTransform(
-    scrollYProgress,
-    [scrollStart, scrollToEndOfPage],
-    [0, 600]
-  )
+  const x = useTransform(scrollYProgress, [scrollStart, scrollEnd], [0, 600])
+  const y = useTransform(scrollYProgress, [scrollStart, scrollEnd], [0, 600])
   // spring motion to be used
   const xVel = useSpring(
     useTransform(x, value => value * randomVelocityX.current),

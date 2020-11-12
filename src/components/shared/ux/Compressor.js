@@ -24,7 +24,7 @@ export default function Compressor({ text, hide, ...props }) {
   }, [toggle])
 
   useEffect(() => {
-    if (scrollProgress > 0) {
+    if (!toggle && scrollProgress > 0) {
       setToggle(true)
     } else if (toggle && scrollProgress === 0) {
       setToggle(false)

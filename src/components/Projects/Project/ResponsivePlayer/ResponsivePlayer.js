@@ -9,12 +9,13 @@ const ResponsivePlayer = ({ video, img }) => {
         ...style.playerWrapper,
         paddingTop: calcVidRatio(img.width, img.height) + '%',
       }}
+      className='w-full'
     >
       <ReactPlayer
         style={style.reactPlayer}
         url={video.src}
         width='100%'
-        hegiht='100%'
+        height='100%'
         // width={video.width}
         // height={video.height}
         autoPlay
@@ -22,7 +23,7 @@ const ResponsivePlayer = ({ video, img }) => {
         loop
         controls
         light={img.src}
-        playIcon={<PlayIcon />}
+        playIcon={<PlayIcon motionKey={img.src} />}
       ></ReactPlayer>
     </div>
   )
