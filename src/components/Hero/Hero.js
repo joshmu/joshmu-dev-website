@@ -4,7 +4,6 @@ import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
 import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
-import useScreenDimension from '@/hooks/useScreenDimension'
 import Curtain from '@/shared/ux/Curtain'
 import RevealInView from '@/shared/ux/RevealInView'
 
@@ -13,7 +12,7 @@ const Hero = ({ ...props }) => {
   const { toggleTheme } = useThemeContext()
 
   const handleScrollDown = () => {
-    scrollTo('about')
+    scrollTo('banner')
   }
 
   return (
