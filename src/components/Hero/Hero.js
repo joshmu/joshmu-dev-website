@@ -28,7 +28,7 @@ const Hero = ({ ...props }) => {
         </h1>
         <p>
           <RevealInView delay={1}>
-            <span>code + ☕️</span>
+            <span>I ♡ movement, coffee & code.</span>
           </RevealInView>
         </p>
       </div>

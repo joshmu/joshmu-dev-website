@@ -15,13 +15,13 @@ const Banner = ({ ...props }) => {
   return (
     <div ref={ref} className='container z-0 mx-auto py-96' {...props}>
       <p className='ml-2'>
-        Movement, Coffee, Web Develop
+        My adventures in web{' '}
         <CharSplit
           scrollStart={start}
           scrollEnd={end}
           scrollYProgress={scrollYProgress}
         >
-          ment.
+          development...
         </CharSplit>
       </p>
     </div>
@@ -61,21 +61,13 @@ const Spray = ({
   const ref = useRef(null)
   const maxDistance = useRef(null)
   useEffect(() => {
-    if (!ref.current) {
-      return
-    }
     const rect = ref.current.getBoundingClientRect()
     maxDistance.current = window.innerWidth - (rect.x + rect.width)
-    console.log(char, maxDistance.current)
-    // const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    // const offsetTop = rect.top + scrollTop
-    // setStart(offsetTop / document.body.clientHeight)
-    // setEnd((offsetTop + rect.height) / document.body.clientHeight)
   }, [])
 
-  // not using 'scrollEnd'
+  // if not using 'scrollEnd'
   // make scatter infinite instead of defining end therefor '100%' = 1
-  // const scrollToEndOfPage = 1
+  // const scrollToEndOfPage = 1 (exchange scrollEnd)
 
   // initial transform based on scroll
   const scale = useTransform(scrollYProgress, [scrollStart, scrollEnd], [1, 2])
