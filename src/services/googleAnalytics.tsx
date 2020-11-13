@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import ReactGA from 'react-ga'
 
-const initGA = trackingId => {
+const initGA = (trackingId: string): void => {
   ReactGA.initialize(trackingId, { debug: true })
 }
 
-const logPageView = () => {
+const logPageView = (): void => {
   ReactGA.set({ page: window.location.pathname })
   ReactGA.pageview(window.location.pathname + window.location.search)
 }
 
-export const setupGAService = trackingId => {
+export const setupGAService = (trackingId: string): void => {
   // initialise google analytics on load
   useEffect(() => {
     // @ts-ignore

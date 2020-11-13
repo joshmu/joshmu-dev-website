@@ -3,6 +3,21 @@ import React, { useEffect, useState } from 'react'
 
 import { useGlobalContext } from '@/context/globalContext'
 
+const animationVariants: Variants = {
+  hide: {
+    width: 0,
+    opacity: 0,
+  },
+  show: {
+    width: 'auto',
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
+}
+
 type CompressorProps = {
   text: string
   hide: string
@@ -36,21 +51,6 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
       setToggle(false)
     }
   }, [scrollProgress])
-
-  const animationVariants: Variants = {
-    hide: {
-      width: 0,
-      opacity: 0,
-    },
-    show: {
-      width: 'auto',
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: [0.6, 0.05, -0.01, 0.9],
-      },
-    },
-  }
 
   return (
     <p className='flex items-center justify-center whitespace-pre' {...props}>
