@@ -1,6 +1,6 @@
-import BackToTop from './BackToTop/BackToTop'
+import { BackToTop } from './BackToTop/BackToTop'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div className='pb-4 text-center'>
       <div className='pb-12 pt-36'>
@@ -12,5 +12,3 @@ const Footer = () => {
     </div>
   )
 }
-
-export default Footer

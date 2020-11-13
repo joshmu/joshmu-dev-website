@@ -20,7 +20,9 @@ import { IoMdPlay as Icon } from 'react-icons/io'
 //   },
 // }
 
-const PlayIcon = motionKey => {
+type PlayIconProps = { motionKey: string }
+
+export const PlayIcon = ({ motionKey }: PlayIconProps) => {
   return (
     <div className='flex items-center justify-center w-full h-full'>
       <motion.span
@@ -36,5 +38,3 @@ const PlayIcon = motionKey => {
     </div>
   )
 }
-
-export default PlayIcon

@@ -2,7 +2,17 @@ import { motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-const RevealInView = ({
+type RevealInViewProps = {
+  children: React.ReactNode
+  delay?: number
+  variants?: any
+  transition?: object
+  custom?: number
+  triggerOnce?: boolean
+  props?: any
+}
+
+export const RevealInView = ({
   children,
   delay = 0,
   variants = null,
@@ -10,7 +20,7 @@ const RevealInView = ({
   custom = 1,
   triggerOnce = true,
   ...props
-}) => {
+}: RevealInViewProps) => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce,
@@ -47,5 +57,3 @@ const RevealInView = ({
     </motion.span>
   )
 }
-
-export default RevealInView

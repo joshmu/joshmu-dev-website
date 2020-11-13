@@ -2,10 +2,14 @@ import { motion } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
 
-import Footer from '@/components/Footer/Footer'
-import Header from '@/components/Header/Header'
+import { Footer } from '@/components/Footer/Footer'
+import { Header } from '@/components/Header/Header'
 
-const Layout = ({ children }) => {
+type LayoutProps = {
+  children: React.ReactNode
+}
+
+export const Layout = ({ children }: LayoutProps) => {
   // todo: analytics
   // initialise google analytics on load
   /*
@@ -108,5 +112,3 @@ const Layout = ({ children }) => {
     </motion.div>
   )
 }
-
-export default Layout

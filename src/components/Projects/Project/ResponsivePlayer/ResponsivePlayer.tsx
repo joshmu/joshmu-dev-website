@@ -1,10 +1,16 @@
 import ReactPlayer from 'react-player'
 
-import PlayIcon from './PlayIcon/PlayIcon'
+import { PlayIcon } from './PlayIcon/PlayIcon'
 
-const ResponsivePlayer = ({ video, img }) => {
+type ResponsivePlayerProps = {
+  video: { src: string; width: number; height: number }
+  img: { src: string; width: number; height: number }
+}
+
+export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
   return (
     <div
+      // @ts-ignore
       style={{
         ...style.playerWrapper,
         paddingTop: calcVidRatio(img.width, img.height) + '%',
@@ -29,7 +35,8 @@ const ResponsivePlayer = ({ video, img }) => {
   )
 }
 
-const calcVidRatio = (width, height) => 100 / (width / height)
+const calcVidRatio = (width: number, height: number): number =>
+  100 / (width / height)
 
 const style = {
   playerWrapper: {
@@ -45,5 +52,3 @@ const style = {
     left: 0,
   },
 }
-
-export default ResponsivePlayer

@@ -44,7 +44,7 @@ const navItemVariants = {
   },
 }
 
-export default function Header() {
+export const Header = () => {
   const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 

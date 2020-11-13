@@ -4,10 +4,12 @@ import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
 import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
-import Curtain from '@/shared/ux/Curtain'
-import RevealInView from '@/shared/ux/RevealInView'
+import { Curtain } from '@/shared/ux/Curtain'
+import { RevealInView } from '@/shared/ux/RevealInView'
 
-const Hero = ({ ...props }) => {
+type HeroProps = { props?: any; id: string }
+
+export const Hero = ({ ...props }: HeroProps) => {
   const { scrollTo } = useGlobalContext()
   const { toggleTheme } = useThemeContext()
 
@@ -53,5 +55,3 @@ const Hero = ({ ...props }) => {
     </div>
   )
 }
-
-export default Hero

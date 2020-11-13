@@ -1,5 +1,6 @@
 import {
   motion,
+  MotionValue,
   useSpring,
   useTransform,
   useViewportScroll,
@@ -8,7 +9,9 @@ import { useEffect, useRef } from 'react'
 
 import useRefScrollProgress from '@/hooks/useRefScrollProgress'
 
-const Banner = ({ ...props }) => {
+type BannerProps = { props?: any; id: string }
+
+export const Banner = ({ ...props }: BannerProps) => {
   const { ref, start, end } = useRefScrollProgress()
   const { scrollYProgress } = useViewportScroll()
 
@@ -28,20 +31,44 @@ const Banner = ({ ...props }) => {
   )
 }
 
-const CharSplit = ({ children, scrollStart, scrollEnd, scrollYProgress }) => {
-  return children.split('').map((char, idx) => (
-    <span key={idx} className='relative'>
-      {/* create height and width with transparent duplicate */}
-      <span className='opacity-0'>{char}</span>
-      <Spray
-        char={char}
-        idx={idx}
-        scrollStart={scrollStart}
-        scrollEnd={scrollEnd}
-        scrollYProgress={scrollYProgress}
-      />
-    </span>
-  ))
+type CharSplitProps = {
+  children: string
+  scrollStart: number
+  scrollEnd: number
+  scrollYProgress: any
+}
+
+const CharSplit = ({
+  children,
+  scrollStart,
+  scrollEnd,
+  scrollYProgress,
+}: CharSplitProps) => {
+  return (
+    <>
+      {children.split('').map((char, idx) => (
+        <span key={idx} className='relative'>
+          {/* create height and width with transparent duplicate */}
+          <span className='opacity-0'>{char}</span>
+          <Spray
+            char={char}
+            idx={idx}
+            scrollStart={scrollStart}
+            scrollEnd={scrollEnd}
+            scrollYProgress={scrollYProgress}
+          />
+        </span>
+      ))}
+    </>
+  )
+}
+
+type SprayProps = {
+  char: string
+  idx: number
+  scrollStart?: number
+  scrollEnd?: number
+  scrollYProgress: MotionValue
 }
 
 const Spray = ({
@@ -50,7 +77,7 @@ const Spray = ({
   scrollStart = 0,
   scrollEnd = 1,
   scrollYProgress,
-}) => {
+}: SprayProps) => {
   const randomVelocityX = useRef((idx + 1) / (idx + randomNum(1, 4)))
   const randomVelocityY = useRef(randomNum(1, 10))
   const randomRotateEnd = useRef(randomNum(25, 180))
@@ -87,6 +114,7 @@ const Spray = ({
     [0, maxDistance.current]
   )
   // spring motion to be used
+  // * we make sure velocity will always be a reduction of distance or '1' so we don't pass our desired distance limit
   const xVel = useSpring(
     useTransform(x, value => value * randomVelocityX.current),
     springConfig
@@ -108,6 +136,5 @@ const Spray = ({
 }
 
 // helper
-const randomNum = (min, max) => Math.floor(Math.random() * max) + min
-
-export default Banner
+const randomNum = (min: number, max: number): number =>
+  Math.floor(Math.random() * max) + min

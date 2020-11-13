@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 import { useGlobalContext } from '@/context/globalContext'
 
-const BackToTop = () => {
+export const BackToTop = () => {
   const { scrollTo } = useGlobalContext()
   const handleBackToTopClick = () => scrollTo('hero')
 
@@ -28,5 +28,3 @@ const BackToTop = () => {
     </div>
   )
 }
-
-export default BackToTop

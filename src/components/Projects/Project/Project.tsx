@@ -1,11 +1,25 @@
-import React from 'react'
+import { ResponsivePlayer } from './ResponsivePlayer/ResponsivePlayer'
 
-import ResponsivePlayer from './ResponsivePlayer/ResponsivePlayer'
+type DataProps = {
+  title: string
+  type: string
+  description: string
+  stack: string[]
+  website: string
+  github: string
+  img: { src: string; width: number; height: number }
+  video: { src: string; width: number; height: number }
+}
 
-const Project = ({
+type ProjectProps = {
+  data: DataProps
+  props?: any
+}
+
+export const Project = ({
   data: { title, type, description, stack, website, github, img, video },
   ...props
-}) => {
+}: ProjectProps) => {
   return (
     <div
       className='relative z-10 p-4 m-4 overflow-hidden border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg'
@@ -108,5 +122,3 @@ const Project = ({
     </div>
   )
 }
-
-export default Project

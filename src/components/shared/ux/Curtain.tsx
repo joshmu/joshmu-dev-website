@@ -1,7 +1,17 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-const Curtain = ({ children, padding = 1, stagger = 0.1 }) => {
+type CurtainProps = {
+  children: string
+  padding?: number
+  stagger?: number
+}
+
+export const Curtain = ({
+  children,
+  padding = 1,
+  stagger = 0.1,
+}: CurtainProps) => {
   const chars = children.split('')
   return (
     <div>
@@ -18,7 +28,14 @@ const Curtain = ({ children, padding = 1, stagger = 0.1 }) => {
   )
 }
 
-const Char = ({ char, motionKey, padding, delay }) => {
+type CharType = {
+  char: string
+  motionKey: string
+  padding: number
+  delay: number
+}
+
+const Char = ({ char, motionKey, padding, delay }: CharType) => {
   const charRef = useRef(null)
   const [state, setState] = useState({ width: 0, height: 0 })
 
@@ -67,5 +84,3 @@ const Char = ({ char, motionKey, padding, delay }) => {
     </div>
   )
 }
-
-export default Curtain

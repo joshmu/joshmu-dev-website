@@ -1,7 +1,9 @@
-import RevealInView from '../shared/ux/RevealInView'
-import Project from './Project/Project'
+import { RevealInView } from '@/shared/ux/RevealInView'
+import { Project } from './Project/Project'
 
-const Projects = ({ ...props }) => {
+type ProjectsProps = { props?: any; id: string }
+
+export const Projects = ({ ...props }: ProjectsProps) => {
   const projects = [
     {
       title: 'VideoNote',
@@ -97,5 +99,3 @@ const Projects = ({ ...props }) => {
     </div>
   )
 }
-
-export default Projects

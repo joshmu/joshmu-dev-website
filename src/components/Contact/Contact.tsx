@@ -2,7 +2,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-import RevealInView from '../shared/ux/RevealInView'
+import { RevealInView } from '@/shared/ux/RevealInView'
 
 const svgVariants = {
   initial: { opacity: 0 },
@@ -26,7 +26,12 @@ const pathVariants = {
   },
 }
 
-const Contact = ({ ...props }) => {
+type ContactProps = {
+  id: string
+  props?: any
+}
+
+export const Contact = ({ ...props }: ContactProps) => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -66,5 +71,3 @@ const Contact = ({ ...props }) => {
     </div>
   )
 }
-
-export default Contact
