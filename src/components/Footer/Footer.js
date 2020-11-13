@@ -5,17 +5,13 @@ const Footer = () => {
   return (
     <div className='pb-4 text-center'>
       <div className='pb-12 pt-36'>
-        <RevealInView>
-          <span>{new Date().getFullYear()}</span>
-        </RevealInView>
+        <span>{new Date().getFullYear()}</span>
         <RevealInView>
           <span>✌️</span>
         </RevealInView>
       </div>
 
-      <RevealInView>
-        <BackToTop />
-      </RevealInView>
+      <BackToTop />
     </div>
   )
 }

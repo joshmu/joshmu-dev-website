@@ -21,29 +21,25 @@ const RevealInView = ({
     inView ? controls.start('visible') : controls.start('hidden')
   }, [controls, inView])
 
+  variants = variants || {
+    visible: custom => ({
+      opacity: 1,
+      y: 0,
+      transition: transition || {
+        delay: custom * 0.2,
+        ease: [0.6, 0.05, -0.01, 0.9],
+      },
+    }),
+    hidden: { opacity: 0, y: 25 },
+  }
+
   return (
     <motion.span
       ref={ref}
       animate={controls}
       initial='hidden'
       custom={custom}
-      variants={
-        variants || {
-          visible: custom => ({
-            opacity: 1,
-            y: 0,
-            transition: { delay: custom * 0.2 },
-          }),
-          hidden: { opacity: 0, y: 25 },
-        }
-      }
-      transition={
-        transition || {
-          delay,
-          duration: 0.8,
-          ease: [0.6, 0.05, -0.01, 0.9],
-        }
-      }
+      variants={variants}
       style={{ display: 'block' }}
       {...props}
     >
