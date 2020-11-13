@@ -26,7 +26,6 @@
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.29.0",
     "tailwindcss": "^1.9.6",
-    "tailwindcss-blend-mode": "^1.0.0",
     "tailwindcss-debug-screens": "^1.1.0",
     "typescript": "^4.0.5"
   },

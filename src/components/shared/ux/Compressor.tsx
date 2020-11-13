@@ -1,5 +1,5 @@
-import { motion, useAnimation, Variants } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import { Variants, motion, useAnimation } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 import { useGlobalContext } from '@/context/globalContext'
 

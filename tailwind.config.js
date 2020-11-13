@@ -1,7 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: ['./pages/**/*.js', './src/components/**/*.js'],
+  purge: [
+    './pages/**/*.{ts,tsx, js,jsx}',
+    './src/components/**/*.{ts,tsx,js,jsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -28,12 +31,9 @@ module.exports = {
   plugins:
     process.env.NODE_ENV === 'production'
       ? // production
-        [require('tailwindcss-blend-mode')()]
+        []
       : // development
-        [
-          require('tailwindcss-debug-screens'),
-          require('tailwindcss-blend-mode')(),
-        ],
+        [require('tailwindcss-debug-screens')],
   future: {
     removeDeprecatedGapUtilities: true,
   },
