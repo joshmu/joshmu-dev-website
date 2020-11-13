@@ -9,9 +9,11 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/pages/*": ["src/pages/*"],
       "@/api/*": ["src/pages/api/*"],
+      "@/services/*": ["src/services/*"],
       "@/utils/*": ["./utils/*"],
       "@/styles/*": ["./styles/*"]
     },
+    "checkJs": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

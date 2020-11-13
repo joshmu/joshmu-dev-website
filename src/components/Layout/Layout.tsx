@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
+import { setupGAService } from '@/services/googleAnalytics'
 
 import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
@@ -18,23 +19,12 @@ type MetaRefType = {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  // todo: analytics
-  // initialise google analytics on load
-  /*
-  useEffect(() => {
-    // @ts-ignore
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      // @ts-ignore
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-  }, [])
-  */
+  // google analytics (placed in layout to include page/route data)
+  setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID)
 
   const metaRef = useRef<MetaRefType>({
-    title: 'Josh Mu - Official Developer Website',
-    description: 'The official website for web developer Josh Mu.',
+    title: 'Josh Mu - Developer Portfolio Website',
+    description: 'The official portfolio website for web developer Josh Mu',
     keywords:
       'josh mu, web dev, developer, coding, code, javascript, tech, dance, yoga, art, official',
     origin: null,
