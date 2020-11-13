@@ -1,10 +1,10 @@
-import { motion, Variants } from 'framer-motion'
+import { Variants, motion } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
-import { setupGAService } from '@/services/googleAnalytics'
 
 import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
+import { setupGAService } from '@/services/googleAnalytics'
 
 type LayoutProps = {
   children: React.ReactNode

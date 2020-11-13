@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import ReactGA from 'react-ga'
 
 const initGA = (trackingId: string): void => {
-  ReactGA.initialize(trackingId, { debug: true })
+  ReactGA.initialize(trackingId, { debug: false })
 }
 
 const logPageView = (): void => {
