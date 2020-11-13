@@ -4,7 +4,7 @@ import {
   useTransform,
   useViewportScroll,
 } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import useRefScrollProgress from '@/hooks/useRefScrollProgress'
 
@@ -57,6 +57,22 @@ const Spray = ({
 
   const springConfig = { mass: 1, stiffness: 180, damping: 100 }
 
+  // calc max initial distance of elem to right edge of screen
+  const ref = useRef(null)
+  const maxDistance = useRef(null)
+  useEffect(() => {
+    if (!ref.current) {
+      return
+    }
+    const rect = ref.current.getBoundingClientRect()
+    maxDistance.current = window.innerWidth - (rect.x + rect.width)
+    console.log(char, maxDistance.current)
+    // const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    // const offsetTop = rect.top + scrollTop
+    // setStart(offsetTop / document.body.clientHeight)
+    // setEnd((offsetTop + rect.height) / document.body.clientHeight)
+  }, [])
+
   // not using 'scrollEnd'
   // make scatter infinite instead of defining end therefor '100%' = 1
   // const scrollToEndOfPage = 1
@@ -68,8 +84,16 @@ const Spray = ({
     [scrollStart, scrollEnd],
     [0, randomRotateEnd.current]
   )
-  const x = useTransform(scrollYProgress, [scrollStart, scrollEnd], [0, 600])
-  const y = useTransform(scrollYProgress, [scrollStart, scrollEnd], [0, 600])
+  const x = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollEnd],
+    [0, maxDistance.current]
+  )
+  const y = useTransform(
+    scrollYProgress,
+    [scrollStart, scrollEnd],
+    [0, maxDistance.current]
+  )
   // spring motion to be used
   const xVel = useSpring(
     useTransform(x, value => value * randomVelocityX.current),
@@ -82,6 +106,7 @@ const Spray = ({
 
   return (
     <motion.span
+      ref={ref}
       className='absolute left-0 z-0'
       style={{ x: xVel, y: yVel, scale, rotate }}
     >
@@ -90,6 +115,7 @@ const Spray = ({
   )
 }
 
+// helper
 const randomNum = (min, max) => Math.floor(Math.random() * max) + min
 
 export default Banner
