@@ -9,6 +9,14 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
+type MetaRefType = {
+  title: string
+  description: string
+  keywords: string
+  origin: string | null
+  imgUrl: string
+}
+
 export const Layout = ({ children }: LayoutProps) => {
   // todo: analytics
   // initialise google analytics on load
@@ -24,7 +32,7 @@ export const Layout = ({ children }: LayoutProps) => {
   }, [])
   */
 
-  const metaRef = useRef({
+  const metaRef = useRef<MetaRefType>({
     title: 'Josh Mu - Official Developer Website',
     description: 'The official website for web developer Josh Mu.',
     keywords:

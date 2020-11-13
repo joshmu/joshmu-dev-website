@@ -36,7 +36,7 @@ type CharType = {
 }
 
 const Char = ({ char, motionKey, padding, delay }: CharType) => {
-  const charRef = useRef(null)
+  const charRef = useRef<HTMLElement | null>(null)
   const [state, setState] = useState({ width: 0, height: 0 })
 
   useEffect(() => {

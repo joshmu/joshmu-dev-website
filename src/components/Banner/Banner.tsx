@@ -7,7 +7,7 @@ import {
 } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
-import useRefScrollProgress from '@/hooks/useRefScrollProgress'
+import { useRefScrollProgress } from '@/hooks/useRefScrollProgress'
 
 type BannerProps = { props?: any; id: string }
 
@@ -85,8 +85,8 @@ const Spray = ({
   const springConfig = { mass: 1, stiffness: 180, damping: 100 }
 
   // calc max initial distance of elem to right edge of screen
-  const ref = useRef(null)
-  const maxDistance = useRef(null)
+  const ref = useRef<HTMLElement | null>(null)
+  const maxDistance = useRef<number | null>(null)
   useEffect(() => {
     const rect = ref.current.getBoundingClientRect()
     maxDistance.current = window.innerWidth - (rect.x + rect.width)

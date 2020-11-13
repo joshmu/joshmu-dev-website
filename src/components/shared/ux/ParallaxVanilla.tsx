@@ -1,10 +1,18 @@
 import { useEffect, useState } from 'react'
 
-const ParallaxVanilla = ({ rate = 0.5, children }) => {
+type ParallaxVanillaProps = {
+  rate?: number
+  children: React.ReactNode
+}
+
+export const ParallaxVanilla = ({
+  rate = 0.5,
+  children,
+}: ParallaxVanillaProps) => {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    const scrollHandler = event => {
+    const scrollHandler = (): void => {
       const scrollTop =
         document.documentElement.scrollTop || document.body.scrollTop
       setScrollY(scrollTop)
@@ -18,7 +26,5 @@ const ParallaxVanilla = ({ rate = 0.5, children }) => {
     transform: `translateY(${scrollY * rate}px)`,
   }
 
-  return <div style={style}>{children}</div>
+  return (<div style={style}>{children}</div>) as JSX.Element
 }
-
-export default ParallaxVanilla

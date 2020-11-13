@@ -6,18 +6,24 @@ import {
 } from 'framer-motion'
 import { useLayoutEffect, useRef, useState } from 'react'
 
-const calculateMinHeight = (height, range) => {
+const calculateMinHeight = (height: number, range: number): number => {
   return height + height * range
 }
-const rand = (min = 0, max = 100) => {
+const rand = (min: number = 0, max: number = 100): number => {
   return Math.floor(Math.random() * (+max - +min)) + +min
 }
 
-const Parallax = ({ rate = 0, children, ...props }) => {
-  const ref = useRef(null)
+type ParallaxProps = {
+  rate?: number
+  children: React.ReactNode
+  props: any
+}
+
+export const Parallax = ({ rate = 0, children, ...props }: ParallaxProps) => {
+  const ref = useRef<HTMLDivElement | null>(null)
   const { scrollY } = useViewportScroll()
   const [offsetTop, setOffsetTop] = useState(0)
-  const [minHeight, setMinHeight] = useState('auto')
+  const [minHeight, setMinHeight] = useState<number | string>('auto')
 
   // randomize the rate if we do not specify (0.01-0.4)
   rate = rate === 0 ? rand(1, 40) / 100 : rate
@@ -58,5 +64,3 @@ const Parallax = ({ rate = 0, children, ...props }) => {
     </div>
   )
 }
-
-export default Parallax
