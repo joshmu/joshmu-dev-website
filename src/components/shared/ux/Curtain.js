@@ -20,7 +20,7 @@ const Curtain = ({ children, padding = 1, stagger = 0.1 }) => {
 
 const Char = ({ char, motionKey, padding, delay }) => {
   const charRef = useRef(null)
-  const [state, setState] = useState({ width: null, height: null })
+  const [state, setState] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
     const handler = () => {
