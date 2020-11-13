@@ -3,8 +3,14 @@ import React, { useEffect, useState } from 'react'
 
 import { useGlobalContext } from '@/context/globalContext'
 
-export default function Compressor({ text, hide, ...props }) {
-  const [output, setOutput] = useState(['', '', ''])
+type CompressorProps = {
+  text: string
+  hide: string
+  props?: any
+}
+
+export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
+  const [output, setOutput] = useState<[string, string, string]>(['', '', ''])
   const [toggle, setToggle] = useState(false)
 
   const { scrollProgress } = useGlobalContext()
@@ -12,7 +18,7 @@ export default function Compressor({ text, hide, ...props }) {
 
   useEffect(() => {
     // split text in to 3 parts
-    const textArray = Array(3)
+    const textArray = Array(3) as [string, string, string]
     textArray[0] = text.slice(0, text.indexOf(hide))
     textArray[1] = hide
     textArray[2] = text.slice(text.indexOf(hide) + hide.length)
@@ -50,6 +56,7 @@ export default function Compressor({ text, hide, ...props }) {
     <p className='flex items-center justify-center whitespace-pre' {...props}>
       <span>{output[0]}</span>
       <motion.span
+        // @ts-ignore
         variants={animationVariants}
         animate={controls}
         className='overflow-hidden'

@@ -1,9 +1,14 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-const themeContext = createContext({
-  theme: '',
-  toggleTheme: () => {},
-})
+type ToggleThemeType = () => void
+
+interface ThemeContextInterface {
+  theme: string
+  toggleTheme: ToggleThemeType
+  THEME_TYPES: object
+}
+
+const themeContext = createContext<ThemeContextInterface | null>(null)
 
 const LOCALSTORAGE_KEY = 'joshmu.dev:theme'
 const THEME_TYPES = {
@@ -13,7 +18,7 @@ const THEME_TYPES = {
   alt2: 'theme-alt2',
 }
 
-export function ThemeProvider(props) {
+export const ThemeProvider = (props: any) => {
   const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme
@@ -39,7 +44,7 @@ export function ThemeProvider(props) {
     globalThis.document.body.classList.add(THEME_TYPES[theme])
   }, [theme])
 
-  const toggleTheme = () => {
+  const toggleTheme: ToggleThemeType = () => {
     // get list of themeIds
     const themeIdList = Object.keys(THEME_TYPES)
     const themeIndex = themeIdList.findIndex(themeId => themeId === theme)
@@ -55,7 +60,7 @@ export function ThemeProvider(props) {
     window.localStorage.setItem(LOCALSTORAGE_KEY, newThemeId)
   }
 
-  const value = {
+  const value: ThemeContextInterface = {
     theme,
     toggleTheme,
     THEME_TYPES,
@@ -64,6 +69,6 @@ export function ThemeProvider(props) {
   return <themeContext.Provider value={value} {...props} />
 }
 
-export function useThemeContext() {
+export const useThemeContext = () => {
   return useContext(themeContext)
 }

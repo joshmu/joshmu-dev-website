@@ -2,10 +2,8 @@ import { motion } from 'framer-motion'
 
 import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
-import Compressor from '@/shared/ux/Compressor'
+import { Compressor } from '@/shared/ux/Compressor'
 
-// todo: clean up nav
-// todo: fun drop down for contact instead
 const menuItems = ['projects', 'contact']
 
 // animation

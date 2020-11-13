@@ -1,11 +1,22 @@
-import { useViewportScroll } from 'framer-motion'
+import { MotionValue, useViewportScroll } from 'framer-motion'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { scroller } from 'react-scroll'
 
-const globalContext = createContext({})
+type ScrollToType = (elemId: string, config?: object) => void
 
-export function GlobalProvider({ children }) {
-  const [currentView, setCurrentView] = useState('hero')
+interface GlobalContextInterface {
+  scrollYProgress: MotionValue
+  scrollProgress: number
+  scrollTo: ScrollToType
+}
+
+const globalContext = createContext<GlobalContextInterface | null>(null)
+
+type GlobalProviderProps = {
+  children: React.ReactNode
+}
+
+export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const { scrollYProgress } = useViewportScroll()
   const [scrollProgress, setScrollProgress] = useState(0)
 
@@ -25,7 +36,7 @@ export function GlobalProvider({ children }) {
     }
   }, [])
 
-  const scrollTo = (elemId, config = {}) => {
+  const scrollTo: ScrollToType = (elemId, config = {}) => {
     scroller.scrollTo(elemId, {
       duration: 800,
       delay: 0,
@@ -35,23 +46,17 @@ export function GlobalProvider({ children }) {
     })
   }
 
-  const value = {
+  const value: GlobalContextInterface = {
     scrollYProgress,
     scrollProgress,
-    currentView,
-    setCurrentView,
     scrollTo,
   }
 
   return (
-    <globalContext.Provider
-      value={value}
-    >
-      {children}
-    </globalContext.Provider>
+    <globalContext.Provider value={value}>{children}</globalContext.Provider>
   )
 }
 
-export function useGlobalContext() {
+export const useGlobalContext = () => {
   return useContext(globalContext)
 }
