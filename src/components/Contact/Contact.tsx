@@ -1,17 +1,17 @@
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, Variants } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import { RevealInView } from '@/shared/ux/RevealInView'
 
-const svgVariants = {
+const svgVariants: Variants = {
   initial: { opacity: 0 },
   visible: {
     opacity: 1,
   },
 }
 
-const pathVariants = {
+const pathVariants: Variants = {
   initial: {
     // opacity: 0,
     pathLength: 0,
@@ -28,7 +28,7 @@ const pathVariants = {
 
 type ContactProps = {
   id: string
-  props?: any
+  props?: { [key: string]: any }
 }
 
 export const Contact = ({ ...props }: ContactProps) => {

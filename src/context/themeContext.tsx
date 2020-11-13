@@ -18,7 +18,7 @@ const THEME_TYPES = {
   alt2: 'theme-alt2',
 }
 
-export const ThemeProvider = (props: any) => {
+export const ThemeProvider = (props: {[key: string]: any}) => {
   const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme

@@ -1,4 +1,4 @@
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, Variants } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 
 import { useGlobalContext } from '@/context/globalContext'
@@ -6,7 +6,7 @@ import { useGlobalContext } from '@/context/globalContext'
 type CompressorProps = {
   text: string
   hide: string
-  props?: any
+  props?: { [key: string]: any }
 }
 
 export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
@@ -37,7 +37,7 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
     }
   }, [scrollProgress])
 
-  const animationVariants = {
+  const animationVariants: Variants = {
     hide: {
       width: 0,
       opacity: 0,
@@ -45,10 +45,10 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
     show: {
       width: 'auto',
       opacity: 1,
-    },
-    transition: {
-      duration: 1,
-      ease: [0.6, 0.05, -0.01, 0.9],
+      transition: {
+        duration: 1,
+        ease: [0.6, 0.05, -0.01, 0.9],
+      },
     },
   }
 

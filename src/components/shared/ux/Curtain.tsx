@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
 type CurtainProps = {
@@ -50,7 +50,7 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  const charVariants = {
+  const charVariants: Variants = {
     initial: { x: '-100%' },
     animate: {
       x: 0,

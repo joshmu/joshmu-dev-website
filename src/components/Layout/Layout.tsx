@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
 import { setupGAService } from '@/services/googleAnalytics'
@@ -36,7 +36,7 @@ export const Layout = ({ children }: LayoutProps) => {
     metaRef.current.imgUrl = origin + metaRef.current.imgUrl
   }, [])
 
-  const layoutVariants = {
+  const layoutVariants: Variants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 },

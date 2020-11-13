@@ -16,7 +16,7 @@ const rand = (min: number = 0, max: number = 100): number => {
 type ParallaxProps = {
   rate?: number
   children: React.ReactNode
-  props: any
+  props: { [key: string]: any }
 }
 
 export const Parallax = ({ rate = 0, children, ...props }: ParallaxProps) => {

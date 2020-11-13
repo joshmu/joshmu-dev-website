@@ -1,15 +1,15 @@
-import { motion, useAnimation } from 'framer-motion'
+import { Transition, Variants, motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 type RevealInViewProps = {
   children: React.ReactNode
   delay?: number
-  variants?: any
-  transition?: object
+  variants?: Variants
+  transition?: Transition
   custom?: number
   triggerOnce?: boolean
-  props?: any
+  props?: { [key: string]: any }
 }
 
 export const RevealInView = ({

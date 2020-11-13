@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
@@ -7,7 +7,7 @@ import { Compressor } from '@/shared/ux/Compressor'
 const menuItems = ['projects', 'contact']
 
 // animation
-const navVariants = {
+const navVariants: Variants = {
   hidden: {
     opacity: 0,
     paddingLeft: '0rem',
@@ -26,7 +26,7 @@ const navVariants = {
     },
   },
 }
-const navItemVariants = {
+const navItemVariants: Variants = {
   hidden: {
     y: 50,
     opacity: 0,

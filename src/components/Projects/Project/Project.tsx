@@ -13,7 +13,7 @@ type DataProps = {
 
 type ProjectProps = {
   data: DataProps
-  props?: any
+  props?: { [key: string]: any }
 }
 
 export const Project = ({

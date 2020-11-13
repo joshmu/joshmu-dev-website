@@ -7,7 +7,7 @@ import { useThemeContext } from '@/context/themeContext'
 import { Curtain } from '@/shared/ux/Curtain'
 import { RevealInView } from '@/shared/ux/RevealInView'
 
-type HeroProps = { props?: any; id: string }
+type HeroProps = { props?: { [key: string]: any }; id: string }
 
 export const Hero = ({ ...props }: HeroProps) => {
   const { scrollTo } = useGlobalContext()

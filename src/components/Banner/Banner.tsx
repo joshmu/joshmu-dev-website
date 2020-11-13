@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react'
 
 import { useRefScrollProgress } from '@/hooks/useRefScrollProgress'
 
-type BannerProps = { props?: any; id: string }
+type BannerProps = { props?: { [key: string]: any }; id: string }
 
 export const Banner = ({ ...props }: BannerProps) => {
   const { ref, start, end } = useRefScrollProgress()

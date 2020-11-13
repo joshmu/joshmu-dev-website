@@ -1,7 +1,7 @@
 import { RevealInView } from '@/shared/ux/RevealInView'
 import { Project } from './Project/Project'
 
-type ProjectsProps = { props?: any; id: string }
+type ProjectsProps = { props?: { [key: string]: any }; id: string }
 
 export const Projects = ({ ...props }: ProjectsProps) => {
   const projects = [
