@@ -8,20 +8,20 @@ import { useRef } from 'react'
 
 import useRefScrollProgress from '@/hooks/useRefScrollProgress'
 
-export default function About({ ...props }) {
+const Banner = ({ ...props }) => {
   const { ref, start, end } = useRefScrollProgress()
   const { scrollYProgress } = useViewportScroll()
 
   return (
     <div ref={ref} className='container z-0 mx-auto py-96' {...props}>
       <p className='ml-2'>
-        Isolation, Integration, Improvis
+        Movement, Coffee, Web Develop
         <CharSplit
           scrollStart={start}
           scrollEnd={end}
           scrollYProgress={scrollYProgress}
         >
-          ation
+          ment.
         </CharSplit>
       </p>
     </div>
@@ -91,3 +91,5 @@ const Spray = ({
 }
 
 const randomNum = (min, max) => Math.floor(Math.random() * max) + min
+
+export default Banner

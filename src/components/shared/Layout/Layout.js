@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   // todo: analytics
   // initialise google analytics on load
   /*
@@ -33,6 +33,12 @@ export default function Layout({ children }) {
     metaRef.current.origin = origin
     metaRef.current.imgUrl = origin + metaRef.current.imgUrl
   }, [])
+
+  const layoutVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  }
 
   return (
     <motion.div
@@ -103,8 +109,4 @@ export default function Layout({ children }) {
   )
 }
 
-const layoutVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-}
+export default Layout

@@ -1,15 +1,15 @@
-import About from '@/components/About/About'
+import Banner from '@/components/Banner/Banner'
 import Contact from '@/components/Contact/Contact'
 import Hero from '@/components/Hero/Hero'
 import Projects from '@/components/Projects/Projects'
 import Layout from '@/components/shared/Layout/Layout'
 
-export default function Home() {
+const Home = () => {
   return (
     <Layout>
       <Hero id='hero' />
 
-      <About id='about' />
+      <Banner id='banner' />
 
       <Projects id='projects' />
 
@@ -17,3 +17,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home
