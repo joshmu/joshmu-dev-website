@@ -18,11 +18,11 @@ const RevealInView = ({
   })
 
   useEffect(() => {
-    inView ? controls.start('visible') : controls.start('hidden')
+    inView ? controls.start('animate') : controls.start('initial')
   }, [controls, inView])
 
   variants = variants || {
-    visible: custom => ({
+    animate: custom => ({
       opacity: 1,
       y: 0,
       transition: transition || {
@@ -30,14 +30,14 @@ const RevealInView = ({
         ease: [0.6, 0.05, -0.01, 0.9],
       },
     }),
-    hidden: { opacity: 0, y: 25 },
+    initial: { opacity: 0, y: 25 },
   }
 
   return (
     <motion.span
       ref={ref}
       animate={controls}
-      initial='hidden'
+      initial='initial'
       custom={custom}
       variants={variants}
       style={{ display: 'block' }}
