@@ -1,9 +1,9 @@
+import { useScrollTo } from '@/hooks/useScrollTo'
 import { motion } from 'framer-motion'
 
-import { useGlobalContext } from '@/context/globalContext'
-
 export const BackToTop = () => {
-  const { scrollTo } = useGlobalContext()
+  const scrollTo = useScrollTo()
+
   const handleBackToTopClick = () => scrollTo('hero')
 
   return (

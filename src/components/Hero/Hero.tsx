@@ -2,15 +2,15 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
-import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
 import { Curtain } from '@/shared/ux/Curtain'
 import { RevealInView } from '@/shared/ux/RevealInView'
+import { useScrollTo } from '@/hooks/useScrollTo'
 
 type HeroProps = { props?: { [key: string]: any }; id: string }
 
 export const Hero = ({ ...props }: HeroProps) => {
-  const { scrollTo } = useGlobalContext()
+  const scrollTo = useScrollTo()
   const { toggleTheme } = useThemeContext()
 
   const handleScrollDown = () => {

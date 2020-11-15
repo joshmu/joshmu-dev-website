@@ -7,7 +7,7 @@ export const Footer = () => {
         <p>{new Date().getFullYear()}</p>
         <p>✌️</p>
       </div>
-
+      <p>hello</p>
       <BackToTop />
     </div>
   )

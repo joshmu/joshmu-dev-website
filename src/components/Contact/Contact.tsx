@@ -1,4 +1,4 @@
-import { motion, useAnimation, Variants } from 'framer-motion'
+import { Variants, motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
@@ -13,11 +13,9 @@ const svgVariants: Variants = {
 
 const pathVariants: Variants = {
   initial: {
-    // opacity: 0,
     pathLength: 0,
   },
   visible: {
-    // opacity: 1,
     pathLength: 1,
     transition: {
       duration: 3,
@@ -27,7 +25,6 @@ const pathVariants: Variants = {
 }
 
 type ContactProps = {
-  id: string
   props?: { [key: string]: any }
 }
 
@@ -42,7 +39,7 @@ export const Contact = ({ ...props }: ContactProps) => {
   }, [controls, inView])
 
   return (
-    <div ref={ref} className='pt-12 pb-24 text-center' {...props}>
+    <div ref={ref} className='pt-12 pb-24 text-center' id='contact' {...props}>
       <div className='relative inline-block px-8 py-4'>
         <RevealInView triggerOnce={false}>
           <a className='hover:underline' href='mailto:hello@joshmu.dev'>

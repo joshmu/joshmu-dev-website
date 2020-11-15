@@ -1,8 +1,8 @@
 import { motion, Variants } from 'framer-motion'
 
-import { useGlobalContext } from '@/context/globalContext'
 import { useThemeContext } from '@/context/themeContext'
 import { Compressor } from '@/shared/ux/Compressor'
+import { useScrollTo } from '@/hooks/useScrollTo'
 
 const menuItems = ['projects', 'contact']
 
@@ -43,7 +43,7 @@ const navItemVariants: Variants = {
 }
 
 export const Header = () => {
-  const { scrollTo } = useGlobalContext()
+  const scrollTo = useScrollTo()
   const { toggleTheme } = useThemeContext()
 
   const handleNavItemClick = section => {

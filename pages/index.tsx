@@ -13,7 +13,7 @@ const LandingPage = () => {
 
       <Projects id='projects' />
 
-      <Contact id='contact' />
+      <Contact />
     </Layout>
   )
 }
