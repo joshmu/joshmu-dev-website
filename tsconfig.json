@@ -11,7 +11,8 @@
       "@/api/*": ["src/pages/api/*"],
       "@/services/*": ["src/services/*"],
       "@/utils/*": ["./utils/*"],
-      "@/styles/*": ["./styles/*"]
+      "@/styles/*": ["./styles/*"],
+      "@/__mocks__/*": ["./__mocks__/*"]
     },
     "checkJs": true,
     "target": "es5",

@@ -7,7 +7,7 @@ export const BackToTop = () => {
   const handleBackToTopClick = () => scrollTo('hero')
 
   return (
-    <div>
+    <button>
       {/* back to top */}
       <motion.svg
         whileHover={{ scale: 1.3 }}
@@ -25,6 +25,6 @@ export const BackToTop = () => {
           d='M5 15l7-7 7 7'
         />
       </motion.svg>
-    </div>
+    </button>
   )
 }
