@@ -44,7 +44,7 @@ export const RevealInView = ({
   }
 
   return (
-    <div ref={ref}>
+    <span ref={ref}>
       <motion.span
         animate={controls}
         initial='initial'
@@ -55,6 +55,6 @@ export const RevealInView = ({
       >
         {children}
       </motion.span>
-    </div>
+    </span>
   )
 }

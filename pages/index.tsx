@@ -7,7 +7,7 @@ import { Layout } from '@/layout/Layout'
 const LandingPage = () => {
   return (
     <Layout>
-      <Hero id='hero' />
+      <Hero />
 
       <Banner id='banner' />
 

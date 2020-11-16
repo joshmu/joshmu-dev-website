@@ -14,7 +14,7 @@ const Curtain = dynamic(
 import { RevealInView } from '@/shared/ux/RevealInView'
 import { useScrollTo } from '@/hooks/useScrollTo'
 
-type HeroProps = { props?: { [key: string]: any }; id: string }
+type HeroProps = { props?: { [key: string]: any } }
 
 export const Hero = ({ ...props }: HeroProps) => {
   const scrollTo = useScrollTo()
@@ -25,10 +25,16 @@ export const Hero = ({ ...props }: HeroProps) => {
   }
 
   return (
-    <div className='relative w-full' style={{ height: '50rem' }} {...props}>
+    <div
+      id='hero'
+      className='relative w-full'
+      style={{ height: '50rem' }}
+      {...props}
+    >
       {/* center content */}
       <div className='relative z-10 flex flex-col items-center justify-center w-full h-full'>
         <h1
+          data-testid='heroLogo'
           onClick={toggleTheme}
           className='text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl'
         >
@@ -36,7 +42,7 @@ export const Hero = ({ ...props }: HeroProps) => {
         </h1>
         <p>
           <RevealInView delay={1}>
-            <span>I ♡ movement, coffee & code.</span>
+            <span>I ♡ coffee & code.</span>
           </RevealInView>
         </p>
       </div>

@@ -13,7 +13,7 @@ import { render, screen } from '@testing-library/react'
 import { Header } from './Header'
 
 // logo
-test('renders Header component with name tag', () => {
+test('renders Header component with logo', () => {
   render(<Header />)
   const logo = screen.getByTestId('logoTitle')
 

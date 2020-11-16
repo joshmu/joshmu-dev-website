@@ -63,7 +63,8 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
   }
 
   return (
-    <div
+    <span
+      ref={charRef}
       className='relative inline-block overflow-hidden'
       style={{
         width: state.width + padding + 'px',
@@ -76,11 +77,10 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
         animate='animate'
         exit='exit'
         variants={charVariants}
-        ref={charRef}
         className='absolute whitespace-pre'
       >
         {char}
       </motion.span>
-    </div>
+    </span>
   )
 }
