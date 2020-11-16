@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
+import dynamic from 'next/dynamic'
 
 import { useThemeContext } from '@/context/themeContext'
-import { Curtain } from '@/shared/ux/Curtain'
+
+// because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
+const Curtain = dynamic(
+  () => import('@/shared/ux/Curtain').then(mod => mod.Curtain),
+  { ssr: false }
+)
+
 import { RevealInView } from '@/shared/ux/RevealInView'
 import { useScrollTo } from '@/hooks/useScrollTo'
 
@@ -47,7 +54,7 @@ export const Hero = ({ ...props }: HeroProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
         transition={{ delay: 0.2, duration: 1 }}
-        className='absolute z-0 font-bold uppercase transform pointer-events-none top-20 -left-20 rotate-12 opacity-10'
+        className='absolute z-0 font-bold uppercase transition-colors duration-1000 ease-in-out transform pointer-events-none top-20 -left-20 rotate-12 opacity-10'
         style={{ fontSize: '50rem', lineHeight: 1 }}
       >
         MU

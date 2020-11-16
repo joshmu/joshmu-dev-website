@@ -22,7 +22,7 @@ export const Project = ({
 }: ProjectProps) => {
   return (
     <div
-      className='relative z-10 p-4 m-4 overflow-hidden border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg'
+      className='relative z-10 p-4 m-4 overflow-hidden transition-colors duration-200 ease-in-out border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg'
       // style={{
       //   backgroundImage: `radial-gradient(${twConfig.theme.colors.themeAccent}, ${twConfig.theme.colors.themeBg}, ${twConfig.theme.colors.themeBg})`,
       // }}
@@ -61,7 +61,7 @@ export const Project = ({
             {stack.map((tech, idx) => (
               <p
                 key={idx}
-                className='px-2 py-1 m-1 uppercase rounded-sm bg-themeText text-themeBg'
+                className='px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2'
               >
                 {tech}
               </p>

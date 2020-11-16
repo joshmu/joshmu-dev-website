@@ -102,7 +102,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <meta name='theme-color' content='#ffffff' />
       </Head>
 
-      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out debug-screens'>
+      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg debug-screens'>
         <Header />
         <main>{children}</main>
         <Footer />
