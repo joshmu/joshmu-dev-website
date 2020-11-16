@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
-import dynamic from 'next/dynamic'
 
 import { useThemeContext } from '@/context/themeContext'
+import { Curtain } from '@/shared/ux/Curtain'
 
-// because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
-const Curtain = dynamic(
-  () => import('@/shared/ux/Curtain').then(mod => mod.Curtain),
-  { ssr: false }
-)
+// // because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
+// const Curtain = dynamic(
+//   () => import('@/shared/ux/Curtain').then(mod => mod.Curtain),
+//   { ssr: false }
+// )
 
 import { RevealInView } from '@/shared/ux/RevealInView'
 import { useScrollTo } from '@/hooks/useScrollTo'

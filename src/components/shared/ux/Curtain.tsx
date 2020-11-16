@@ -64,12 +64,15 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
 
   return (
     <span
-      ref={charRef}
       className='relative inline-block overflow-hidden'
-      style={{
-        width: state.width + padding + 'px',
-        height: state.height + 'px',
-      }}
+      style={
+        state.width !== 0 && state.height !== 0
+          ? {
+              width: state.width + padding + 'px',
+              height: state.height + 'px',
+            }
+          : {}
+      }
     >
       <motion.span
         key={motionKey}
@@ -79,7 +82,7 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
         variants={charVariants}
         className='absolute whitespace-pre'
       >
-        {char}
+        <span ref={charRef}>{char}</span>
       </motion.span>
     </span>
   )

@@ -9,7 +9,7 @@ const LandingPage = () => {
     <Layout>
       <Hero />
 
-      <Banner id='banner' />
+      <Banner />
 
       <Projects />
 

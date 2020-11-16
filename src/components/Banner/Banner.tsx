@@ -9,14 +9,19 @@ import { useEffect, useRef } from 'react'
 
 import { useRefScrollProgress } from '@/hooks/useRefScrollProgress'
 
-type BannerProps = { props?: { [key: string]: any }; id: string }
+type BannerProps = { props?: { [key: string]: any } }
 
 export const Banner = ({ ...props }: BannerProps) => {
   const { ref, start, end } = useRefScrollProgress()
   const { scrollYProgress } = useViewportScroll()
 
   return (
-    <div ref={ref} className='container z-0 mx-auto py-96' {...props}>
+    <div
+      id='banner'
+      ref={ref}
+      className='container z-0 mx-auto py-96'
+      {...props}
+    >
       <p className='ml-2'>
         My adventures in web{' '}
         <CharSplit
@@ -125,13 +130,15 @@ const Spray = ({
   )
 
   return (
-    <motion.span
-      ref={ref}
-      className='absolute left-0 z-0'
-      style={{ x: xVel, y: yVel, scale, rotate }}
-    >
-      {char}
-    </motion.span>
+    <span>
+      <motion.span
+        ref={ref}
+        className='absolute left-0 z-0'
+        style={{ x: xVel, y: yVel, scale, rotate }}
+      >
+        {char}
+      </motion.span>
+    </span>
   )
 }
 
