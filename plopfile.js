@@ -1,6 +1,8 @@
 // plopfile.js
-module.exports = function (plop) {
-  // plop generator code
+module.exports = function (
+  /** @type {import('plop').NodePlopAPI} */
+  plop
+) {
   // component generator
   plop.setGenerator('component', {
     description: 'create react component',
