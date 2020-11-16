@@ -1,7 +1,7 @@
 import { RevealInView } from '@/shared/ux/RevealInView'
 import { Project } from './Project/Project'
 
-type ProjectsProps = { props?: { [key: string]: any }; id: string }
+type ProjectsProps = { props?: { [key: string]: any } }
 
 export const Projects = ({ ...props }: ProjectsProps) => {
   const projects = [
@@ -88,7 +88,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
   ]
 
   return (
-    <div className='container py-12 mx-auto' {...props}>
+    <div id='projects' className='container py-12 mx-auto' {...props}>
       <div className='flex flex-wrap items-center justify-center'>
         {projects.map((project, idx) => (
           <RevealInView key={idx} custom={idx}>

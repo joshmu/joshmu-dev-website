@@ -11,7 +11,7 @@ const LandingPage = () => {
 
       <Banner id='banner' />
 
-      <Projects id='projects' />
+      <Projects />
 
       <Contact />
     </Layout>
