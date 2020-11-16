@@ -1,0 +1,20 @@
+// src/components/{{name}}/{{name}}.test.tsx
+
+// add custom jest matchers from jest-dom
+import '@testing-library/jest-dom/extend-expect'
+
+// import dependencies
+import React from 'react'
+
+// import react-testing methods
+import { render, screen } from '@testing-library/react'
+
+// the component to test
+import { {{name}} } from './{{name}}'
+
+test('renders {{name}} component', () => {
+  //render is from @testing-library/react
+  render(<{{name}} />)
+  //expect assertion is from Jest
+  expect(screen.getByText(/{{name}}/)).toBeInTheDocument()
+})
