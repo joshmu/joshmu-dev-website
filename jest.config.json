@@ -11,5 +11,6 @@
     "^@/utils/(.*)$": "<rootDir>/utils/$1",
     "^@/styles/(.*)$": "<rootDir>/styles/$1",
     "^@/__mocks__/(.*)$": "<rootDir>/__mocks__/$1"
-  }
+  },
+  "setupFilesAfterEnv": ["<rootDir>/setupTests.tsx"]
 }
