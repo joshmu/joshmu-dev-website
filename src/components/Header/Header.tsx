@@ -58,6 +58,7 @@ export const Header = () => {
     <div className='fixed z-30 w-full mt-4'>
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
+          <span>joshmu</span>
           {/* logo */}
           <div
             onClick={handleLogoClick}
@@ -65,7 +66,6 @@ export const Header = () => {
           >
             <Compressor text='josh mu' hide='osh ' />
           </div>
-
           {/* nav menu */}
           <div className='relative flex uppercase'>
             {/* nav */}

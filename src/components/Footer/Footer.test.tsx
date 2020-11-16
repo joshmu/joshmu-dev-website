@@ -12,17 +12,6 @@ import { render, screen } from '@testing-library/react'
 // the component to test
 import { Footer } from './Footer'
 
-// jest.mock('framer-motion', () => {
-//   const AnimatePresence = jest.fn(({ children }) => children)
-//   const motion = {
-//     div: jest.fn(({ children }) => children),
-//   }
-//   return {
-//     AnimatePresence,
-//     motion,
-//   }
-// })
-
 test('renders Footer component with 2020 date', () => {
   //render is from @testing-library/react
   render(<Footer />)

@@ -1,7 +1,10 @@
-export const setup = () => {
-  console.log(`============ testSetupFile Loaded ===========`)
+export const setupTests = (() => {
+  console.log(`============ test setup file loaded ===========`)
 
-  // required mocks
+  ///////////////
+  // REQUIRED MOCKS
+  ///////////////
+
   // INTERSECTION OBSERVER MOCK
   const intersectionObserverMock = () => ({
     observe: () => null,
@@ -14,19 +17,35 @@ export const setup = () => {
 
   // FRAMER MOTION MOCK
   jest.mock('framer-motion', () => {
+    // helper
+    const toLowerCaseList = ['whileHover']
+    const attrsToLowerCase = jest.fn(props => {
+      return Object.entries(props).reduce((acc, [key, val]) => {
+        key = toLowerCaseList.includes(key) ? key.toLowerCase() : key
+        acc[key] = val
+        return acc
+      }, {})
+    })
+
     const AnimatePresence = jest.fn(({ children }) => children)
     const motion = {
       div: jest.fn(({ children, ...props }) => (
-        <div {...props}>{children}</div>
+        <div {...attrsToLowerCase(props)}>{children}</div>
       )),
       span: jest.fn(({ children, ...props }) => (
-        <span {...props}>{children}</span>
+        <span {...attrsToLowerCase(props)}>{children}</span>
       )),
       svg: jest.fn(({ children, ...props }) => (
-        <svg {...props}>{children}</svg>
+        <svg {...attrsToLowerCase(props)}>{children}</svg>
       )),
       path: jest.fn(({ children, ...props }) => (
-        <path {...props}>{children}</path>
+        <path {...attrsToLowerCase(props)}>{children}</path>
+      )),
+      button: jest.fn(({ children, ...props }) => (
+        <button {...attrsToLowerCase(props)}>{children}</button>
+      )),
+      ul: jest.fn(({ children, ...props }) => (
+        <ul {...attrsToLowerCase(props)}>{children}</ul>
       )),
     }
     const useAnimation = jest.fn(() => ({ start: () => null }))
@@ -36,6 +55,26 @@ export const setup = () => {
       useAnimation,
     }
   })
-}
 
-setup()
+  // GLOBAL CONTEXT
+  jest.mock('@/context/GlobalContext', () => {
+    const scrollProgress = 0
+    const values = { scrollProgress }
+    const useGlobalContext = jest.fn(() => values)
+
+    return {
+      useGlobalContext,
+    }
+  })
+
+  // THEME CONTEXT
+  jest.mock('@/context/ThemeContext', () => {
+    const toggleTheme = jest.fn()
+    const values = { toggleTheme }
+    const useThemeContext = jest.fn(() => values)
+
+    return {
+      useThemeContext,
+    }
+  })
+})()
