@@ -1,5 +1,5 @@
 export const setupTests = (() => {
-  console.log(`============ test setup file loaded ===========`)
+  // console.log(`============ test setup file loaded ===========`)
 
   ///////////////
   // REQUIRED MOCKS

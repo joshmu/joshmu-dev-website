@@ -58,9 +58,9 @@ export const Header = () => {
     <div className='fixed z-30 w-full mt-4'>
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
-          <span>joshmu</span>
           {/* logo */}
           <div
+            data-testid='logoTitle'
             onClick={handleLogoClick}
             className='h-full pl-2 text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent'
           >
