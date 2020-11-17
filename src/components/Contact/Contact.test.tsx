@@ -1,10 +1,6 @@
 // src/components/Contact/Contact.test.js
 
-// add custom jest matchers from jest-dom
-import '@testing-library/jest-dom/extend-expect'
-
-// import dependencies
-import React from 'react'
+// setupTests.tsx
 
 // import react-testing methods
 import { render, screen } from '@testing-library/react'

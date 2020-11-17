@@ -1,3 +1,10 @@
+// add custom jest matchers from jest-dom
+import '@testing-library/jest-dom/extend-expect'
+
+// import dependencies
+import React from 'react'
+
+// export and init setup
 export const setupTests = (() => {
   // console.log(`============ test setup file loaded ===========`)
 
