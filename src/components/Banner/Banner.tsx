@@ -1,6 +1,6 @@
 import {
-  motion,
   MotionValue,
+  motion,
   useSpring,
   useTransform,
   useViewportScroll,
@@ -90,7 +90,7 @@ const Spray = ({
   const springConfig = { mass: 1, stiffness: 180, damping: 100 }
 
   // calc max initial distance of elem to right edge of screen
-  const ref = useRef<HTMLElement | null>(null)
+  const ref = useRef<HTMLElement>(null!)
   const maxDistance = useRef<number | null>(null)
   useEffect(() => {
     const rect = ref.current.getBoundingClientRect()
@@ -130,9 +130,8 @@ const Spray = ({
   )
 
   return (
-    <span>
+    <span ref={ref}>
       <motion.span
-        ref={ref}
         className='absolute left-0 z-0'
         style={{ x: xVel, y: yVel, scale, rotate }}
       >

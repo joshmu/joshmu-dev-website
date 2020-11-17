@@ -1,5 +1,6 @@
-import { useScrollTo } from '@/hooks/useScrollTo'
 import { motion } from 'framer-motion'
+
+import { useScrollTo } from '@/hooks/useScrollTo'
 
 export const BackToTop = () => {
   const scrollTo = useScrollTo()
@@ -7,7 +8,7 @@ export const BackToTop = () => {
   const handleBackToTopClick = () => scrollTo('hero')
 
   return (
-    <button>
+    <button aria-label='back to top'>
       {/* back to top */}
       <motion.svg
         whileHover={{ scale: 1.3 }}

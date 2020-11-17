@@ -1,9 +1,33 @@
 // plopfile.js
+
+const createComponent = {
+  type: 'add',
+  path: 'src/components/{{name}}/{{name}}.tsx',
+  templateFile: 'plop-templates/component.hbs',
+}
+
+const createComponentTest = {
+  type: 'add',
+  path: 'src/components/{{name}}/{{name}}.test.tsx',
+  templateFile: 'plop-templates/component.test.hbs',
+}
+
+const createPage = {
+  type: 'add',
+  path: 'pages/{{name}}.tsx',
+  templateFile: 'plop-templates/page.hbs',
+}
+
+const createPageTest = {
+  type: 'add',
+  path: 'src/tests/{{name}}.test.tsx',
+  templateFile: 'plop-templates/page.test.hbs',
+}
+
 module.exports = function (
   /** @type {import('plop').NodePlopAPI} */
   plop
 ) {
-  // component generator
   plop.setGenerator('component', {
     description: 'create react component',
     prompts: [
@@ -13,17 +37,37 @@ module.exports = function (
         message: 'component name please',
       },
     ],
-    actions: [
+    actions: [createComponent, createComponentTest],
+  })
+
+  plop.setGenerator('page', {
+    description: 'create page',
+    prompts: [
       {
-        type: 'add',
-        path: 'src/components/{{name}}/{{name}}.tsx',
-        templateFile: 'plop-templates/component.hbs',
-      },
-      {
-        type: 'add',
-        path: 'src/components/{{name}}/{{name}}.test.tsx',
-        templateFile: 'plop-templates/component.test.hbs',
+        type: 'input',
+        name: 'name',
+        message: 'page name please',
       },
     ],
+    actions: [createPage, createPageTest],
+  })
+
+  plop.setGenerator('page-test', {
+    description: 'create page test',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'page name please',
+      },
+    ],
+    actions: [createPageTest],
+  })
+
+  // helper
+  plop.setHelper('capitalize', function (text) {
+    text = text.split('')
+    text[0] = text[0].toUpperCase()
+    return text.join('')
   })
 }
