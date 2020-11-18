@@ -1,0 +1,1106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    animate="animate"
+    exit="exit"
+    initial="initial"
+    variants="[object Object]"
+  >
+    <div
+      class="w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg debug-screens"
+    >
+      <div
+        class="fixed z-30 w-full mt-4"
+      >
+        <div
+          class="container mx-auto"
+        >
+          <div
+            class="flex items-center justify-between"
+          >
+            <div
+              class="h-full pl-2 text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent"
+              data-testid="logoTitle"
+            >
+              <p
+                class="flex items-center justify-center whitespace-pre"
+              >
+                <span>
+                  j
+                </span>
+                <span
+                  animate="[object Object]"
+                  class="overflow-hidden"
+                  variants="[object Object]"
+                >
+                  <span>
+                    osh 
+                  </span>
+                </span>
+                <span>
+                  mu
+                </span>
+              </p>
+            </div>
+            <div
+              class="relative flex uppercase"
+            >
+              <ul
+                animate="show"
+                class="flex items-center justify-center h-full px-8 py-1 overflow-hidden text-sm transition-all duration-200 rounded-sm bg-themeText text-themeBg"
+                initial="hidden"
+                variants="[object Object]"
+              >
+                <li>
+                  <button
+                    class="px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none"
+                    variants="[object Object]"
+                  >
+                    projects
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none"
+                    variants="[object Object]"
+                  >
+                    contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main>
+        <div
+          class="relative w-full"
+          id="hero"
+          style="height: 50rem;"
+        >
+          <div
+            class="relative z-10 flex flex-col items-center justify-center w-full h-full"
+          >
+            <h1
+              class="text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl"
+              data-testid="heroLogo"
+            >
+              <div>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      j
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      o
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      s
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      h
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                       
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      m
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="relative inline-block overflow-hidden"
+                >
+                  <span
+                    animate="animate"
+                    class="absolute whitespace-pre"
+                    exit="exit"
+                    initial="initial"
+                    variants="[object Object]"
+                  >
+                    <span>
+                      u
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </h1>
+            <p>
+              <span>
+                <span
+                  animate="[object Object]"
+                  custom="1"
+                  initial="initial"
+                  style="display: block;"
+                  variants="[object Object]"
+                >
+                  <span>
+                    I ♡ coffee & code.
+                  </span>
+                </span>
+              </span>
+            </p>
+          </div>
+          <div
+            class="absolute bottom-0 z-10 flex items-center justify-center w-full mb-8 text-4xl"
+          >
+            <svg
+              class="cursor-pointer fill-current animate-bounce"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+              />
+            </svg>
+          </div>
+          <span
+            animate="[object Object]"
+            class="absolute z-0 font-bold uppercase transition-colors duration-1000 ease-in-out transform pointer-events-none top-20 -left-20 rotate-12 opacity-10"
+            initial="[object Object]"
+            style="font-size: 50rem; line-height: 1;"
+            transition="[object Object]"
+          >
+            MU
+          </span>
+        </div>
+        <div
+          class="container z-0 mx-auto py-96"
+          id="banner"
+        >
+          <p
+            class="ml-2"
+          >
+            My adventures in web 
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                d
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  d
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                e
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  e
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                v
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  v
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                e
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  e
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                l
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  l
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                o
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  o
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                p
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  p
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                m
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  m
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                e
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  e
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                n
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  n
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                t
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  t
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                .
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  .
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                .
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  .
+                </span>
+              </span>
+            </span>
+            <span
+              class="relative"
+            >
+              <span
+                class="opacity-0"
+              >
+                .
+              </span>
+              <span>
+                <span
+                  class="absolute left-0 z-0"
+                >
+                  .
+                </span>
+              </span>
+            </span>
+          </p>
+        </div>
+        <div
+          class="container py-12 mx-auto"
+          id="projects"
+        >
+          <div
+            class="flex flex-wrap items-center justify-center"
+          >
+            <span>
+              <span
+                animate="[object Object]"
+                custom="0"
+                initial="initial"
+                style="display: block;"
+                variants="[object Object]"
+              >
+                <div
+                  class="relative z-10 p-4 m-4 overflow-hidden transition-colors duration-200 ease-in-out border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg"
+                >
+                  <div
+                    class="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-5"
+                  />
+                  <a
+                    href="https://videonote.app"
+                  >
+                    <h1
+                      class="mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3"
+                    >
+                      VideoNote
+                    </h1>
+                  </a>
+                  <h2
+                    class="mb-4 italic"
+                  >
+                    Full Stack Web App
+                  </h2>
+                  <div
+                    class="flex flex-col w-full"
+                  >
+                    <div
+                      class="overflow-hidden border rounded shadow border-themeText2"
+                    >
+                      <div
+                        class="w-full"
+                        style="position: relative; padding-top: 67.10608913998745%;"
+                      >
+                        <div
+                          autoplay=""
+                          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                        >
+                          <div
+                            class="react-player__preview"
+                            style="width: 100%; height: 100%; background-size: cover; background-position: center; cursor: pointer; display: flex; align-items: center; justify-content: center; background-image: url(/assets/videonote-hero.png);"
+                            tabindex="0"
+                          >
+                            <div
+                              class="flex items-center justify-center w-full h-full"
+                            >
+                              <span
+                                whilehover="[object Object]"
+                              >
+                                <svg
+                                  class="w-16 h-16 opacity-75 stroke-current"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M96 52v408l320-204L96 52z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="max-w-xl"
+                    >
+                      <p
+                        class="my-4 text-lg"
+                      >
+                        A slick video review app, with the ability to share projects with guests.
+                      </p>
+                      <div
+                        class="flex flex-wrap mb-8 -ml-1"
+                      >
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          React
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          NextJS
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Tailwind
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Serverless
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Nodejs
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          MongoDB
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Mongoose
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          JWT
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="text-sm"
+                  >
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="https://videonote.app"
+                      >
+                        videonote.app
+                      </a>
+                    </li>
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="https://github.com/joshmu/videonote"
+                      >
+                        joshmu/videonote
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </span>
+            <span>
+              <span
+                animate="[object Object]"
+                custom="1"
+                initial="initial"
+                style="display: block;"
+                variants="[object Object]"
+              >
+                <div
+                  class="relative z-10 p-4 m-4 overflow-hidden transition-colors duration-200 ease-in-out border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg"
+                >
+                  <div
+                    class="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-5"
+                  />
+                  <a
+                    href="https://joshmu.com"
+                  >
+                    <h1
+                      class="mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3"
+                    >
+                      joshmu.com
+                    </h1>
+                  </a>
+                  <h2
+                    class="mb-4 italic"
+                  >
+                    NextJS React Website
+                  </h2>
+                  <div
+                    class="flex flex-col w-full"
+                  >
+                    <div
+                      class="overflow-hidden border rounded shadow border-themeText2"
+                    >
+                      <div
+                        class="w-full"
+                        style="position: relative; padding-top: 67.5300063171194%;"
+                      >
+                        <div
+                          autoplay=""
+                          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                        >
+                          <div
+                            class="react-player__preview"
+                            style="width: 100%; height: 100%; background-size: cover; background-position: center; cursor: pointer; display: flex; align-items: center; justify-content: center; background-image: url(/assets/joshmu-hero.png);"
+                            tabindex="0"
+                          >
+                            <div
+                              class="flex items-center justify-center w-full h-full"
+                            >
+                              <span
+                                whilehover="[object Object]"
+                              >
+                                <svg
+                                  class="w-16 h-16 opacity-75 stroke-current"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M96 52v408l320-204L96 52z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="max-w-xl"
+                    >
+                      <p
+                        class="my-4 text-lg"
+                      >
+                        The official website of professional dancer and yoga practitioner Josh Mu.
+                      </p>
+                      <div
+                        class="flex flex-wrap mb-8 -ml-1"
+                      >
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          React
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          NextJS
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Nodejs
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Serverless
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Tailwind
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="text-sm"
+                  >
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="https://joshmu.com"
+                      >
+                        joshmu.com
+                      </a>
+                    </li>
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="https://github.com/joshmu/joshmu-dance-website"
+                      >
+                        joshmu/joshmu-dance-website
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </span>
+            <span>
+              <span
+                animate="[object Object]"
+                custom="2"
+                initial="initial"
+                style="display: block;"
+                variants="[object Object]"
+              >
+                <div
+                  class="relative z-10 p-4 m-4 overflow-hidden transition-colors duration-200 ease-in-out border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg"
+                >
+                  <div
+                    class="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-5"
+                  />
+                  <a
+                    href="http://aid.alisdairmacindoe.com"
+                  >
+                    <h1
+                      class="mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3"
+                    >
+                      AID Online
+                    </h1>
+                  </a>
+                  <h2
+                    class="mb-4 italic"
+                  >
+                    Full Stack Web App
+                  </h2>
+                  <div
+                    class="flex flex-col w-full"
+                  >
+                    <div
+                      class="overflow-hidden border rounded shadow border-themeText2"
+                    >
+                      <div
+                        class="w-full"
+                        style="position: relative; padding-top: 67.10608913998745%;"
+                      >
+                        <div
+                          autoplay=""
+                          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
+                        >
+                          <div
+                            class="react-player__preview"
+                            style="width: 100%; height: 100%; background-size: cover; background-position: center; cursor: pointer; display: flex; align-items: center; justify-content: center; background-image: url(/assets/aidOnline-hero.png);"
+                            tabindex="0"
+                          >
+                            <div
+                              class="flex items-center justify-center w-full h-full"
+                            >
+                              <span
+                                whilehover="[object Object]"
+                              >
+                                <svg
+                                  class="w-16 h-16 opacity-75 stroke-current"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M96 52v408l320-204L96 52z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="max-w-xl"
+                    >
+                      <p
+                        class="my-4 text-lg"
+                      >
+                         A web application which delivers auto generated choreographic scores in both text and audio for live performance outcomes and as a teaching tool.
+                      </p>
+                      <div
+                        class="flex flex-wrap mb-8 -ml-1"
+                      >
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          React
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Parcel
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Socket.io
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Nodejs
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Express
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Google TTS Api
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Heroku
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Tracery
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Compromise
+                        </p>
+                        <p
+                          class="px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2"
+                        >
+                          Tailwind
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    class="text-sm"
+                  >
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="http://aid.alisdairmacindoe.com"
+                      >
+                        aid.alisdairmacindoe.com
+                      </a>
+                    </li>
+                    <li
+                      class="flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                      <a
+                        class="font-bold cursor-pointer hover:underline"
+                        href="https://github.com/tebgeronimo/aid-online"
+                      >
+                        tebgeronimo/aid-online
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="pt-12 pb-24 text-center"
+          id="contact"
+        >
+          <div
+            class="relative inline-block px-8 py-4"
+          >
+            <span>
+              <span
+                animate="[object Object]"
+                custom="1"
+                initial="initial"
+                style="display: block;"
+                variants="[object Object]"
+              >
+                <a
+                  class="hover:underline"
+                  href="mailto:hello@joshmu.dev"
+                >
+                  hello@joshmu.dev
+                </a>
+              </span>
+            </span>
+            <svg
+              animate="[object Object]"
+              class="absolute top-0 right-0 w-6 h-6 text-themeAccent"
+              fill="none"
+              initial="initial"
+              stroke="currentColor"
+              variants="[object Object]"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                variants="[object Object]"
+              />
+            </svg>
+          </div>
+        </div>
+      </main>
+      <div
+        class="pb-4 text-center"
+      >
+        <div
+          class="pb-12 pt-36"
+        >
+          <p>
+            2020
+          </p>
+          <p>
+            ✌️
+          </p>
+        </div>
+        <button
+          aria-label="back to top"
+        >
+          <svg
+            class="w-4 h-4 mx-auto cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            whilehover="[object Object]"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 15l7-7 7 7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

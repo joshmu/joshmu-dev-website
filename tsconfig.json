@@ -9,9 +9,9 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/pages/*": ["pages/*"],
       "@/api/*": ["pages/api/*"],
+      "@/styles/*": ["src/styles/*"],
       "@/services/*": ["src/services/*"],
-      "@/utils/*": ["utils/*"],
-      "@/styles/*": ["styles/*"]
+      "@/utils/*": ["utils/*"]
     },
     "checkJs": true,
     "target": "es5",
