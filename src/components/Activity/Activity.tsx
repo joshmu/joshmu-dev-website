@@ -1,9 +1,10 @@
 // src/components/Activity/Activity.tsx
 
+import { Variants } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import { CalendarDayInterface } from '@/pages/api/github'
-import { Variants } from 'framer-motion'
+
 import { RevealInView } from '../shared/ux/RevealInView'
 
 export const Activity = () => {
@@ -70,7 +71,7 @@ const calendarDayVariants: Variants = {
     y: 0,
     x: 0,
     transition: {
-      delay: custom * 0.02,
+      delay: custom * 0.01,
       ease: [0.6, 0.05, -0.01, 0.9],
     },
   }),
