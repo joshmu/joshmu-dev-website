@@ -1,3 +1,4 @@
+import { Activity } from '@/components/Activity/Activity'
 import { Banner } from '@/components/Banner/Banner.tsx'
 import { Contact } from '@/components/Contact/Contact'
 import { Hero } from '@/components/Hero/Hero'
@@ -13,6 +14,7 @@ const LandingPage = () => {
 
       <Projects />
 
+      <Activity />
       <Contact />
     </Layout>
   )

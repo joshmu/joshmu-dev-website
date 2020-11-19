@@ -2,13 +2,13 @@
 
 const createComponent = {
   type: 'add',
-  path: 'src/components/{{name}}/{{name}}.tsx',
+  path: 'src/components/{{capitalize name}}/{{capitalize name}}.tsx',
   templateFile: 'plop-templates/component.hbs',
 }
 
 const createComponentTest = {
   type: 'add',
-  path: 'src/components/{{name}}/{{name}}.test.tsx',
+  path: 'src/components/{{capitalize name}}/{{capitalize name}}.test.tsx',
   templateFile: 'plop-templates/component.test.hbs',
 }
 

@@ -25,6 +25,9 @@ module.exports = {
         5: '0.05',
         10: '0.10',
       },
+      gridTemplateRows: {
+        7: 'repeat(7, minmax(0, 1fr))',
+      },
     },
   },
   variants: {},
