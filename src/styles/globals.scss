@@ -36,10 +36,6 @@ body {
   --background2: theme('colors.gray.900');
 
   --accent: #1973cc;
-
-  .github {
-    @apply github-green;
-  }
 }
 
 .theme-alt {
@@ -69,12 +65,4 @@ body {
     theme('colors.themeBg'),
     theme('colors.themeBg')
   );
-}
-
-.github-green {
-  --color-calendar-graph-day-bg: theme('colors.green.50');
-  --color-calendar-graph-day-bg-L1-bg: theme('colors.green.100');
-  --color-calendar-graph-day-bg-L2-bg: theme('colors.green.200');
-  --color-calendar-graph-day-bg-L3-bg: theme('colors.green.300');
-  --color-calendar-graph-day-bg-L4-bg: theme('colors.green.400');
 }

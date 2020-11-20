@@ -1,64 +1,73 @@
 // src/components/Activity/Activity.tsx
 
-import { Variants } from 'framer-motion'
+import { Variants, motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 import { CalendarDayInterface } from '@/pages/api/github'
 
-import { RevealInView } from '../shared/ux/RevealInView'
+import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
+
+const staggerDelay = 0.01
 
 export const Activity = () => {
   const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
+  const [state, setState] = useState<'loading' | 'ready' | 'done'>('loading')
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: false, // keep checking in case data has not loaded yet
+    threshold: 0.15,
+  })
 
   useEffect(() => {
     fetch('/api/github')
       .then(res => res.json())
       .then(data => {
         setCalendar(data)
+        setState('ready')
       })
   }, [])
+
+  // stagger animation when container is in view
+  useEffect(() => {
+    if (inView && state === 'ready') {
+      controls.start('animate')
+      setState('done')
+    }
+  }, [controls, inView])
 
   if (!calendar) return null
 
   return (
-    <div className='container flex flex-col flex-wrap justify-start h-64 gap-1 mx-auto my-24 github'>
+    <div
+      ref={ref}
+      className='container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8'
+    >
       {calendar.map(({ date, grade }, idx) => (
-        <RevealInView key={date} custom={idx} variants={calendarDayVariants}>
+        <motion.div
+          key={date}
+          custom={idx}
+          animate={controls}
+          variants={calendarDayVariants}
+          className='relative flex items-center justify-center h-4 m-px md:h-6'
+        >
+          {/* background */}
           <div
-            key={date}
-            className='relative flex items-center justify-center h-8'
-          >
-            {/* background */}
-            <div
-              style={{
-                opacity: grade * 0.1,
-              }}
-              className='w-full h-full bg-themeText'
-            ></div>
+            style={{
+              opacity: grade * 0.12,
+            }}
+            className='w-full h-full bg-themeText'
+          ></div>
 
-            {/* current day */}
-            {idx === calendar.length - 1 && (
-              <span className='absolute right-0 flex items-center justify-center pl-2 transform translate-x-full text-themeText'>
-                {/* arrow left */}
-                <svg
-                  className='w-4 h-4'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M7 16l-4-4m0 0l4-4m-4 4h18'
-                  />
-                </svg>
-                <span>me.</span>
-              </span>
-            )}
-          </div>
-        </RevealInView>
+          {/* current day */}
+          {idx === calendar.length - 1 && (
+            <CurrentDayLabel
+              date={date}
+              staggerDelay={staggerDelay}
+              idx={idx}
+            />
+          )}
+        </motion.div>
       ))}
     </div>
   )
@@ -71,7 +80,7 @@ const calendarDayVariants: Variants = {
     y: 0,
     x: 0,
     transition: {
-      delay: custom * 0.01,
+      delay: custom * staggerDelay,
       ease: [0.6, 0.05, -0.01, 0.9],
     },
   }),

@@ -1,5 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const plugins = []
+const devOnlyPlugins = [require('tailwindcss-debug-screens')]
+
 module.exports = {
   purge: [
     './pages/**/*.{ts,tsx, js,jsx}',
@@ -25,6 +28,9 @@ module.exports = {
         5: '0.05',
         10: '0.10',
       },
+      rotate: {
+        '-22': '-22deg',
+      },
       gridTemplateRows: {
         7: 'repeat(7, minmax(0, 1fr))',
       },
@@ -33,10 +39,8 @@ module.exports = {
   variants: {},
   plugins:
     process.env.NODE_ENV === 'production'
-      ? // production
-        []
-      : // development
-        [require('tailwindcss-debug-screens')],
+      ? plugins
+      : [...plugins, ...devOnlyPlugins],
   future: {
     removeDeprecatedGapUtilities: true,
   },
