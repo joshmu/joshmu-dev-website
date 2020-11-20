@@ -1,3 +1,15 @@
+/**
+ * @path /src/context/themeContext.tsx
+ *
+ * @project joshmu-dev-website
+ * @file themeContext.tsx
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Friday, 13th November 2020 3:44:50 pm
+ * @modified Friday, 20th November 2020 4:54:19 pm
+ * @copyright © 2020 - 2020 MU
+ */
+
 import { createContext, useContext, useEffect, useState } from 'react'
 
 type ToggleThemeType = () => void
@@ -18,7 +30,7 @@ const THEME_TYPES = {
   alt2: 'theme-alt2',
 }
 
-export const ThemeProvider = (props: {[key: string]: any}) => {
+export const ThemeProvider = (props: { [key: string]: any }) => {
   const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme

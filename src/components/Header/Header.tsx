@@ -1,57 +1,33 @@
-import { motion, Variants } from 'framer-motion'
+/**
+ * @path /src/components/Header/Header.tsx
+ *
+ * @project joshmu-dev-website
+ * @file Header.tsx
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Friday, 13th November 2020 3:44:50 pm
+ * @modified Friday, 20th November 2020 4:58:53 pm
+ * @copyright © 2020 - 2020 MU
+ */
 
-import { useThemeContext } from '@/context/themeContext'
-import { Compressor } from '@/shared/ux/Compressor'
+import { Variants, motion } from 'framer-motion'
+
 import { useScrollTo } from '@/hooks/useScrollTo'
+import { Compressor } from '@/shared/ux/Compressor'
+
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 
 const menuItems = ['projects', 'contact']
 
-// animation
-const navVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    paddingLeft: '0rem',
-    paddingRight: '0rem',
-    width: '0%',
-  },
-  show: {
-    opacity: 1,
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-    width: '100%',
-    transition: {
-      duration: 0.6,
-      delayChildren: 0.4,
-      staggerChildren: 0.2,
-    },
-  },
-}
-const navItemVariants: Variants = {
-  hidden: {
-    y: 50,
-    opacity: 0,
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      // yoyo: Infinity,
-      ease: [0.6, 0.05, -0.01, 0.9],
-    },
-  },
-}
-
 export const Header = () => {
   const scrollTo = useScrollTo()
-  const { toggleTheme } = useThemeContext()
 
-  const handleNavItemClick = section => {
+  const handleNavItemClick = (section: string): void => {
     scrollTo(section)
   }
 
-  const handleLogoClick = () => {
-    toggleTheme()
+  const handleLogoClick = (): void => {
+    scrollTo('hero')
   }
 
   return (
@@ -88,10 +64,52 @@ export const Header = () => {
                   </motion.button>
                 </li>
               ))}
+              <li className='ml-4'>
+                {/* theme toggle */}
+                <ThemeToggle />
+              </li>
             </motion.ul>
           </div>
         </div>
       </div>
+
+      {/* theme toggle */}
     </div>
   )
+}
+
+// animation
+const navVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    paddingLeft: '0rem',
+    paddingRight: '0rem',
+    width: '0%',
+  },
+  show: {
+    opacity: 1,
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    width: '100%',
+    transition: {
+      duration: 0.6,
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
+    },
+  },
+}
+const navItemVariants: Variants = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      // yoyo: Infinity,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
 }

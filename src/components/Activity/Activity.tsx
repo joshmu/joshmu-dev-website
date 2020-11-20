@@ -1,3 +1,15 @@
+/**
+ * @path /src/components/Activity/Activity.tsx
+ * 
+ * @project joshmu-dev-website
+ * @file Activity.tsx
+ * 
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Thursday, 19th November 2020 4:37:19 pm
+ * @modified Friday, 20th November 2020 4:59:07 pm
+ * @copyright © 2020 - 2020 MU
+ */
+
 // src/components/Activity/Activity.tsx
 
 import { Variants, motion, useAnimation } from 'framer-motion'
@@ -7,8 +19,6 @@ import { useInView } from 'react-intersection-observer'
 import { CalendarDayInterface } from '@/pages/api/github'
 
 import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
-
-const staggerDelay = 0.015
 
 export const Activity = () => {
   const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
@@ -69,12 +79,7 @@ export const Activity = () => {
 
           {/* current day */}
           {idx === calendar.length - 1 && (
-            <CurrentDayLabel
-              date={date}
-              staggerDelay={staggerDelay}
-              idx={idx}
-              ready={lastDayVisible}
-            />
+            <CurrentDayLabel date={date} ready={lastDayVisible} />
           )}
         </motion.div>
       ))}
@@ -90,7 +95,7 @@ const calendarDayVariants: Variants = {
     x: 0,
     transition: {
       type: 'spring',
-      delay: custom * staggerDelay,
+      delay: custom * 0.01,
       ease: [0.6, 0.05, -0.01, 0.9],
     },
   }),

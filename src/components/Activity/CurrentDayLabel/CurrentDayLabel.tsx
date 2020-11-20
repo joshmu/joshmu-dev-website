@@ -1,3 +1,15 @@
+/**
+ * @path /src/components/Activity/CurrentDayLabel/CurrentDayLabel.tsx
+ *
+ * @project joshmu-dev-website
+ * @file CurrentDayLabel.tsx
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Friday, 20th November 2020 11:01:31 am
+ * @modified Friday, 20th November 2020 5:03:16 pm
+ * @copyright © 2020 - 2020 MU
+ */
+
 import { Variants, motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 

@@ -1,6 +1,12 @@
-// src/components/Header/Header.test.tsx
-
-// setupTests.tsx
+/**
+ * @project joshmu-dev-website
+ * @file Header.test.tsx
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Monday, 16th November 2020 1:31:05 pm
+ * @modified Friday, 20th November 2020 4:35:37 pm
+ * @copyright © 2020 - 2020 MU
+ */
 
 // import react-testing methods
 import { render, screen } from '@testing-library/react'

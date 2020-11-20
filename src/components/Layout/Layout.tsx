@@ -1,3 +1,15 @@
+/**
+ * @path /src/components/Layout/Layout.tsx
+ * 
+ * @project joshmu-dev-website
+ * @file Layout.tsx
+ * 
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Friday, 13th November 2020 3:44:50 pm
+ * @modified Friday, 20th November 2020 4:48:06 pm
+ * @copyright © 2020 - 2020 MU
+ */
+
 import { Variants, motion } from 'framer-motion'
 import Head from 'next/head'
 import { useEffect, useRef } from 'react'
