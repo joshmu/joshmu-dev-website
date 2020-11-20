@@ -8,11 +8,12 @@ import { CalendarDayInterface } from '@/pages/api/github'
 
 import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
 
-const staggerDelay = 0.01
+const staggerDelay = 0.015
 
 export const Activity = () => {
   const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
   const [state, setState] = useState<'loading' | 'ready' | 'done'>('loading')
+  const [lastDayVisible, setLastDayVisible] = useState<boolean>(false)
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false, // keep checking in case data has not loaded yet
@@ -34,7 +35,11 @@ export const Activity = () => {
       controls.start('animate')
       setState('done')
     }
-  }, [controls, inView])
+  }, [controls, inView, state])
+
+  const handleLastDay = () => {
+    setLastDayVisible(true)
+  }
 
   if (!calendar) return null
 
@@ -49,6 +54,9 @@ export const Activity = () => {
           custom={idx}
           animate={controls}
           variants={calendarDayVariants}
+          onAnimationComplete={
+            idx === calendar.length - 1 ? handleLastDay : null
+          }
           className='relative flex items-center justify-center h-4 m-px md:h-6'
         >
           {/* background */}
@@ -65,6 +73,7 @@ export const Activity = () => {
               date={date}
               staggerDelay={staggerDelay}
               idx={idx}
+              ready={lastDayVisible}
             />
           )}
         </motion.div>
@@ -80,6 +89,7 @@ const calendarDayVariants: Variants = {
     y: 0,
     x: 0,
     transition: {
+      type: 'spring',
       delay: custom * staggerDelay,
       ease: [0.6, 0.05, -0.01, 0.9],
     },

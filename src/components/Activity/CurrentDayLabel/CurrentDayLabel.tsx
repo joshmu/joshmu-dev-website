@@ -1,33 +1,29 @@
-import { motion } from 'framer-motion'
+import { Variants, motion, useAnimation } from 'framer-motion'
+import { useEffect } from 'react'
 
 export const CurrentDayLabel = ({
   date,
-  staggerDelay,
-  idx,
+  ready,
 }: {
   date: string
-  staggerDelay: number
-  idx: number
+  ready: boolean
 }) => {
+  const controls = useAnimation()
+
+  // initial load will fire 'initial' animation setup
+  // then we will wait for 'ready' to trigger label animation
+  useEffect(() => {
+    ready ? controls.start('animate') : controls.start('initial')
+  }, [ready])
+
   return (
     <motion.div
       key='currentDayLabel'
-      custom={idx}
       initial='initial'
-      animate='animate'
-      variants={{
-        initial: { opacity: 0, scale: 0 },
-        animate: custom => ({
-          opacity: 1,
-          scale: 1,
-          transition: {
-            delay: custom * staggerDelay + 0.3, // slight additional delay for label to come in after stagger animation
-            duration: 0.4,
-          },
-        }),
-      }}
+      animate={controls}
+      variants={labelVariants}
     >
-      <div className='absolute right-0 flex flex-col items-start justify-center pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
+      <div className='absolute top-0 right-0 flex flex-col items-start justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
         {/* arrow left */}
         <svg
           className='w-4 h-4'
@@ -49,6 +45,18 @@ export const CurrentDayLabel = ({
       </div>
     </motion.div>
   )
+}
+
+const labelVariants: Variants = {
+  initial: { opacity: 0, scale: 0 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.6,
+    },
+  },
 }
 
 const formatDate = (dateStr: string): string =>
