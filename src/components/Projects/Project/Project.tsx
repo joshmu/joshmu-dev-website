@@ -1,3 +1,15 @@
+/**
+ * @path /src/components/Projects/Project/Project.tsx
+ *
+ * @project joshmu-dev-website
+ * @file Project.tsx
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Friday, 13th November 2020
+ * @modified Tuesday, 24th November 2020 11:13:26 am
+ * @copyright © 2020 - 2020 MU
+ */
+
 import { ResponsivePlayer } from './ResponsivePlayer/ResponsivePlayer'
 
 type DataProps = {
@@ -28,23 +40,21 @@ export const Project = ({
       // }}
       {...props}
     >
-      {/* background filter */}
-      <div className='absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-5'></div>
-
+      {/* title */}
       <a href={website}>
         <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3'>
           {title}
         </h1>
       </a>
 
+      {/* short desc */}
       <h2 className='mb-4 italic'>{type}</h2>
 
-      {/* content */}
-      <div className='flex flex-col w-full'>
-        <div className='overflow-hidden border rounded shadow border-themeText2'>
-          <ResponsivePlayer video={video} img={img} />
-        </div>
-        {/* <Image
+      {/* video / image */}
+      <div className='overflow-hidden border rounded shadow border-themeText2'>
+        <ResponsivePlayer video={video} img={img} />
+      </div>
+      {/* <Image
               src={img.src}
               // width={img.width}
               // height={img.height}
@@ -53,20 +63,20 @@ export const Project = ({
               className='object-cover object-top'
             /> */}
 
-        <div className='max-w-xl'>
-          <p className='my-4 text-lg'>{description}</p>
+      {/* description and badges */}
+      <div className='max-w-xl'>
+        <p className='my-4 text-lg'>{description}</p>
 
-          {/* badges */}
-          <div className='flex flex-wrap mb-8 -ml-1'>
-            {stack.map((tech, idx) => (
-              <p
-                key={idx}
-                className='px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2'
-              >
-                {tech}
-              </p>
-            ))}
-          </div>
+        {/* badges */}
+        <div className='flex flex-wrap mb-8 -ml-1'>
+          {stack.map((tech, idx) => (
+            <p
+              key={idx}
+              className='px-2 py-1 m-1 uppercase border rounded-sm shadow-sm text-themeText border-themeText2'
+            >
+              {tech}
+            </p>
+          ))}
         </div>
       </div>
 

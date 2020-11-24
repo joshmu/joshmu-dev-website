@@ -1,3 +1,15 @@
+/**
+ * @path /tailwind.config.js
+ *
+ * @project joshmu-dev-website
+ * @file tailwind.config.js
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Wednesday, 26th August 2020 2:14:35 pm
+ * @modified Tuesday, 24th November 2020 11:15:05 am
+ * @copyright © 2020 - 2020 MU
+ */
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const plugins = []
@@ -27,6 +39,7 @@ module.exports = {
         4: '0.04',
         5: '0.05',
         10: '0.10',
+        90: '0.90',
       },
       rotate: {
         '-22': '-22deg',
