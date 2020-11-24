@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 11:01:31 am
- * @modified Tuesday, 24th November 2020 11:35:36 am
+ * @modified Tuesday, 24th November 2020 4:46:57 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -30,14 +30,14 @@ export const CurrentDayLabel = ({
   }, [ready])
 
   return (
-    <div className='absolute top-0 right-0 '>
+    <div className='absolute top-0 right-0'>
       <motion.div
         key='currentDayLabel'
         initial='initial'
         animate={controls}
         variants={labelVariants}
       >
-        <div className='flex flex-col items-start justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
+        <div className='flex flex-col items-center justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
           {/* arrow left */}
           <svg
             className='w-4 h-4'

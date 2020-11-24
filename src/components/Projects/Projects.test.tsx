@@ -24,7 +24,7 @@ const projects = [
   {
     title: 'aid-online',
     href: 'http://aid.alisdairmacindoe.com',
-    github: 'https://github.com/tebgeronimo/aid-online',
+    github: 'https://github.com/joshmu/aid-online-code-sample',
   },
 ]
 
