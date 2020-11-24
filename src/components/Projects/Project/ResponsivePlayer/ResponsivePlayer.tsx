@@ -1,3 +1,4 @@
+import { isMobile } from 'react-device-detect'
 import ReactPlayer from 'react-player'
 
 import { PlayIcon } from './PlayIcon/PlayIcon'
@@ -18,8 +19,9 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
       className='w-full'
     >
       <ReactPlayer
-        style={style.reactPlayer}
+        playing={true}
         url={video.src}
+        style={style.reactPlayer}
         width='100%'
         height='100%'
         // width={video.width}
@@ -28,7 +30,7 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
         muted
         loop
         controls
-        light={img.src}
+        light={isMobile ? img.src : false}
         playIcon={<PlayIcon motionKey={img.src} />}
       ></ReactPlayer>
     </div>
