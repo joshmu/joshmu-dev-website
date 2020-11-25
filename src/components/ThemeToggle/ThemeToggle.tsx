@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 2:25:43 pm
- * @modified Friday, 20th November 2020 4:57:03 pm
+ * @modified Wednesday, 25th November 2020 12:15:59 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -47,6 +47,8 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
             key='dark'
             {...motionStyle}
             className='relative focus:outline-none'
+            type='button'
+            role='presentation'
           >
             <MoonIcon className='fill-current' />
           </motion.button>
@@ -57,6 +59,8 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
             key='light'
             {...motionStyle}
             className='relative focus:outline-none'
+            type='button'
+            role='presentation'
           >
             <SunIcon className='fill-current' />
           </motion.button>
@@ -67,6 +71,8 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
             key='alt'
             {...motionStyle}
             className='relative focus:outline-none'
+            type='button'
+            role='presentation'
           >
             <AltIcon className='fill-current' />
           </motion.button>
@@ -77,6 +83,8 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
             key='alt2'
             {...motionStyle}
             className='relative focus:outline-none'
+            type='button'
+            role='presentation'
           >
             <Alt2Icon className='fill-current' />
           </motion.button>
