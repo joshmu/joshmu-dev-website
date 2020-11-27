@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020
- * @modified Friday, 27th November 2020 11:07:00 am
+ * @modified Friday, 27th November 2020 11:08:40 am
  * @copyright © 2020 - 2020 MU
  */
 
@@ -47,7 +47,6 @@ const cache: {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const output = await getGithubActivity()
-  console.log('github activity:', output)
   res.status(200).json(output)
 }
 
@@ -56,7 +55,7 @@ async function getGithubActivity() {
   // 30 minutes
   const cacheDuration = 1800000
   if (timeSinceLastFetch <= cacheDuration) {
-    console.log('using github activity cache')
+    console.log('using cache')
     return cache.output
   }
 
