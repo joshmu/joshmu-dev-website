@@ -1,12 +1,12 @@
 /**
  * @path /src/components/Activity/Activity.tsx
- * 
+ *
  * @project joshmu-dev-website
  * @file Activity.tsx
- * 
+ *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020 4:37:19 pm
- * @modified Friday, 20th November 2020 4:59:07 pm
+ * @modified Friday, 27th November 2020 10:56:15 am
  * @copyright © 2020 - 2020 MU
  */
 
@@ -34,6 +34,7 @@ export const Activity = () => {
     fetch('/api/github')
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         setCalendar(data)
         setState('ready')
       })

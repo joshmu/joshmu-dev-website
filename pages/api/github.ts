@@ -1,3 +1,15 @@
+/**
+ * @path /pages/api/github.ts
+ *
+ * @project joshmu-dev-website
+ * @file github.ts
+ *
+ * @author Josh Mu <hello@joshmu.dev>
+ * @created Thursday, 19th November 2020
+ * @modified Friday, 27th November 2020 11:07:00 am
+ * @copyright © 2020 - 2020 MU
+ */
+
 import cheerio from 'cheerio'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -10,12 +22,19 @@ export interface CalendarDayInterface {
   color: string
   grade: COLOR_GRADE
 }
+// enum COLOR_GRADE {
+//   'var(--color-calendar-graph-day-bg)',
+//   'var(--color-calendar-graph-day-L1-bg)',
+//   'var(--color-calendar-graph-day-L2-bg)',
+//   'var(--color-calendar-graph-day-L3-bg)',
+//   'var(--color-calendar-graph-day-L4-bg)',
+// }
 enum COLOR_GRADE {
-  'var(--color-calendar-graph-day-bg)',
-  'var(--color-calendar-graph-day-L1-bg)',
-  'var(--color-calendar-graph-day-L2-bg)',
-  'var(--color-calendar-graph-day-L3-bg)',
-  'var(--color-calendar-graph-day-L4-bg)',
+  '#ebedf0',
+  '#9be9a8',
+  '#40c463',
+  '#30a14e',
+  '#216e39',
 }
 
 const cache: {
@@ -28,6 +47,7 @@ const cache: {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const output = await getGithubActivity()
+  console.log('github activity:', output)
   res.status(200).json(output)
 }
 
@@ -36,6 +56,7 @@ async function getGithubActivity() {
   // 30 minutes
   const cacheDuration = 1800000
   if (timeSinceLastFetch <= cacheDuration) {
+    console.log('using github activity cache')
     return cache.output
   }
 
