@@ -3,16 +3,15 @@ import React from 'react'
 import { MdKeyboardArrowDown as ArrowDownIcon } from 'react-icons/md'
 
 import { useThemeContext } from '@/context/themeContext'
+import { useScrollTo } from '@/hooks/useScrollTo'
 import { Curtain } from '@/shared/ux/Curtain'
+import { RevealInView } from '@/shared/ux/RevealInView'
 
 // // because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
 // const Curtain = dynamic(
 //   () => import('@/shared/ux/Curtain').then(mod => mod.Curtain),
 //   { ssr: false }
 // )
-
-import { RevealInView } from '@/shared/ux/RevealInView'
-import { useScrollTo } from '@/hooks/useScrollTo'
 
 type HeroProps = { props?: { [key: string]: any } }
 
@@ -48,7 +47,7 @@ export const Hero = ({ ...props }: HeroProps) => {
       </div>
 
       {/* down arrow */}
-      <div className='absolute bottom-0 z-10 flex items-center justify-center w-full mb-8 text-4xl'>
+      <div className='absolute z-10 flex items-center justify-center w-full mb-8 text-4xl bottom-10'>
         <ArrowDownIcon
           onClick={handleScrollDown}
           className='cursor-pointer fill-current animate-bounce'

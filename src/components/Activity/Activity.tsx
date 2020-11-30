@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020 4:37:19 pm
- * @modified Friday, 27th November 2020 10:56:15 am
+ * @modified Monday, 30th November 2020 3:06:53 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -23,7 +23,10 @@ import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
 export const Activity = () => {
   const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
   const [state, setState] = useState<'loading' | 'ready' | 'done'>('loading')
-  const [lastDayVisible, setLastDayVisible] = useState<boolean>(false)
+  const [
+    lastDayAnimationComplete,
+    setLastDayAnimationComplete,
+  ] = useState<boolean>(false)
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false, // keep checking in case data has not loaded yet
@@ -48,10 +51,6 @@ export const Activity = () => {
     }
   }, [controls, inView, state])
 
-  const handleLastDay = () => {
-    setLastDayVisible(true)
-  }
-
   if (!calendar) return null
 
   return (
@@ -65,9 +64,11 @@ export const Activity = () => {
           custom={idx}
           animate={controls}
           variants={calendarDayVariants}
-          onAnimationComplete={
-            idx === calendar.length - 1 ? handleLastDay : null
-          }
+          onAnimationComplete={() => {
+            idx === calendar.length - 1
+              ? setLastDayAnimationComplete(true)
+              : null
+          }}
           className='relative flex items-center justify-center h-4 m-px md:h-6'
         >
           {/* background */}
@@ -80,7 +81,7 @@ export const Activity = () => {
 
           {/* current day */}
           {idx === calendar.length - 1 && (
-            <CurrentDayLabel date={date} ready={lastDayVisible} />
+            <CurrentDayLabel date={date} ready={lastDayAnimationComplete} />
           )}
         </motion.div>
       ))}

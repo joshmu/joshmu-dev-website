@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Friday, 20th November 2020 4:58:53 pm
+ * @modified Monday, 30th November 2020 3:07:41 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -38,7 +38,7 @@ export const Header = () => {
           <div
             data-testid='logoTitle'
             onClick={handleLogoClick}
-            className='h-full pl-2 text-2xl font-normal uppercase transition-colors duration-200 ease-in-out cursor-pointer hover:text-themeAccent'
+            className='h-full pl-2 text-2xl font-normal uppercase cursor-pointer'
           >
             <Compressor text='josh mu' hide='osh ' />
           </div>
