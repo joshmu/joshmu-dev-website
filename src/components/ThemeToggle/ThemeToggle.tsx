@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 2:25:43 pm
- * @modified Wednesday, 25th November 2020 12:15:59 pm
+ * @modified Tuesday, 1st December 2020 3:49:41 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -19,8 +19,8 @@ import { IoIosWater as AltIcon } from 'react-icons/io'
 import { useThemeContext } from '@/context/themeContext'
 
 export const ThemeToggle = (props: { [key: string]: any }) => {
-  // todo: integrate theme_types enum
-  const { toggleTheme, theme, THEME_TYPES } = useThemeContext()
+  // todo: integrate THEME enum
+  const { toggleTheme, theme, THEME_TYPE } = useThemeContext()
 
   const handleClick = () => {
     toggleTheme()
