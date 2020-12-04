@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020
- * @modified Friday, 27th November 2020 11:08:40 am
+ * @modified Friday, 4th December 2020 12:31:26 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -20,21 +20,37 @@ export interface CalendarDayInterface {
   date: string
   count: number
   color: string
-  grade: COLOR_GRADE
+  grade: number
+  gradeFromColor: COLOR_GRADE
+}
+enum COLOR_GRADE {
+  'var(--color-calendar-graph-day-bg)',
+  'var(--color-calendar-graph-day-L1-bg)',
+  'var(--color-calendar-graph-day-L2-bg)',
+  'var(--color-calendar-graph-day-L3-bg)',
+  'var(--color-calendar-graph-day-L4-bg)',
 }
 // enum COLOR_GRADE {
-//   'var(--color-calendar-graph-day-bg)',
-//   'var(--color-calendar-graph-day-L1-bg)',
-//   'var(--color-calendar-graph-day-L2-bg)',
-//   'var(--color-calendar-graph-day-L3-bg)',
-//   'var(--color-calendar-graph-day-L4-bg)',
+//   '#ebedf0',
+//   '#9be9a8',
+//   '#40c463',
+//   '#30a14e',
+//   '#216e39',
 // }
-enum COLOR_GRADE {
-  '#ebedf0',
-  '#9be9a8',
-  '#40c463',
-  '#30a14e',
-  '#216e39',
+
+// slightly estimating this...
+const calcGrade = count => {
+  let grade = 0
+  if (count >= 1 && count < 7) {
+    grade = 1
+  } else if (count >= 7 && count < 14) {
+    grade = 2
+  } else if (count >= 14 && count < 21) {
+    grade = 3
+  } else if (count >= 21) {
+    grade = 4
+  }
+  return grade
 }
 
 const cache: {
@@ -72,10 +88,11 @@ async function getGithubActivity() {
       const date = $day.data('date')
       const count = $day.data('count')
       const color = $day.attr('fill')
-      const grade = COLOR_GRADE[color]
+      const grade = calcGrade(count)
+      const gradeFromColor = COLOR_GRADE[color]
 
-      // console.log({ date, count, color })
-      return { date, count, color, grade }
+      // console.log({ date, count, color, grade, gradeFromColor })
+      return { date, count, color, grade, gradeFromColor }
     }, [])
 
   cache.lastFetch = Date.now()
