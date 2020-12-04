@@ -5,52 +5,53 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Wednesday, 26th August 2020 2:14:35 pm
- * @modified Tuesday, 24th November 2020 11:15:05 am
+ * @modified Friday, 4th December 2020 12:34:14 pm
  * @copyright © 2020 - 2020 MU
  */
 
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
-const plugins = [];
-const devOnlyPlugins = [require("tailwindcss-debug-screens")];
+const plugins = []
+const devOnlyPlugins = [require('tailwindcss-debug-screens')]
 
 module.exports = {
   purge: [
-    "./pages/**/*.{ts,tsx, js,jsx}",
-    "./src/components/**/*.{ts,tsx,js,jsx}",
+    './pages/**/*.{ts,tsx, js,jsx}',
+    './src/components/**/*.{ts,tsx,js,jsx}',
   ],
+  darkMode: false,
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Raleway", "Roboto", ...defaultTheme.fontFamily.sans],
+        sans: ['Raleway', 'Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        themeText: "var(--text)",
-        themeText2: "var(--text2)",
-        themeBg: "var(--background)",
-        themeBg2: "var(--background2)",
-        themeAccent: "var(--accent)",
+        themeText: 'var(--text)',
+        themeText2: 'var(--text2)',
+        themeBg: 'var(--background)',
+        themeBg2: 'var(--background2)',
+        themeAccent: 'var(--accent)',
       },
       opacity: {
-        1: "0.01",
-        2: "0.02",
-        3: "0.03",
-        4: "0.04",
-        5: "0.05",
-        10: "0.10",
-        90: "0.90",
+        1: '0.01',
+        2: '0.02',
+        3: '0.03',
+        4: '0.04',
+        5: '0.05',
+        10: '0.10',
+        90: '0.90',
       },
       rotate: {
-        "-22": "-22deg",
+        '-22': '-22deg',
       },
       gridTemplateRows: {
-        7: "repeat(7, minmax(0, 1fr))",
+        7: 'repeat(7, minmax(0, 1fr))',
       },
     },
   },
   variants: {},
   plugins:
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === 'production'
       ? plugins
       : [...plugins, ...devOnlyPlugins],
-};
+}
