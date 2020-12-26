@@ -26,7 +26,6 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
         height='100%'
         // width={video.width}
         // height={video.height}
-        autoPlay={true}
         muted
         loop
         controls
