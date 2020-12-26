@@ -39,11 +39,9 @@ export const Hero = ({ ...props }: HeroProps) => {
         >
           <Curtain>josh mu</Curtain>
         </h1>
-        <p>
-          <RevealInView delay={1}>
-            <span>I ♡ coffee & code.</span>
-          </RevealInView>
-        </p>
+        <RevealInView delay={1}>
+          <span>I ♡ coffee & code.</span>
+        </RevealInView>
       </div>
 
       {/* down arrow */}

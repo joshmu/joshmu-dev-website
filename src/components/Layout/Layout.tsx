@@ -1,12 +1,12 @@
 /**
  * @path /src/components/Layout/Layout.tsx
- * 
+ *
  * @project joshmu-dev-website
  * @file Layout.tsx
- * 
+ *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Friday, 20th November 2020 4:48:06 pm
+ * @modified Saturday, 26th December 2020 2:53:30 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -65,6 +65,10 @@ export const Layout = ({ children }: LayoutProps) => {
         <title>{metaRef.current.title}</title>
 
         {/* // * meta needs to be direct child of <Head> otherwise nextjs breaks... */}
+
+        {/* // * make sure to add this to html tag
+        itemscope itemtype="http://schema.org/WebPage" */}
+
         {/* HTML Meta Tags */}
         {/* Meta Tags Generated via http://heymeta.com</meta> */}
         <meta name='description' content={metaRef.current.description} />

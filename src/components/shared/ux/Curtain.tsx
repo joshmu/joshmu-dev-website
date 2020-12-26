@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion'
+import { Variants, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
 type CurtainProps = {
@@ -14,7 +14,7 @@ export const Curtain = ({
 }: CurtainProps) => {
   const chars = children.split('')
   return (
-    <div>
+    <span className='inline-block'>
       {chars.map((char, idx) => (
         <Char
           key={char + idx}
@@ -24,7 +24,7 @@ export const Curtain = ({
           delay={stagger * idx}
         />
       ))}
-    </div>
+    </span>
   )
 }
 

@@ -44,17 +44,17 @@ export const RevealInView = ({
   }
 
   return (
-    <span ref={ref}>
-      <motion.span
+    <div className='inline-block' ref={ref}>
+      <motion.div
         animate={controls}
         initial='initial'
         custom={custom}
         variants={variants}
-        style={{ display: 'block' }}
+        style={{ display: 'inline-block' }}
         {...props}
       >
         {children}
-      </motion.span>
-    </span>
+      </motion.div>
+    </div>
   )
 }
