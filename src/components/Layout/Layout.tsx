@@ -6,13 +6,12 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Saturday, 26th December 2020 2:53:30 pm
+ * @modified Saturday, 26th December 2020 3:03:10 pm
  * @copyright © 2020 - 2020 MU
  */
 
 import { Variants, motion } from 'framer-motion'
 import Head from 'next/head'
-import { useEffect, useRef } from 'react'
 
 import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
@@ -30,23 +29,18 @@ type MetaRefType = {
   imgUrl: string
 }
 
+const metaData = {
+  title: 'Josh Mu - Developer Portfolio Website',
+  description: 'The official portfolio website for web developer Josh Mu',
+  keywords:
+    'josh mu, web dev, developer, coding, code, javascript, tech, dance, yoga, art, official',
+  origin: 'https://joshmu.dev',
+  imgUrl: 'https://joshmu.dev/assets/avatar.jpg',
+}
+
 export const Layout = ({ children }: LayoutProps) => {
   // google analytics (placed in layout to include page/route data)
   setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID)
-
-  const metaRef = useRef<MetaRefType>({
-    title: 'Josh Mu - Developer Portfolio Website',
-    description: 'The official portfolio website for web developer Josh Mu',
-    keywords:
-      'josh mu, web dev, developer, coding, code, javascript, tech, dance, yoga, art, official',
-    origin: null,
-    imgUrl: '/assets/avatar.jpg',
-  })
-  useEffect(() => {
-    const origin = window.location.origin
-    metaRef.current.origin = origin
-    metaRef.current.imgUrl = origin + metaRef.current.imgUrl
-  }, [])
 
   const layoutVariants: Variants = {
     initial: { opacity: 0 },
@@ -62,7 +56,7 @@ export const Layout = ({ children }: LayoutProps) => {
       variants={layoutVariants}
     >
       <Head>
-        <title>{metaRef.current.title}</title>
+        <title>{metaData.title}</title>
 
         {/* // * meta needs to be direct child of <Head> otherwise nextjs breaks... */}
 
@@ -71,29 +65,26 @@ export const Layout = ({ children }: LayoutProps) => {
 
         {/* HTML Meta Tags */}
         {/* Meta Tags Generated via http://heymeta.com</meta> */}
-        <meta name='description' content={metaRef.current.description} />
-        <meta name='keywords' content={metaRef.current.keywords} />
+        <meta name='description' content={metaData.description} />
+        <meta name='keywords' content={metaData.keywords} />
 
         {/* Google / Search Engine Tags */}
-        <meta itemProp='name' content={metaRef.current.title} />
-        <meta itemProp='description' content={metaRef.current.description} />
-        <meta itemProp='image' content={metaRef.current.imgUrl} />
+        <meta itemProp='name' content={metaData.title} />
+        <meta itemProp='description' content={metaData.description} />
+        <meta itemProp='image' content={metaData.imgUrl} />
 
         {/* Facebook Meta Tags */}
-        <meta property='og:url' content={metaRef.current.origin} />
+        <meta property='og:url' content={metaData.origin} />
         <meta property='og:type' content='website' />
-        <meta property='og:title' content={metaRef.current.title} />
-        <meta property='og:description' content={metaRef.current.description} />
-        <meta property='og:image' content={metaRef.current.imgUrl} />
+        <meta property='og:title' content={metaData.title} />
+        <meta property='og:description' content={metaData.description} />
+        <meta property='og:image' content={metaData.imgUrl} />
 
         {/* Twitter Meta Tags */}
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={metaRef.current.title} />
-        <meta
-          name='twitter:description'
-          content={metaRef.current.description}
-        />
-        <meta name='twitter:image' content={metaRef.current.imgUrl} />
+        <meta name='twitter:title' content={metaData.title} />
+        <meta name='twitter:description' content={metaData.description} />
+        <meta name='twitter:image' content={metaData.imgUrl} />
 
         {/* favicon */}
         {/* https://realfavicongenerator.net/ */}
