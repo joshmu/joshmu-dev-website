@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap');
 
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
   background-color: theme('colors.themeBg');
   color: theme('colors.themeText');
   -webkit-font-smoothing: antialiased;
@@ -13,7 +17,7 @@ body {
   // avoid any horizontal scrolling
   overflow-x: hidden;
 
-  & :focus {
+  &:focus {
     outline: 0 !important;
   }
 }
@@ -30,7 +34,7 @@ body {
 
 .theme-dark {
   --text: #f3f3f3;
-  --text2: #444444;
+  --text2: #444;
 
   --background: #010101;
   --background2: theme('colors.gray.900');
@@ -59,6 +63,7 @@ body {
 }
 
 // HELPERS
+
 .radial-bg {
   background-image: radial-gradient(
     theme('colors.themeAccent'),
