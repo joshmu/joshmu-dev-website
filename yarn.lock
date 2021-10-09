@@ -6065,7 +6065,14 @@
     "minimist" "^1.2.0"
     "strip-json-comments" "~2.0.1"
 
-"react-dom@*", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^16.6.0 || ^17", "react-dom@^16.8", "react-dom@^16.9.0 || ^17", "react-dom@^17.0.1":
+"react-device-detect@^1.17.0":
+  "integrity" "sha512-bBblIStwpHmoS281JFIVqeimcN3LhpoP5YKDWzxQdBIUP8S2xPvHDgizLDhUq2ScguLfVPmwfF5y268EEQR60w=="
+  "resolved" "https://registry.npmjs.org/react-device-detect/-/react-device-detect-1.17.0.tgz"
+  "version" "1.17.0"
+  dependencies:
+    "ua-parser-js" "^0.7.24"
+
+"react-dom@*", "react-dom@^15.5.4 || ^16.0.0", "react-dom@^16.6.0 || ^17", "react-dom@^16.8", "react-dom@^16.9.0 || ^17", "react-dom@^17.0.1", "react-dom@>= 0.14.0 < 18.0.0":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -6130,7 +6137,7 @@
     "lodash.throttle" "^4.1.1"
     "prop-types" "^15.7.2"
 
-"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0", "react@^15.5.4 || ^16.0.0", "react@^15.6.2 || ^16.0 || ^17", "react@^16.6.0 || ^17", "react@^16.8", "react@^16.9.0 || ^17", "react@^17.0.0", "react@^17.0.1", "react@>=16.6.0", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.1":
+"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0", "react@^15.5.4 || ^16.0.0", "react@^15.6.2 || ^16.0 || ^17", "react@^16.6.0 || ^17", "react@^16.8", "react@^16.9.0 || ^17", "react@^17.0.0", "react@^17.0.1", "react@>= 0.14.0 < 18.0.0", "react@>=16.6.0", "react@15.x.x || 16.x.x || 17.x.x", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
@@ -7204,6 +7211,11 @@
   "integrity" "sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.0.5.tgz"
   "version" "4.0.5"
+
+"ua-parser-js@^0.7.24":
+  "integrity" "sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g=="
+  "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.28.tgz"
+  "version" "0.7.28"
 
 "uglify-js@^3.1.4":
   "integrity" "sha512-oASI1FOJ7BBFkSCNDZ446EgkSuHkOZBuqRFrwXIKWCoXw8ZXQETooTQjkAcBS03Acab7ubCKsXnwuV2svy061g=="
