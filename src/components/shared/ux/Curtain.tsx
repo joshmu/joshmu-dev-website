@@ -1,5 +1,5 @@
-import { Variants, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import { Variants, motion } from 'framer-motion'
 
 type CurtainProps = {
   children: string
