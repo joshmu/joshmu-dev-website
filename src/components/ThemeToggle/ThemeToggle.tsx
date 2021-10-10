@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 2:25:43 pm
- * @modified Sunday, 10th October 2021 3:37:48 pm
+ * @modified Sunday, 10th October 2021 4:24:01 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -17,10 +17,11 @@ import { HiSun as SunIcon } from 'react-icons/hi'
 import { IoIosWater as AltIcon } from 'react-icons/io'
 
 import { useThemeContext } from '@/context/themeContext'
+import { useCursorPointer } from '../Cursor/Cursor'
 
 export const ThemeToggle = (props: { [key: string]: any }) => {
-  // todo: integrate THEME enum
   const { toggleTheme, theme, THEME_TYPE } = useThemeContext()
+  const cursorActions = useCursorPointer()
 
   const handleClick = () => {
     toggleTheme()
@@ -40,6 +41,7 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
       onClick={handleClick}
       className='relative flex items-center cursor-pointer'
       {...props}
+      {...cursorActions}
     >
       <AnimatePresence exitBeforeEnter>
         {theme === THEME_TYPE.dark && (

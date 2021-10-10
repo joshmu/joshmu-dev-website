@@ -27,6 +27,23 @@ html {
     height: 30px;
     background: white;
     border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &--default {
+    .main-cursor-background {
+      // background: var(--text);
+    }
+  }
+
+  &--pointer {
+    mix-blend-mode: normal;
+
+    .main-cursor-background {
+      background: transparent;
+      box-shadow: 0 0 0 2px var(--accent);
+      transform: scale(1.75);
+    }
   }
 }
 
