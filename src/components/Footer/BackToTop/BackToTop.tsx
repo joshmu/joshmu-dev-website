@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 
 import { useScrollTo } from '@/hooks/useScrollTo'
+import { useCursorPointer } from '@/components/Cursor/Cursor'
 
 export const BackToTop = () => {
   const scrollTo = useScrollTo()
+  const cursorActions = useCursorPointer()
 
   const handleBackToTopClick = () => scrollTo('hero')
 
@@ -13,6 +15,7 @@ export const BackToTop = () => {
       <motion.svg
         whileHover={{ scale: 1.3 }}
         onClick={handleBackToTopClick}
+        {...cursorActions}
         className='w-4 h-4 mx-auto cursor-pointer'
         fill='none'
         stroke='currentColor'

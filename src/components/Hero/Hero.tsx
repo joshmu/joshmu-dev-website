@@ -6,6 +6,7 @@ import { useThemeContext } from '@/context/themeContext'
 import { useScrollTo } from '@/hooks/useScrollTo'
 import { Curtain } from '@/shared/ux/Curtain'
 import { RevealInView } from '@/shared/ux/RevealInView'
+import { useCursorPointer } from '../Cursor/Cursor'
 
 // // because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
 // const Curtain = dynamic(
@@ -18,6 +19,7 @@ type HeroProps = { props?: { [key: string]: any } }
 export const Hero = ({ ...props }: HeroProps) => {
   const scrollTo = useScrollTo()
   const { toggleTheme } = useThemeContext()
+  const cursorActions = useCursorPointer()
 
   const handleScrollDown = () => {
     scrollTo('banner')
@@ -48,6 +50,7 @@ export const Hero = ({ ...props }: HeroProps) => {
       <div className='absolute z-10 flex items-center justify-center w-full mb-8 text-4xl bottom-10'>
         <ArrowDownIcon
           onClick={handleScrollDown}
+          {...cursorActions}
           className='cursor-pointer fill-current animate-bounce'
         />
       </div>

@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Monday, 30th November 2020 3:07:41 pm
+ * @modified Sunday, 10th October 2021 4:27:38 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -16,11 +16,13 @@ import { useScrollTo } from '@/hooks/useScrollTo'
 import { Compressor } from '@/shared/ux/Compressor'
 
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
+import { useCursorPointer } from '../Cursor/Cursor'
 
 const menuItems = ['projects', 'contact']
 
 export const Header = () => {
   const scrollTo = useScrollTo()
+  const cursorActions = useCursorPointer()
 
   const handleNavItemClick = (section: string): void => {
     scrollTo(section)
@@ -38,6 +40,7 @@ export const Header = () => {
           <div
             data-testid='logoTitle'
             onClick={handleLogoClick}
+            {...cursorActions}
             className='h-full pl-2 text-2xl font-normal uppercase cursor-pointer'
           >
             <Compressor text='josh mu' hide='osh ' />
@@ -57,6 +60,7 @@ export const Header = () => {
                     onClick={() => {
                       handleNavItemClick(item)
                     }}
+                    {...cursorActions}
                     variants={navItemVariants}
                     className='px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none'
                   >

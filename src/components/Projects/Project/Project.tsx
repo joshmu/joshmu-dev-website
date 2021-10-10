@@ -6,10 +6,11 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020
- * @modified Tuesday, 24th November 2020 11:13:26 am
+ * @modified Sunday, 10th October 2021 4:30:19 pm
  * @copyright © 2020 - 2020 MU
  */
 
+import { useCursorPointer } from '@/components/Cursor/Cursor'
 import { ResponsivePlayer } from './ResponsivePlayer/ResponsivePlayer'
 
 type DataProps = {
@@ -32,6 +33,8 @@ export const Project = ({
   data: { title, type, description, stack, website, github, img, video },
   ...props
 }: ProjectProps) => {
+  const cursorActions = useCursorPointer()
+
   return (
     <div
       className='relative z-10 p-4 m-4 overflow-hidden transition-colors duration-200 ease-in-out border rounded-sm shadow-lg sm:m-2 border-themeText2 bg-themeBg'
@@ -41,7 +44,7 @@ export const Project = ({
       {...props}
     >
       {/* title */}
-      <a href={website}>
+      <a href={website} {...cursorActions}>
         <h1 className='mb-2 text-3xl font-bold tracking-tighter uppercase transform -translate-y-1 cursor-pointer -rotate-3'>
           {title}
         </h1>
@@ -101,6 +104,7 @@ export const Project = ({
           <a
             className='font-bold cursor-pointer hover:underline'
             href={website}
+            {...cursorActions}
           >
             {website.split('//')[1]}
           </a>
@@ -124,6 +128,7 @@ export const Project = ({
           <a
             className='font-bold cursor-pointer hover:underline'
             href={`https://${github}`}
+            {...cursorActions}
           >
             {github.replace('github.com/', '')}
           </a>
