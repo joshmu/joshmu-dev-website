@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 2:25:43 pm
- * @modified Tuesday, 1st December 2020 3:49:41 pm
+ * @modified Sunday, 10th October 2021 3:37:48 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -42,9 +42,9 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
       {...props}
     >
       <AnimatePresence exitBeforeEnter>
-        {theme === 'dark' && (
+        {theme === THEME_TYPE.dark && (
           <motion.button
-            key='dark'
+            key={THEME_TYPE.dark}
             {...motionStyle}
             className='relative focus:outline-none'
             type='button'
@@ -54,9 +54,9 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           </motion.button>
         )}
 
-        {theme === 'light' && (
+        {theme === THEME_TYPE.light && (
           <motion.button
-            key='light'
+            key={THEME_TYPE.light}
             {...motionStyle}
             className='relative focus:outline-none'
             type='button'
@@ -66,9 +66,9 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           </motion.button>
         )}
 
-        {theme === 'alt' && (
+        {theme === THEME_TYPE.alt && (
           <motion.button
-            key='alt'
+            key={THEME_TYPE.alt}
             {...motionStyle}
             className='relative focus:outline-none'
             type='button'
@@ -78,9 +78,9 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           </motion.button>
         )}
 
-        {theme === 'alt2' && (
+        {theme === THEME_TYPE.alt2 && (
           <motion.button
-            key='alt2'
+            key={THEME_TYPE.alt2}
             {...motionStyle}
             className='relative focus:outline-none'
             type='button'
