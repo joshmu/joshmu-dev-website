@@ -37,11 +37,12 @@ html {
   }
 
   &--pointer {
-    mix-blend-mode: normal;
+    // mix-blend-mode: normal;
 
     .main-cursor-background {
       background: transparent;
-      box-shadow: 0 0 0 2px var(--accent);
+      // box-shadow: 0 0 0 2px var(--accent);
+      box-shadow: 0 0 0 2px white;
       transform: scale(1.75);
     }
   }
