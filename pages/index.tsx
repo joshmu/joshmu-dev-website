@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Saturday, 25th September 2021 1:16:07 pm
+ * @modified Friday, 17th December 2021 1:29:00 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -16,13 +16,26 @@ import { Contact } from '@/components/Contact/Contact'
 import { Hero } from '@/components/Hero/Hero'
 import { Projects } from '@/components/Projects/Projects'
 import { Layout } from '@/layout/Layout'
+import dynamic from 'next/dynamic'
+
+const HeroWithNoSSR = dynamic(() => import('../src/components/Hero/Hero'), {
+  ssr: false,
+})
+const BannerWithNoSSR = dynamic(
+  () => import('../src/components/Banner/Banner'),
+  {
+    ssr: false,
+  }
+)
 
 const LandingPage = () => {
   return (
     <Layout>
-      <Hero />
+      {/* <Hero /> */}
+      <HeroWithNoSSR />
 
-      <Banner />
+      {/* <Banner /> */}
+      <BannerWithNoSSR />
 
       <Projects />
 

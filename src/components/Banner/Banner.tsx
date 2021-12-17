@@ -36,6 +36,8 @@ export const Banner = ({ ...props }: BannerProps) => {
   )
 }
 
+export default Banner
+
 type CharSplitProps = {
   children: string
   scrollStart: number
