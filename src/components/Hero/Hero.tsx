@@ -68,5 +68,3 @@ export const Hero = ({ ...props }: HeroProps) => {
     </div>
   )
 }
-
-export default Hero
