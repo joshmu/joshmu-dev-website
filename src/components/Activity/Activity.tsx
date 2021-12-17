@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020 4:37:19 pm
- * @modified Monday, 30th November 2020 3:06:53 pm
+ * @modified Friday, 17th December 2021 1:30:07 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -23,10 +23,8 @@ import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
 export const Activity = () => {
   const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
   const [state, setState] = useState<'loading' | 'ready' | 'done'>('loading')
-  const [
-    lastDayAnimationComplete,
-    setLastDayAnimationComplete,
-  ] = useState<boolean>(false)
+  const [lastDayAnimationComplete, setLastDayAnimationComplete] =
+    useState<boolean>(false)
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false, // keep checking in case data has not loaded yet
@@ -37,7 +35,6 @@ export const Activity = () => {
     fetch('/api/github')
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setCalendar(data)
         setState('ready')
       })
