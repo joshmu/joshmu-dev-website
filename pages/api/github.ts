@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020
- * @modified Friday, 4th December 2020 12:31:26 pm
+ * @modified Saturday, 22nd January 2022 9:08:43 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -16,7 +16,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 const account = 'joshmu'
 const url = `https://github.com/users/${account}/contributions`
 
-export interface CalendarDayInterface {
+export interface ActivityDayInterface {
   date: string
   count: number
   color: string
@@ -55,7 +55,7 @@ const calcGrade = count => {
 
 const cache: {
   lastFetch: number
-  output: CalendarDayInterface[]
+  output: ActivityDayInterface[]
 } = {
   lastFetch: 0,
   output: [],
