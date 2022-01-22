@@ -36,7 +36,6 @@
     "@types/react": "^17.0.38",
     "@types/react-scroll": "^1.8.3",
     "autoprefixer": "^10.4.2",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "husky": "^7.0.4",
     "jest-axe": "^5.0.1",
     "plop": "^3.0.5",
