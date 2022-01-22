@@ -6,25 +6,30 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Thursday, 19th November 2020 4:37:19 pm
- * @modified Friday, 17th December 2021 1:30:07 pm
+ * @modified Saturday, 22nd January 2022 9:09:11 pm
  * @copyright © 2020 - 2020 MU
  */
 
 // src/components/Activity/Activity.tsx
 
-import { Variants, motion, useAnimation } from 'framer-motion'
+import {
+  Variants,
+  motion,
+  useAnimation,
+  TargetAndTransition,
+} from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-import { CalendarDayInterface } from '@/pages/api/github'
+import { ActivityDayInterface } from '@/pages/api/github'
 
 import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
+import { ControlsAnimationDefinition } from 'framer-motion/types/animation/types'
 
 export const Activity = () => {
-  const [calendar, setCalendar] = useState<CalendarDayInterface[]>(null!)
-  const [state, setState] = useState<'loading' | 'ready' | 'done'>('loading')
-  const [lastDayAnimationComplete, setLastDayAnimationComplete] =
-    useState<boolean>(false)
+  const [calendar, setCalendar] = useState<ActivityDayInterface[]>(null!)
+  const [status, setStatus] = useState<'loading' | 'ready' | 'done'>('loading')
+  const [finalAnimation, setFinalAnimation] = useState<boolean>(false)
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false, // keep checking in case data has not loaded yet
@@ -36,17 +41,24 @@ export const Activity = () => {
       .then(res => res.json())
       .then(data => {
         setCalendar(data)
-        setState('ready')
+        setStatus('ready')
       })
   }, [])
 
   // stagger animation when container is in view
   useEffect(() => {
-    if (inView && state === 'ready') {
-      controls.start('animate')
-      setState('done')
+    if (inView && status === 'ready') {
+      controls.start(activityStaggerAnimation).finally(() => {
+        setFinalAnimation(true)
+      })
     }
-  }, [controls, inView, state])
+  }, [controls, inView, status])
+
+  // mark animations complete
+  useEffect(() => {
+    if (!finalAnimation) return
+    setStatus('done')
+  }, [finalAnimation])
 
   if (!calendar) return null
 
@@ -60,25 +72,18 @@ export const Activity = () => {
           key={date}
           custom={idx}
           animate={controls}
-          variants={calendarDayVariants}
-          onAnimationComplete={() => {
-            idx === calendar.length - 1
-              ? setLastDayAnimationComplete(true)
-              : null
-          }}
+          initial={{ opacity: 0, y: 20, x: 20 }}
           className='relative flex items-center justify-center h-4 m-px md:h-6'
         >
           {/* background */}
           <div
-            style={{
-              opacity: grade * 0.12,
-            }}
+            style={{ opacity: grade * 0.12 }}
             className='w-full h-full bg-themeText'
           ></div>
 
           {/* current day */}
           {idx === calendar.length - 1 && (
-            <CurrentDayLabel date={date} ready={lastDayAnimationComplete} />
+            <CurrentDayLabel date={date} ready={finalAnimation} />
           )}
         </motion.div>
       ))}
@@ -86,9 +91,8 @@ export const Activity = () => {
   )
 }
 
-const calendarDayVariants: Variants = {
-  initial: { opacity: 0, y: 20, x: 20 },
-  animate: custom => ({
+function activityStaggerAnimation(custom: number): TargetAndTransition {
+  return {
     opacity: 1,
     y: 0,
     x: 0,
@@ -97,5 +101,5 @@ const calendarDayVariants: Variants = {
       delay: custom * 0.01,
       ease: [0.6, 0.05, -0.01, 0.9],
     },
-  }),
+  }
 }

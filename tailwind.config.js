@@ -5,7 +5,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Wednesday, 26th August 2020 2:14:35 pm
- * @modified Friday, 4th December 2020 12:34:14 pm
+ * @modified Saturday, 22nd January 2022 8:21:30 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -15,11 +15,11 @@ const plugins = []
 const devOnlyPlugins = [require('tailwindcss-debug-screens')]
 
 module.exports = {
-  purge: [
+  content: [
     './pages/**/*.{ts,tsx, js,jsx}',
     './src/components/**/*.{ts,tsx,js,jsx}',
   ],
-  darkMode: false,
+  media: false,
   theme: {
     extend: {
       fontFamily: {

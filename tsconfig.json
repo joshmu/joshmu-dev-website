@@ -2,20 +2,44 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/layout/*": ["src/components/Layout/*"],
-      "@/components/*": ["src/components/*"],
-      "@/shared/*": ["src/components/shared/*"],
-      "@/context/*": ["src/context/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/pages/*": ["pages/*"],
-      "@/api/*": ["pages/api/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/services/*": ["src/services/*"],
-      "@/utils/*": ["utils/*"]
+      "@/layout/*": [
+        "src/components/Layout/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/shared/*": [
+        "src/components/shared/*"
+      ],
+      "@/context/*": [
+        "src/context/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/api/*": [
+        "pages/api/*"
+      ],
+      "@/styles/*": [
+        "src/styles/*"
+      ],
+      "@/services/*": [
+        "src/services/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ]
     },
     "checkJs": true,
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -26,8 +50,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

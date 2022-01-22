@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import { RevealInView } from '@/shared/ux/RevealInView'
+import { useCursorPointer } from '../Cursor/Cursor'
 
 const svgVariants: Variants = {
   initial: { opacity: 0 },
@@ -33,6 +34,7 @@ export const Contact = ({ ...props }: ContactProps) => {
   const [ref, inView] = useInView({
     triggerOnce: false,
   })
+  const cursorActions = useCursorPointer()
 
   useEffect(() => {
     inView ? controls.start('visible') : controls.start('initial')
@@ -42,7 +44,11 @@ export const Contact = ({ ...props }: ContactProps) => {
     <div ref={ref} className='pt-12 pb-24 text-center' id='contact' {...props}>
       <div className='relative inline-block px-8 py-4'>
         <RevealInView triggerOnce={false}>
-          <a className='hover:underline' href='mailto:hello@joshmu.dev'>
+          <a
+            className='hover:underline'
+            href='mailto:hello@joshmu.dev'
+            {...cursorActions}
+          >
             hello@joshmu.dev
           </a>
         </RevealInView>
