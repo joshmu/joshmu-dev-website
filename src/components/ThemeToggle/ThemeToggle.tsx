@@ -6,15 +6,18 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 20th November 2020 2:25:43 pm
- * @modified Sunday, 10th October 2021 4:27:11 pm
+ * @modified Saturday, 22nd January 2022 8:34:07 pm
  * @copyright © 2020 - 2020 MU
  */
 
 import { motion } from 'framer-motion'
 import { AnimatePresence } from 'framer-motion'
-import { BsLightningFill as Alt2Icon, BsMoon as MoonIcon } from 'react-icons/bs'
-import { HiSun as SunIcon } from 'react-icons/hi'
-import { IoIosWater as AltIcon } from 'react-icons/io'
+import {
+  BsLightningFill as Alt2Icon,
+  BsMoonFill as MoonIcon,
+  BsDropletFill as DropletIcon,
+  BsSunFill as SunIcon,
+} from 'react-icons/bs'
 
 import { useThemeContext } from '@/context/themeContext'
 import { useCursorPointer } from '../Cursor/Cursor'
@@ -76,7 +79,7 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
             type='button'
             role='presentation'
           >
-            <AltIcon className='fill-current' />
+            <DropletIcon className='fill-current' />
           </motion.button>
         )}
 
