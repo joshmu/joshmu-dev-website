@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Saturday, 26th December 2020 3:04:35 pm
+ * @modified Sunday, 23rd January 2022 8:53:43 pm
  * @copyright © 2020 - 2020 MU
  */
 
@@ -21,7 +21,7 @@ type LayoutProps = {
   children: React.ReactNode
 }
 
-const metaData: {[key: string]: string} = {
+const metaData: { [key: string]: string } = {
   title: 'Josh Mu - Developer Portfolio Website',
   description: 'The official portfolio website for web developer Josh Mu',
   keywords:

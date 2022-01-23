@@ -23,7 +23,8 @@
     "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.33.1",
     "react-player": "^2.9.0",
-    "react-scroll": "^1.8.4"
+    "react-scroll": "^1.8.4",
+    "three": "^0.136.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -35,6 +36,7 @@
     "@types/node": "^17.0.10",
     "@types/react": "^17.0.38",
     "@types/react-scroll": "^1.8.3",
+    "@types/three": "^0.136.1",
     "autoprefixer": "^10.4.2",
     "husky": "^7.0.4",
     "jest-axe": "^5.0.1",
