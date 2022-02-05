@@ -6,7 +6,7 @@
  *
  * @author Josh Mu <hello@joshmu.dev>
  * @created Friday, 13th November 2020 3:44:50 pm
- * @modified Sunday, 10th October 2021 4:27:38 pm
+ * @modified Sunday, 6th February 2022 9:01:18 am
  * @copyright © 2020 - 2020 MU
  */
 
@@ -33,7 +33,7 @@ export const Header = () => {
   }
 
   return (
-    <div className='fixed z-30 w-full mt-4'>
+    <header className='fixed z-30 w-full mt-4'>
       <div className='container mx-auto'>
         <div className='flex items-center justify-between'>
           {/* logo */}
@@ -78,7 +78,7 @@ export const Header = () => {
       </div>
 
       {/* theme toggle */}
-    </div>
+    </header>
   )
 }
 
