@@ -1,27 +1,12 @@
-/**
- * @path /pages/api/github.ts
- *
- * @project joshmu-dev-website
- * @file github.ts
- *
- * @author Josh Mu <hello@joshmu.dev>
- * @created Thursday, 19th November 2020
- * @modified Saturday, 22nd January 2022 9:08:43 pm
- * @copyright © 2020 - 2020 MU
- */
+/** @see https://medium.com/@yuichkun/how-to-retrieve-contribution-graph-data-from-the-github-api-dc3a151b4af */
 
-import cheerio from 'cheerio'
-import { NextApiRequest, NextApiResponse } from 'next'
-
-const account = 'joshmu'
-const url = `https://github.com/users/${account}/contributions`
+import { NextApiRequest, NextApiResponse } from "next"
 
 export interface ActivityDayInterface {
   date: string
   count: number
   color: string
   grade: number
-  gradeFromColor: COLOR_GRADE
 }
 enum COLOR_GRADE {
   'var(--color-calendar-graph-day-bg)',
@@ -30,6 +15,7 @@ enum COLOR_GRADE {
   'var(--color-calendar-graph-day-L3-bg)',
   'var(--color-calendar-graph-day-L4-bg)',
 }
+// swap this to use github green activity color
 // enum COLOR_GRADE {
 //   '#ebedf0',
 //   '#9be9a8',
@@ -71,32 +57,82 @@ async function getGithubActivity() {
   // 30 minutes
   const cacheDuration = 1800000
   if (timeSinceLastFetch <= cacheDuration) {
-    console.log('using cache')
+    console.log('github activity api: using cache')
     return cache.output
   }
 
-  const body = await fetch(url)
-  const html = await body.text()
+  const response = await fetchGithubActivity()
 
-  const $ = cheerio.load(html)
-  const $calendar = $('.js-calendar-graph-svg')
-  const output = $calendar
-    .find('g > g > rect')
-    .toArray()
-    .map(day => {
-      const $day = $(day)
-      const date = $day.data('date')
-      const count = $day.data('count')
-      const color = $day.attr('fill')
-      const grade = calcGrade(count)
-      const gradeFromColor = COLOR_GRADE[color]
+  const output = response.data?.user?.contributionsCollection?.contributionCalendar?.weeks?.map( week => {
+    return week.contributionDays?.map( day => {
+      const grade = calcGrade(day.contributionCount)
+      const color = COLOR_GRADE[grade]
 
-      // console.log({ date, count, color, grade, gradeFromColor })
-      return { date, count, color, grade, gradeFromColor }
-    }, [])
+      return {
+        date: day.date,
+        count: day.contributionCount,
+        color,
+        grade,
+      } as ActivityDayInterface
+    })
+  }).flat(1) || []
 
   cache.lastFetch = Date.now()
   cache.output = output
 
   return output
+}
+
+type GithubActivityResponse = {
+  data: {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: {
+          totalContributions: number
+          weeks: {
+            contributionDays: {
+              contributionCount: number
+              date: string
+            }[]
+          }[]
+        }
+      }
+    }
+  }
+}
+
+async function fetchGithubActivity({userName = 'joshmu'} = {}): Promise<GithubActivityResponse> {
+  const graphqlQuery = {
+    query: `
+      query ($userName: String!) {
+        user(login: $userName) {
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+              weeks {
+                contributionDays {
+                  contributionCount
+                  date
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+      userName
+    }
+  };
+
+  return fetch('https://api.github.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+    },
+    body: JSON.stringify(graphqlQuery),
+  })
+  .then(response => response.json())
+  .catch(error => console.error('Error:', error));
 }
