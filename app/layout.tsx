@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" itemScope itemType="http://schema.org/WebPage">
+    <html lang="en" itemScope itemType="http://schema.org/WebPage" className="scroll-smooth">
       <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
