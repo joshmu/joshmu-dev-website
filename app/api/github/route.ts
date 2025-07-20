@@ -25,7 +25,7 @@ enum COLOR_GRADE {
 // }
 
 // slightly estimating this...
-const calcGrade = count => {
+const calcGrade = (count: number): number => {
   let grade = 0
   if (count >= 1 && count < 7) {
     grade = 1
@@ -48,8 +48,16 @@ const cache: {
 }
 
 export async function GET() {
-  const output = await getGithubActivity()
-  return NextResponse.json(output)
+  try {
+    const output = await getGithubActivity()
+    return NextResponse.json(output)
+  } catch (error) {
+    console.error('Error fetching GitHub activity:', error)
+    return NextResponse.json(
+      { error: 'Failed to fetch GitHub activity' },
+      { status: 500 }
+    )
+  }
 }
 
 async function getGithubActivity() {
@@ -125,7 +133,7 @@ async function fetchGithubActivity({userName = 'joshmu'} = {}): Promise<GithubAc
     }
   };
 
-  return fetch('https://api.github.com/graphql', {
+  const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -133,6 +141,10 @@ async function fetchGithubActivity({userName = 'joshmu'} = {}): Promise<GithubAc
     },
     body: JSON.stringify(graphqlQuery),
   })
-  .then(response => response.json())
-  .catch(error => console.error('Error:', error));
+
+  if (!response.ok) {
+    throw new Error(`GitHub API request failed: ${response.status}`)
+  }
+
+  return response.json()
 }

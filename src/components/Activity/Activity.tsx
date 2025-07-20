@@ -21,7 +21,7 @@ import {
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 
-import { ActivityDayInterface } from '@/pages/api/github'
+import { ActivityDayInterface } from '@/app/api/github/route'
 
 import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
 import { ControlsAnimationDefinition } from 'framer-motion/types/animation/types'

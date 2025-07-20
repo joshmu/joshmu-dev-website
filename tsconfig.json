@@ -17,11 +17,8 @@
       "@/hooks/*": [
         "src/hooks/*"
       ],
-      "@/pages/*": [
-        "pages/*"
-      ],
-      "@/api/*": [
-        "pages/api/*"
+      "@/app/*": [
+        "app/*"
       ],
       "@/styles/*": [
         "src/styles/*"
