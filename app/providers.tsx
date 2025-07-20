@@ -13,10 +13,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <CursorProvider>
           <ScrollToTop />
           <AnimatePresence mode="wait">
-            <>
-              <Cursor />
-              {children}
-            </>
+            <Cursor />
+            {children}
           </AnimatePresence>
         </CursorProvider>
       </ThemeProvider>

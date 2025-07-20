@@ -11,6 +11,12 @@ const GalaxyWithNoSSR = dynamic<any>(
   () => import('@/components/Galaxy/Galaxy').then(mod => mod.Galaxy),
   {
     ssr: false,
+    loading: () => (
+      <div 
+        className="absolute inset-0"
+        style={{ height: '100vh', width: '100vw' }}
+      />
+    )
   }
 )
 
