@@ -2,7 +2,7 @@ import {
   motion,
   useSpring,
   useTransform,
-  useViewportScroll,
+  useScroll,
 } from 'framer-motion'
 import { useLayoutEffect, useRef, useState } from 'react'
 
@@ -21,7 +21,7 @@ type ParallaxProps = {
 
 export const Parallax = ({ rate = 0, children, ...props }: ParallaxProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const [offsetTop, setOffsetTop] = useState(0)
   const [minHeight, setMinHeight] = useState<number | string>('auto')
 

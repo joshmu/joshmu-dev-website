@@ -3,7 +3,7 @@ import {
   motion,
   useSpring,
   useTransform,
-  useViewportScroll,
+  useScroll,
 } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
@@ -13,7 +13,7 @@ type BannerProps = { props?: { [key: string]: any } }
 
 export const Banner = ({ ...props }: BannerProps) => {
   const { ref, start, end } = useRefScrollProgress()
-  const { scrollYProgress } = useViewportScroll()
+  const { scrollYProgress } = useScroll()
 
   return (
     <div

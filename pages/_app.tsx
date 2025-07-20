@@ -13,7 +13,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     <GlobalProvider>
       <ThemeProvider>
         <CursorProvider>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             <>
               <Cursor />
               <Component {...pageProps} key={router.route} />

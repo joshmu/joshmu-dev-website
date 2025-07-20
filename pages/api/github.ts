@@ -47,7 +47,13 @@ const cache: {
   output: [],
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  const output = await getGithubActivity()
+  res.status(200).json(output)
+}
+
+// For backwards compatibility
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const output = await getGithubActivity()
   res.status(200).json(output)
 }
