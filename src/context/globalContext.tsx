@@ -1,4 +1,4 @@
-import { MotionValue, useViewportScroll } from 'framer-motion'
+import { MotionValue, useScroll } from 'framer-motion'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 interface GlobalContextInterface {
@@ -13,7 +13,7 @@ type GlobalProviderProps = {
 }
 
 export const GlobalProvider = ({ children }: GlobalProviderProps) => {
-  const { scrollYProgress } = useViewportScroll()
+  const { scrollYProgress } = useScroll()
   const [scrollProgress, setScrollProgress] = useState(0)
 
   // initial scroll

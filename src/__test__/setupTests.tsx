@@ -71,14 +71,14 @@ export const setupTests = (() => {
     const useTransform = jest.fn(() => null)
     const useSpring = jest.fn(() => null)
     const scrollYProgress = jest.fn(() => 0)
-    const useViewportScroll = jest.fn(() => ({ scrollYProgress }))
+    const useScroll = jest.fn(() => ({ scrollYProgress }))
     return {
       AnimatePresence,
       motion,
       useTransform,
       useSpring,
       useAnimation,
-      useViewportScroll,
+      useScroll,
     }
   })
 
