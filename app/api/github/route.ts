@@ -1,6 +1,6 @@
 /** @see https://medium.com/@yuichkun/how-to-retrieve-contribution-graph-data-from-the-github-api-dc3a151b4af */
 
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextResponse } from 'next/server'
 
 export interface ActivityDayInterface {
   date: string
@@ -47,15 +47,9 @@ const cache: {
   output: [],
 }
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const output = await getGithubActivity()
-  res.status(200).json(output)
-}
-
-// For backwards compatibility
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const output = await getGithubActivity()
-  res.status(200).json(output)
+  return NextResponse.json(output)
 }
 
 async function getGithubActivity() {

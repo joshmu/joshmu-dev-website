@@ -1,22 +1,21 @@
-import '@/styles/globals.scss'
-import '@/styles/cursor.scss'
+'use client'
 
 import { AnimatePresence } from 'framer-motion'
-import { AppProps } from 'next/app'
-
 import { GlobalProvider } from '@/context/globalContext'
 import { ThemeProvider } from '@/context/themeContext'
 import { Cursor, CursorProvider } from '@/components/Cursor/Cursor'
+import { ScrollToTop } from './scroll-to-top'
 
-const MyApp = ({ Component, pageProps, router }: AppProps) => {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <GlobalProvider>
       <ThemeProvider>
         <CursorProvider>
+          <ScrollToTop />
           <AnimatePresence mode="wait">
             <>
               <Cursor />
-              <Component {...pageProps} key={router.route} />
+              {children}
             </>
           </AnimatePresence>
         </CursorProvider>
@@ -24,5 +23,3 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     </GlobalProvider>
   )
 }
-
-export default MyApp
