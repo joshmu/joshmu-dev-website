@@ -46,7 +46,7 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
       {...props}
       {...cursorActions}
     >
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         {theme === THEME_TYPE.dark && (
           <motion.button
             key={THEME_TYPE.dark}
