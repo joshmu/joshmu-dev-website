@@ -39,7 +39,7 @@ export const setupTests = (() => {
     // helper
     const toLowerCaseList = ['whileHover']
     const attrsToLowerCase = jest.fn(props => {
-      return Object.entries(props).reduce((acc, [key, val]) => {
+      return Object.entries(props).reduce((acc: { [key: string]: any }, [key, val]) => {
         key = toLowerCaseList.includes(key) ? key.toLowerCase() : key
         acc[key] = val
         return acc

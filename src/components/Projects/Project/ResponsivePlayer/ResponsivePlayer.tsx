@@ -11,7 +11,6 @@ type ResponsivePlayerProps = {
 export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
   return (
     <div
-      // @ts-ignore
       style={{
         ...style.playerWrapper,
         paddingTop: calcVidRatio(img.width, img.height) + '%',
@@ -41,14 +40,14 @@ const calcVidRatio = (width: number, height: number): number =>
 
 const style = {
   playerWrapper: {
-    position: 'relative',
+    position: 'relative' as const,
     // Player ratio: 100 / (1280 / 720)
     // paddingTop: '56.25%',
     // the ratio is slightly out so we hide
     // overflow: 'hidden',
   },
   reactPlayer: {
-    position: 'absolute',
+    position: 'absolute' as const,
     top: 0,
     left: 0,
   },

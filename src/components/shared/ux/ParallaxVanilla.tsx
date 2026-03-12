@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type ParallaxVanillaProps = {
   rate?: number
@@ -26,5 +26,5 @@ export const ParallaxVanilla = ({
     transform: `translateY(${scrollY * rate}px)`,
   }
 
-  return (<div style={style}>{children}</div>) as JSX.Element
+  return (<div style={style}>{children}</div>) as React.JSX.Element
 }

@@ -15,8 +15,8 @@ type RevealInViewProps = {
 export const RevealInView = ({
   children,
   delay = 0,
-  variants = null,
-  transition = null,
+  variants = undefined,
+  transition = undefined,
   custom = 1,
   triggerOnce = true,
   ...props

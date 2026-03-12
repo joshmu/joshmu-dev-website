@@ -1,9 +1,6 @@
 module.exports = {
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
+    // Temporary: will be removed once framer-motion is upgraded to v12
     ignoreBuildErrors: true,
   },
 }

@@ -28,7 +28,7 @@ function initGalaxy() {
 
   // render machine and target
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById('galaxy'),
+    canvas: document.getElementById('galaxy')!,
   })
 
   renderer.setPixelRatio(window.devicePixelRatio)
@@ -71,7 +71,7 @@ function initGalaxy() {
 
   // controls
   const enableControls = false
-  let controls
+  let controls: OrbitControls | undefined
   if (enableControls) controls = new OrbitControls(camera, renderer.domElement)
 
   // add stars
@@ -81,14 +81,14 @@ function initGalaxy() {
     const star = new THREE.Mesh(geometry, material)
 
     const [x, y, z] = Array(3)
-      .fill()
+      .fill(null)
       .map(() => THREE.MathUtils.randFloatSpread(100))
 
     star.position.set(x, y, z)
 
     scene.add(star)
   }
-  Array(50).fill().forEach(addStar)
+  Array(50).fill(null).forEach(addStar)
 
   // move camera
   function moveCamera() {
@@ -104,7 +104,7 @@ function initGalaxy() {
   document.addEventListener('scroll', moveCamera)
 
   // external clean up when react component unmounts
-  initGalaxy.cleanUp = () => {
+  ;(initGalaxy as any).cleanUp = () => {
     document.removeEventListener('scroll', moveCamera)
   }
 
@@ -115,7 +115,7 @@ function initGalaxy() {
     torus.rotation.y += 0.0002
     torus.rotation.z += 0.00001
 
-    if (enableControls) controls.update()
+    if (enableControls && controls) controls.update()
 
     renderer.render(scene, camera)
   }
@@ -128,7 +128,7 @@ export const Galaxy = ({ ...props }: ThreeProps) => {
   useEffect(() => {
     initGalaxy()
 
-    return initGalaxy.cleanUp
+    return (initGalaxy as any).cleanUp
   }, [])
 
   return (

@@ -24,7 +24,6 @@ import { useInView } from 'react-intersection-observer'
 import { ActivityDayInterface } from '@/app/api/github/route'
 
 import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
-import { ControlsAnimationDefinition } from 'framer-motion/types/animation/types'
 
 export const Activity = () => {
   const [calendar, setCalendar] = useState<ActivityDayInterface[]>(null!)

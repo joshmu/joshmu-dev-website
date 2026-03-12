@@ -35,7 +35,7 @@ const CursorContext = createContext<CURSOR_STATE>({
   type: 'default',
   setType: () => {},
 })
-export const CursorProvider = ({ children }) => {
+export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   const [type, setType] = useState<CURSOR_TYPE>('default')
 
   return (
@@ -59,11 +59,12 @@ export const useCursorPointer = () => {
 export const Cursor = () => {
   const { type } = useCursorContext()
   const [isLoaded, setIsLoaded] = useState(false)
-  const mainCursor = useRef(null)
+  const mainCursor = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const cursorMove = event => {
+    const cursorMove = (event: MouseEvent) => {
       if (!isLoaded) setIsLoaded(true)
+      if (!mainCursor.current) return
       const { clientX, clientY } = event
 
       const mouseX = clientX

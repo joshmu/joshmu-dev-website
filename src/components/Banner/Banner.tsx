@@ -111,12 +111,12 @@ const Spray = ({
   const x = useTransform(
     scrollYProgress,
     [scrollStart, scrollEnd],
-    [0, maxDistance.current]
+    [0, maxDistance.current ?? 0]
   )
   const y = useTransform(
     scrollYProgress,
     [scrollStart, scrollEnd],
-    [0, maxDistance.current]
+    [0, maxDistance.current ?? 0]
   )
   // spring motion to be used
   // * we make sure velocity will always be a reduction of distance or '1' so we don't pass our desired distance limit

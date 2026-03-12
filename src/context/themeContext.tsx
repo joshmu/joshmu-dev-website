@@ -39,13 +39,12 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
     let savedTheme = window.localStorage.getItem(LOCALSTORAGE_KEY)
 
     // validation check
-    if (!Object.values(THEME_TYPE).includes(savedTheme)) savedTheme = null
-
-    // if we have a saved theme then set it
-    // otherwise update localStorage with default initial theme
-    savedTheme
-      ? setTheme(savedTheme)
-      : window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
+    if (!savedTheme || !Object.values(THEME_TYPE).includes(savedTheme)) {
+      // no valid saved theme, update localStorage with default initial theme
+      window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
+    } else {
+      setTheme(savedTheme)
+    }
   }, [])
 
   // when theme changes then assign to body tag
@@ -82,5 +81,7 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
 }
 
 export const useThemeContext = () => {
-  return useContext(themeContext)
+  const context = useContext(themeContext)
+  if (!context) throw new Error('useThemeContext must be used within ThemeProvider')
+  return context
 }

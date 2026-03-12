@@ -11,7 +11,7 @@ type PageLayoutProps = {
 
 export const PageLayout = ({ children }: PageLayoutProps) => {
   // google analytics (placed in layout to include page/route data)
-  setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID)
+  setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID ?? '')
 
   const layoutVariants: Variants = {
     initial: { opacity: 0 },

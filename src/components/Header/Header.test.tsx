@@ -9,6 +9,7 @@
  */
 
 // import react-testing methods
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 // the component to test
