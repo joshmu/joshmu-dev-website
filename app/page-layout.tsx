@@ -26,7 +26,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
       exit='exit'
       variants={layoutVariants}
     >
-      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg debug-screens'>
+      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg'>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,6 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-themeText: var(--text);
+  --color-themeText2: var(--text2);
+  --color-themeBg: var(--background);
+  --color-themeBg2: var(--background2);
+  --color-themeAccent: var(--accent);
+
+  --font-sans: 'Raleway', 'Roboto', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --opacity-1: 0.01;
+  --opacity-2: 0.02;
+  --opacity-3: 0.03;
+  --opacity-4: 0.04;
+  --opacity-5: 0.05;
+  --opacity-10: 0.1;
+  --opacity-90: 0.9;
+
+  --rotate-22: 22deg;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap');
 
@@ -9,8 +30,8 @@ body {
   padding: 0;
   box-sizing: border-box;
 
-  background-color: theme('colors.themeBg');
-  color: theme('colors.themeText');
+  background-color: var(--color-themeBg);
+  color: var(--color-themeText);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -25,40 +46,32 @@ body {
 .theme-light {
   --text: #010101;
   --text2: #868585;
-
   --background: #f3f3f3;
-  --background2: theme('colors.gray.50');
-
+  --background2: var(--color-gray-50, #f9fafb);
   --accent: #c68400;
 }
 
 .theme-dark {
   --text: #f3f3f3;
   --text2: #444;
-
   --background: #010101;
-  --background2: theme('colors.gray.900');
-
+  --background2: var(--color-gray-900, #111827);
   --accent: #1973cc;
 }
 
 .theme-alt {
-  --text: theme('colors.blue.800');
-  --text2: theme('colors.blue.500');
-
+  --text: var(--color-blue-800, #1e40af);
+  --text2: var(--color-blue-500, #3b82f6);
   --background: #ebf6f1;
-  --background2: theme('colors.green.300');
-
-  --accent: theme('colors.purple.700');
+  --background2: var(--color-green-300, #86efac);
+  --accent: var(--color-purple-700, #7e22ce);
 }
 
 .theme-alt2 {
-  --text: theme('colors.red.200');
-  --text2: theme('colors.red.100');
-
-  --background: theme('colors.indigo.800');
-  --background2: theme('colors.indigo.400');
-
+  --text: var(--color-red-200, #fecaca);
+  --text2: var(--color-red-100, #fee2e2);
+  --background: var(--color-indigo-800, #3730a3);
+  --background2: var(--color-indigo-400, #818cf8);
   --accent: #010101;
 }
 
@@ -66,8 +79,8 @@ body {
 
 .radial-bg {
   background-image: radial-gradient(
-    theme('colors.themeAccent'),
-    theme('colors.themeBg'),
-    theme('colors.themeBg')
+    var(--color-themeAccent),
+    var(--color-themeBg),
+    var(--color-themeBg)
   );
 }
