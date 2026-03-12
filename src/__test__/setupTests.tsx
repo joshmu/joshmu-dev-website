@@ -83,7 +83,7 @@ export const setupTests = (() => {
   })
 
   // GLOBAL CONTEXT
-  jest.mock('@/context/GlobalContext', () => {
+  jest.mock('@/context/globalContext', () => {
     const scrollProgress = 0
     const values = { scrollProgress }
     const useGlobalContext = jest.fn(() => values)
@@ -94,9 +94,15 @@ export const setupTests = (() => {
   })
 
   // THEME CONTEXT
-  jest.mock('@/context/ThemeContext', () => {
+  jest.mock('@/context/themeContext', () => {
+    const THEME_TYPE = {
+      dark: 'theme-dark',
+      light: 'theme-light',
+      alt: 'theme-alt',
+      alt2: 'theme-alt2',
+    }
     const toggleTheme = jest.fn()
-    const values = { toggleTheme }
+    const values = { toggleTheme, theme: THEME_TYPE.dark, THEME_TYPE }
     const useThemeContext = jest.fn(() => values)
 
     return {

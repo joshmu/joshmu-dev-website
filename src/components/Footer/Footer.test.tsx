@@ -9,11 +9,10 @@ import { render, screen } from '@testing-library/react'
 // the component to test
 import { Footer } from './Footer'
 
-test('renders Footer component with 2020 date', () => {
-  //render is from @testing-library/react
+test('renders Footer component with current year', () => {
   render(<Footer />)
-  //expect assertion is from Jest
-  expect(screen.getByText(/2020/)).toBeInTheDocument()
+  const currentYear = new Date().getFullYear().toString()
+  expect(screen.getByText(new RegExp(currentYear))).toBeInTheDocument()
   // const linkDom = screen.getByText(/hello@joshmu.dev/)
   // expect(linkDom).toHaveAttribute('href', 'mailto:hello@joshmu.dev')
 })
