@@ -8,8 +8,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "postinstall": "husky install",
-    "plop": "plop"
+    "plop": "plop",
+    "prepare": "husky"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
@@ -30,6 +30,8 @@
   "devDependencies": {
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
+    "@commitlint/cli": "^20.4.4",
+    "@commitlint/config-conventional": "^20.4.4",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^16.3.0",
@@ -45,13 +47,15 @@
     "@types/three": "^0.136.1",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^30.0.4",
-    "husky": "^7.0.4",
+    "husky": "^9.1.7",
     "jest": "^30.0.4",
     "jest-axe": "^5.0.1",
     "jest-environment-jsdom": "^30.0.4",
+    "lint-staged": "16.3.3",
     "plop": "^3.0.5",
     "postcss": "^8.4.5",
     "postcss-preset-env": "^7.2.3",
+    "prettier": "^3.8.1",
     "sass": "^1.49.0",
     "tailwindcss": "^3.0.15",
     "tailwindcss-debug-screens": "^2.2.1",
