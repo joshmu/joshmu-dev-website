@@ -27,8 +27,10 @@ pnpm test:coverage     # Generate coverage report
 ### Linting & Formatting
 
 ```bash
-pnpm lint              # Run ESLint (flat config)
-pnpm format:check      # Check Prettier formatting
+pnpm lint              # Run oxlint
+pnpm lint:fix          # Run oxlint with auto-fix
+pnpm format            # Format with oxfmt
+pnpm format:check      # Check formatting with oxfmt
 pnpm typecheck         # Run TypeScript type checking
 ```
 
@@ -46,7 +48,7 @@ pnpm plop       # Generate new components or pages from templates
 - **Styling**: Tailwind CSS v4 (CSS-first config) + SCSS
 - **Animation**: Framer Motion 12 + Three.js for 3D graphics
 - **Testing**: Jest + React Testing Library + jest-axe
-- **Linting**: ESLint 9 (flat config) + Prettier
+- **Linting**: oxlint + oxfmt (Oxc toolchain)
 - **Package Manager**: pnpm
 
 ### Project Structure
@@ -90,8 +92,8 @@ pnpm plop       # Generate new components or pages from templates
 ### Commit Conventions
 
 - Uses **Conventional Commits** enforced by commitlint
-- Allowed scopes: `deps`, `husky`, `github`, `ts`, `tailwind`, `eslint`, `next`, `react`, `framer`, `three`, `test`
-- Pre-commit hook runs lint-staged (ESLint + Prettier on staged files)
+- Allowed scopes: `deps`, `husky`, `github`, `ts`, `tailwind`, `oxc`, `next`, `react`, `framer`, `three`, `test`
+- Pre-commit hook runs lint-staged (oxlint + oxfmt on staged files)
 - Commit message hook validates conventional commit format
 
 ### CI Pipeline
@@ -102,7 +104,7 @@ pnpm plop       # Generate new components or pages from templates
 ### Important Configuration
 
 - **TypeScript**: Strict mode enabled, target ES2022
-- **ESLint**: Flat config (`eslint.config.mjs`) extending `eslint-config-next`
+- **Oxlint**: Zero-config linter (`.oxlintrc.json` if needed), **Oxfmt**: formatter (`.oxfmtrc.json`)
 - **Git Hooks**: Husky 9 with lint-staged and commitlint
 
 ### Development Workflow
