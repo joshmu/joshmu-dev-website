@@ -10,7 +10,7 @@ module.exports = {
         'github',
         'ts',
         'tailwind',
-        'eslint',
+        'oxc',
         'next',
         'react',
         'framer',
