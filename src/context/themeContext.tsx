@@ -49,8 +49,8 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
 
   // when theme changes then assign to body tag
   useEffect(() => {
-    Object.values(THEME_TYPE).forEach(className =>
-      globalThis.document.body.classList.remove(className)
+    Object.values(THEME_TYPE).forEach((className) =>
+      globalThis.document.body.classList.remove(className),
     )
     globalThis.document.body.classList.add(theme)
   }, [theme])
@@ -58,7 +58,7 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
   const toggleTheme: ToggleThemeType = () => {
     // get list of themeIds
     const themeIdList = Object.values(THEME_TYPE)
-    const themeIndex = themeIdList.findIndex(themeId => themeId === theme)
+    const themeIndex = themeIdList.findIndex((themeId) => themeId === theme)
     // logic to continuously cycle through array
     const nextThemeIndex =
       themeIndex === themeIdList.length - 1 ? 0 : themeIndex + 1
@@ -82,6 +82,7 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
 
 export const useThemeContext = () => {
   const context = useContext(themeContext)
-  if (!context) throw new Error('useThemeContext must be used within ThemeProvider')
+  if (!context)
+    throw new Error('useThemeContext must be used within ThemeProvider')
   return context
 }

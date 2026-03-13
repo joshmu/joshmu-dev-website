@@ -27,17 +27,17 @@ export const Hero = ({ ...props }: HeroProps) => {
 
   return (
     <div
-      id='hero'
-      className='relative w-full'
+      id="hero"
+      className="relative w-full"
       style={{ height: '50rem' }}
       {...props}
     >
       {/* center content */}
-      <div className='relative z-10 flex flex-col items-center justify-center w-full h-full'>
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
         <h1
-          data-testid='heroLogo'
+          data-testid="heroLogo"
           onClick={toggleTheme}
-          className='text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl'
+          className="text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl"
         >
           <Curtain>josh mu</Curtain>
         </h1>
@@ -47,11 +47,11 @@ export const Hero = ({ ...props }: HeroProps) => {
       </div>
 
       {/* down arrow */}
-      <div className='absolute z-10 flex items-center justify-center w-full mb-8 text-4xl bottom-10'>
+      <div className="absolute z-10 flex items-center justify-center w-full mb-8 text-4xl bottom-10">
         <ArrowDownIcon
           onClick={handleScrollDown}
           {...cursorActions}
-          className='cursor-pointer fill-current animate-bounce'
+          className="cursor-pointer fill-current animate-bounce"
         />
       </div>
 
@@ -60,7 +60,7 @@ export const Hero = ({ ...props }: HeroProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
         transition={{ delay: 0.2, duration: 1 }}
-        className='absolute z-0 font-bold uppercase transition-colors duration-1000 ease-in-out transform pointer-events-none top-20 -left-20 rotate-12 opacity-10'
+        className="absolute z-0 font-bold uppercase transition-colors duration-1000 ease-in-out transform pointer-events-none top-20 -left-20 rotate-12 opacity-10"
         style={{ fontSize: '50rem', lineHeight: 1 }}
       >
         MU

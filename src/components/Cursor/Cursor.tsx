@@ -48,10 +48,10 @@ export const useCursorContext = () => {
   return useContext(CursorContext)
 }
 export const useCursorPointer = () => {
-  const {setType} = useContext(CursorContext)
+  const { setType } = useContext(CursorContext)
   return {
     onMouseEnter: () => setType('pointer'),
-    onMouseLeave: () => setType('default')
+    onMouseLeave: () => setType('default'),
   }
 }
 
@@ -87,7 +87,7 @@ export const Cursor = () => {
       className={cn('main-cursor', `main-cursor--${type}`)}
       style={{ display: isDesktop && isLoaded ? 'initial' : 'none' }}
     >
-      <div className='main-cursor-background'></div>
+      <div className="main-cursor-background"></div>
     </div>
   )
 }

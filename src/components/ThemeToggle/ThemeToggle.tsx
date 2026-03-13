@@ -39,10 +39,10 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
-      key='themeToggle'
+      key="themeToggle"
       {...motionStyle}
       onClick={handleClick}
-      className='relative flex items-center cursor-pointer'
+      className="relative flex items-center cursor-pointer"
       {...props}
       {...cursorActions}
     >
@@ -51,11 +51,11 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           <motion.button
             key={THEME_TYPE.dark}
             {...motionStyle}
-            className='relative focus:outline-none'
-            type='button'
+            className="relative focus:outline-none"
+            type="button"
             aria-label={`${THEME_TYPE.dark} theme toggle`}
           >
-            <MoonIcon className='fill-current' />
+            <MoonIcon className="fill-current" />
           </motion.button>
         )}
 
@@ -63,11 +63,11 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           <motion.button
             key={THEME_TYPE.light}
             {...motionStyle}
-            className='relative focus:outline-none'
-            type='button'
+            className="relative focus:outline-none"
+            type="button"
             aria-label={`${THEME_TYPE.light} theme toggle`}
           >
-            <SunIcon className='fill-current' />
+            <SunIcon className="fill-current" />
           </motion.button>
         )}
 
@@ -75,11 +75,11 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           <motion.button
             key={THEME_TYPE.alt}
             {...motionStyle}
-            className='relative focus:outline-none'
-            type='button'
+            className="relative focus:outline-none"
+            type="button"
             aria-label={`${THEME_TYPE.alt} theme toggle`}
           >
-            <DropletIcon className='fill-current' />
+            <DropletIcon className="fill-current" />
           </motion.button>
         )}
 
@@ -87,11 +87,11 @@ export const ThemeToggle = (props: { [key: string]: any }) => {
           <motion.button
             key={THEME_TYPE.alt2}
             {...motionStyle}
-            className='relative focus:outline-none'
-            type='button'
+            className="relative focus:outline-none"
+            type="button"
             aria-label={`${THEME_TYPE.alt2} theme toggle`}
           >
-            <Alt2Icon className='fill-current' />
+            <Alt2Icon className="fill-current" />
           </motion.button>
         )}
       </AnimatePresence>

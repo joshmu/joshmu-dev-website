@@ -53,13 +53,13 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
   }, [scrollProgress])
 
   return (
-    <p className='flex items-center justify-center whitespace-pre' {...props}>
+    <p className="flex items-center justify-center whitespace-pre" {...props}>
       <span>{output[0]}</span>
       <motion.span
         // @ts-ignore
         variants={animationVariants}
         animate={controls}
-        className='overflow-hidden'
+        className="overflow-hidden"
       >
         <span>{output[1]}</span>
       </motion.span>

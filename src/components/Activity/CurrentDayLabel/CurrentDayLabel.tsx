@@ -30,32 +30,32 @@ export const CurrentDayLabel = ({
   }, [ready])
 
   return (
-    <div className='absolute top-0 right-0'>
+    <div className="absolute top-0 right-0">
       <motion.div
-        key='currentDayLabel'
-        initial='initial'
+        key="currentDayLabel"
+        initial="initial"
         animate={controls}
         variants={labelVariants}
       >
-        <div className='flex flex-col items-center justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
+        <div className="flex flex-col items-center justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText">
           {/* arrow left */}
           <svg
-            className='w-4 h-4'
-            fill='none'
-            stroke='currentColor'
-            viewBox='0 0 24 24'
-            xmlns='http://www.w3.org/2000/svg'
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
+              strokeLinecap="round"
+              strokeLinejoin="round"
               strokeWidth={2}
-              d='M7 16l-4-4m0 0l4-4m-4 4h18'
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
             />
           </svg>
-          <div className='absolute transform -top-1/2 left-2/3 -rotate-22'>
-            <GithubIcon className='mx-auto mb-px' />
-            <p className='text-themeText'>{formatDate(date)}</p>
+          <div className="absolute transform -top-1/2 left-2/3 -rotate-22">
+            <GithubIcon className="mx-auto mb-px" />
+            <p className="text-themeText">{formatDate(date)}</p>
           </div>
         </div>
       </motion.div>

@@ -55,7 +55,7 @@ export async function GET() {
     console.error('Error fetching GitHub activity:', error)
     return NextResponse.json(
       { error: 'Failed to fetch GitHub activity' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }
@@ -71,19 +71,22 @@ async function getGithubActivity() {
 
   const response = await fetchGithubActivity()
 
-  const output = response.data?.user?.contributionsCollection?.contributionCalendar?.weeks?.map( week => {
-    return week.contributionDays?.map( day => {
-      const grade = calcGrade(day.contributionCount)
-      const color = COLOR_GRADE[grade]
+  const output =
+    response.data?.user?.contributionsCollection?.contributionCalendar?.weeks
+      ?.map((week) => {
+        return week.contributionDays?.map((day) => {
+          const grade = calcGrade(day.contributionCount)
+          const color = COLOR_GRADE[grade]
 
-      return {
-        date: day.date,
-        count: day.contributionCount,
-        color,
-        grade,
-      } as ActivityDayInterface
-    })
-  }).flat(1) || []
+          return {
+            date: day.date,
+            count: day.contributionCount,
+            color,
+            grade,
+          } as ActivityDayInterface
+        })
+      })
+      .flat(1) || []
 
   cache.lastFetch = Date.now()
   cache.output = output
@@ -109,7 +112,9 @@ type GithubActivityResponse = {
   }
 }
 
-async function fetchGithubActivity({userName = 'joshmu'} = {}): Promise<GithubActivityResponse> {
+async function fetchGithubActivity({
+  userName = 'joshmu',
+} = {}): Promise<GithubActivityResponse> {
   const graphqlQuery = {
     query: `
       query ($userName: String!) {
@@ -129,15 +134,15 @@ async function fetchGithubActivity({userName = 'joshmu'} = {}): Promise<GithubAc
       }
     `,
     variables: {
-      userName
-    }
-  };
+      userName,
+    },
+  }
 
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
     body: JSON.stringify(graphqlQuery),
   })

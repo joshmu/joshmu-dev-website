@@ -17,12 +17,12 @@ export const Banner = ({ ...props }: BannerProps) => {
 
   return (
     <div
-      id='banner'
+      id="banner"
       ref={ref}
-      className='container z-0 mx-auto py-96'
+      className="container z-0 mx-auto py-96"
       {...props}
     >
-      <p className='ml-2'>
+      <p className="ml-2">
         My adventures in web{' '}
         <CharSplit
           scrollStart={start}
@@ -52,9 +52,9 @@ const CharSplit = ({
   return (
     <>
       {children.split('').map((char, idx) => (
-        <span key={idx} className='relative'>
+        <span key={idx} className="relative">
           {/* create height and width with transparent duplicate */}
-          <span className='opacity-0'>{char}</span>
+          <span className="opacity-0">{char}</span>
           <Spray
             char={char}
             idx={idx}
@@ -106,33 +106,33 @@ const Spray = ({
   const rotate = useTransform(
     scrollYProgress,
     [scrollStart, scrollEnd],
-    [0, randomRotateEnd.current]
+    [0, randomRotateEnd.current],
   )
   const x = useTransform(
     scrollYProgress,
     [scrollStart, scrollEnd],
-    [0, maxDistance.current ?? 0]
+    [0, maxDistance.current ?? 0],
   )
   const y = useTransform(
     scrollYProgress,
     [scrollStart, scrollEnd],
-    [0, maxDistance.current ?? 0]
+    [0, maxDistance.current ?? 0],
   )
   // spring motion to be used
   // * we make sure velocity will always be a reduction of distance or '1' so we don't pass our desired distance limit
   const xVel = useSpring(
-    useTransform(x, value => value * randomVelocityX.current),
-    springConfig
+    useTransform(x, (value) => value * randomVelocityX.current),
+    springConfig,
   )
   const yVel = useSpring(
-    useTransform(y, value => value / randomVelocityY.current),
-    springConfig
+    useTransform(y, (value) => value / randomVelocityY.current),
+    springConfig,
   )
 
   return (
     <span ref={ref}>
       <motion.span
-        className='absolute left-0 z-0'
+        className="absolute left-0 z-0"
         style={{ x: xVel, y: yVel, scale, rotate }}
       >
         {char}

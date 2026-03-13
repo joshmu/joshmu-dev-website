@@ -14,7 +14,7 @@ export const Curtain = ({
 }: CurtainProps) => {
   const chars = children.split('')
   return (
-    <span className='inline-block'>
+    <span className="inline-block">
       {chars.map((char, idx) => (
         <Char
           key={char + idx}
@@ -65,7 +65,7 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
 
   return (
     <span
-      className='relative inline-block overflow-hidden'
+      className="relative inline-block overflow-hidden"
       style={
         state.width !== 0 && state.height !== 0
           ? {
@@ -77,11 +77,11 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
     >
       <motion.span
         key={motionKey}
-        initial='initial'
-        animate='animate'
-        exit='exit'
+        initial="initial"
+        animate="animate"
+        exit="exit"
         variants={charVariants}
-        className='absolute whitespace-pre'
+        className="absolute whitespace-pre"
       >
         <span ref={charRef}>{char}</span>
       </motion.span>

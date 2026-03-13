@@ -38,12 +38,15 @@ export const setupTests = (() => {
   jest.mock('framer-motion', () => {
     // helper
     const toLowerCaseList = ['whileHover']
-    const attrsToLowerCase = jest.fn(props => {
-      return Object.entries(props).reduce((acc: { [key: string]: any }, [key, val]) => {
-        key = toLowerCaseList.includes(key) ? key.toLowerCase() : key
-        acc[key] = val
-        return acc
-      }, {})
+    const attrsToLowerCase = jest.fn((props) => {
+      return Object.entries(props).reduce(
+        (acc: { [key: string]: any }, [key, val]) => {
+          key = toLowerCaseList.includes(key) ? key.toLowerCase() : key
+          acc[key] = val
+          return acc
+        },
+        {},
+      )
     })
 
     const AnimatePresence = jest.fn(({ children }) => children)

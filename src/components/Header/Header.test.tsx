@@ -28,7 +28,7 @@ test('renders Header component with logo', () => {
 const links = ['projects', 'contact']
 
 // I use test.each to iterate the test cases above
-test.each(links)('Check if Header menu contains "%s" link.', link => {
+test.each(links)('Check if Header menu contains "%s" link.', (link) => {
   render(<Header />)
   expect(screen.getByText(link)).toBeInTheDocument()
 })

@@ -21,12 +21,12 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <motion.div
-      initial='initial'
-      animate='animate'
-      exit='exit'
+      initial="initial"
+      animate="animate"
+      exit="exit"
       variants={layoutVariants}
     >
-      <div className='w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg'>
+      <div className="w-screen overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out text-themeText bg-themeBg">
         <Header />
         <main>{children}</main>
         <Footer />

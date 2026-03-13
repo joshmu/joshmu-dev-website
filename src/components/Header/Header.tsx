@@ -33,28 +33,28 @@ export const Header = () => {
   }
 
   return (
-    <header className='fixed z-30 w-full mt-4'>
-      <div className='container mx-auto'>
-        <div className='flex items-center justify-between'>
+    <header className="fixed z-30 w-full mt-4">
+      <div className="container mx-auto">
+        <div className="flex items-center justify-between">
           {/* logo */}
           <div
-            data-testid='logoTitle'
+            data-testid="logoTitle"
             onClick={handleLogoClick}
             {...cursorActions}
-            className='h-full pl-2 text-2xl font-normal uppercase cursor-pointer'
+            className="h-full pl-2 text-2xl font-normal uppercase cursor-pointer"
           >
-            <Compressor text='josh mu' hide='osh ' />
+            <Compressor text="josh mu" hide="osh " />
           </div>
           {/* nav menu */}
-          <div className='relative flex uppercase'>
+          <div className="relative flex uppercase">
             {/* nav */}
             <motion.ul
-              initial='hidden'
-              animate='show'
+              initial="hidden"
+              animate="show"
               variants={navVariants}
-              className='flex items-center justify-center h-full px-8 py-1 overflow-hidden text-sm transition-all duration-200 rounded-sm bg-themeText text-themeBg'
+              className="flex items-center justify-center h-full px-8 py-1 overflow-hidden text-sm transition-all duration-200 rounded-sm bg-themeText text-themeBg"
             >
-              {menuItems.map(item => (
+              {menuItems.map((item) => (
                 <li key={item}>
                   <motion.button
                     onClick={() => {
@@ -62,13 +62,13 @@ export const Header = () => {
                     }}
                     {...cursorActions}
                     variants={navItemVariants}
-                    className='px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none'
+                    className="px-2 uppercase transition-colors duration-200 ease-in-out hover:text-themeAccent focus:outline-none"
                   >
                     {item}
                   </motion.button>
                 </li>
               ))}
-              <li className='ml-4'>
+              <li className="ml-4">
                 {/* theme toggle */}
                 <ThemeToggle />
               </li>

@@ -32,7 +32,7 @@ export const RevealInView = ({
   }, [controls, inView])
 
   variants = variants || {
-    animate: custom => ({
+    animate: (custom) => ({
       opacity: 1,
       y: 0,
       transition: transition || {
@@ -44,10 +44,10 @@ export const RevealInView = ({
   }
 
   return (
-    <div className='inline-block' ref={ref}>
+    <div className="inline-block" ref={ref}>
       <motion.div
         animate={controls}
-        initial='initial'
+        initial="initial"
         custom={custom}
         variants={variants}
         style={{ display: 'inline-block' }}

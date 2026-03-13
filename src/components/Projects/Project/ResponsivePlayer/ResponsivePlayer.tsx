@@ -15,14 +15,14 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
         ...style.playerWrapper,
         paddingTop: calcVidRatio(img.width, img.height) + '%',
       }}
-      className='w-full'
+      className="w-full"
     >
       <ClientOnlyPlayer
         playing={true}
         url={video.src}
         style={style.reactPlayer}
-        width='100%'
-        height='100%'
+        width="100%"
+        height="100%"
         // width={video.width}
         // height={video.height}
         muted

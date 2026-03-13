@@ -44,6 +44,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
 
 export const useGlobalContext = () => {
   const context = useContext(globalContext)
-  if (!context) throw new Error('useGlobalContext must be used within GlobalProvider')
+  if (!context)
+    throw new Error('useGlobalContext must be used within GlobalProvider')
   return context
 }

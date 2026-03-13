@@ -1,9 +1,4 @@
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useScroll,
-} from 'framer-motion'
+import { motion, useSpring, useTransform, useScroll } from 'framer-motion'
 import { useLayoutEffect, useRef, useState } from 'react'
 
 const calculateMinHeight = (height: number, range: number): number => {
@@ -54,7 +49,7 @@ export const Parallax = ({ rate = 0, children, ...props }: ParallaxProps) => {
     useTransform(scrollY, [offsetTop, offsetTop + 1], [0, rate], {
       clamp: false,
     }),
-    springConfig
+    springConfig,
   )
 
   return (

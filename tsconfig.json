@@ -2,41 +2,19 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/layout/*": [
-        "src/components/Layout/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/shared/*": [
-        "src/components/shared/*"
-      ],
-      "@/context/*": [
-        "src/context/*"
-      ],
-      "@/hooks/*": [
-        "src/hooks/*"
-      ],
-      "@/app/*": [
-        "app/*"
-      ],
-      "@/styles/*": [
-        "src/styles/*"
-      ],
-      "@/services/*": [
-        "src/services/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ]
+      "@/layout/*": ["src/components/Layout/*"],
+      "@/components/*": ["src/components/*"],
+      "@/shared/*": ["src/components/shared/*"],
+      "@/context/*": ["src/context/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/app/*": ["app/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/services/*": ["src/services/*"],
+      "@/utils/*": ["utils/*"]
     },
     "checkJs": true,
     "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -53,7 +31,7 @@
       {
         "name": "next"
       }
-    ],
+    ]
   },
   "include": [
     "**/*.js",
@@ -63,7 +41,5 @@
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

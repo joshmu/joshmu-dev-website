@@ -23,7 +23,7 @@ function initGalaxy() {
     75,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    1000,
   )
 
   // render machine and target
@@ -133,8 +133,8 @@ export const Galaxy = ({ ...props }: ThreeProps) => {
 
   return (
     <canvas
-      id='galaxy'
-      className='fixed top-0 left-0 cursor-none opacity-20'
+      id="galaxy"
+      className="fixed top-0 left-0 cursor-none opacity-20"
       {...props}
     ></canvas>
   )

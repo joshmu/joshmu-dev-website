@@ -37,8 +37,8 @@ export const Activity = () => {
 
   useEffect(() => {
     fetch('/api/github')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setCalendar(data)
         setStatus('ready')
       })
@@ -64,7 +64,7 @@ export const Activity = () => {
   return (
     <div
       ref={ref}
-      className='container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8'
+      className="container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8"
     >
       {calendar.map(({ date, grade }, idx) => (
         <motion.div
@@ -72,12 +72,12 @@ export const Activity = () => {
           custom={idx}
           animate={controls}
           initial={{ opacity: 0, y: 20, x: 20 }}
-          className='relative flex items-center justify-center h-4 m-px md:h-6'
+          className="relative flex items-center justify-center h-4 m-px md:h-6"
         >
           {/* background */}
           <div
             style={{ opacity: grade * 0.12 }}
-            className='w-full h-full bg-themeText'
+            className="w-full h-full bg-themeText"
           ></div>
 
           {/* current day */}

@@ -42,8 +42,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
         height: 2138,
       },
       video: {
-        src:
-          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/videonote.mp4',
+        src: 'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/videonote.mp4',
         width: 1199,
         height: 610,
       },
@@ -62,8 +61,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
         height: 2138,
       },
       video: {
-        src:
-          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/joshmu-dance-website.mp4',
+        src: 'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/joshmu-dance-website.mp4',
         width: 1200,
         height: 616,
       },
@@ -93,8 +91,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
         height: 2138,
       },
       video: {
-        src:
-          'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/aid-online.mp4',
+        src: 'https://joshmu.s3-ap-southeast-2.amazonaws.com/dev-portfolio-videos/aid-online.mp4',
         width: 1200,
         height: 616,
       },
@@ -102,8 +99,8 @@ export const Projects = ({ ...props }: ProjectsProps) => {
   ]
 
   return (
-    <div id='projects' className='container py-12 mx-auto' {...props}>
-      <div className='flex flex-wrap items-center justify-center'>
+    <div id="projects" className="container py-12 mx-auto" {...props}>
+      <div className="flex flex-wrap items-center justify-center">
         {projects.map((project, idx) => (
           <RevealInView key={idx} custom={idx}>
             <Project data={project} />
