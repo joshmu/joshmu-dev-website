@@ -5,11 +5,7 @@
     // Allow inline HTML
     "MD033": false,
     // Don't require first line to be H1
-    "MD041": false
+    "MD041": false,
   },
-  "ignores": [
-    "node_modules/",
-    ".next/",
-    "plop-templates/"
-  ]
+  "ignores": ["node_modules/", ".next/", "plop-templates/"],
 }
