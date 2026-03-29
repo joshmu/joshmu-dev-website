@@ -22,5 +22,5 @@ export const ParallaxVanilla = ({ rate = 0.5, children }: ParallaxVanillaProps) 
     transform: `translateY(${scrollY * rate}px)`,
   };
 
-  return (<div style={style}>{children}</div>) as JSX.Element;
+  return <div style={style}>{children}</div>;
 };

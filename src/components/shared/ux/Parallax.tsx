@@ -24,11 +24,12 @@ export const Parallax = ({ rate = 0, children, ...props }: ParallaxProps) => {
   rate = rate === 0 ? rand(1, 40) / 100 : rate;
 
   useLayoutEffect(() => {
-    if (!ref.current) return null;
+    if (!ref.current) return;
+    const el = ref.current;
     const onResize = () => {
       // also add half window height, so true position is centre of screen
-      setOffsetTop(ref.current.offsetTop - globalThis.window.innerHeight / 2);
-      setMinHeight(calculateMinHeight(ref.current.offsetHeight, rate));
+      setOffsetTop(el.offsetTop - globalThis.window.innerHeight / 2);
+      setMinHeight(calculateMinHeight(el.offsetHeight, rate));
     };
 
     onResize();

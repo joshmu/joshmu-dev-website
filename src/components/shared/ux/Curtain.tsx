@@ -37,6 +37,7 @@ const Char = ({ char, motionKey, padding, delay }: CharType) => {
 
   useEffect(() => {
     const handler = () => {
+      if (!charRef.current) return;
       const charRect = charRef.current.getBoundingClientRect();
       setState({ width: charRect.width, height: charRect.height });
     };

@@ -29,7 +29,7 @@ const motionStyle = {
 };
 
 export const ThemeToggle = (props: { [key: string]: any }) => {
-  const { toggleTheme, theme, THEME_TYPE } = useThemeContext();
+  const { toggleTheme, theme, THEME_TYPE } = useThemeContext()!;
   const cursorActions = useCursorPointer();
 
   const handleClick = () => {

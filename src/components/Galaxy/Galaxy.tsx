@@ -15,15 +15,21 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-function initGalaxy() {
+interface InitGalaxyFn {
+  (): void;
+  cleanUp?: () => void;
+}
+
+const initGalaxy: InitGalaxyFn = function () {
   const scene = new THREE.Scene();
 
   // field of view / aspect ratio / near / far
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
   // render machine and target
+  const canvas = document.getElementById("galaxy") as HTMLCanvasElement | null;
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("galaxy"),
+    canvas: canvas ?? undefined,
   });
 
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -59,7 +65,7 @@ function initGalaxy() {
 
   // controls
   const enableControls = false;
-  let controls;
+  let controls: OrbitControls | null = null;
   if (enableControls) controls = new OrbitControls(camera, renderer.domElement);
 
   // add stars
@@ -69,14 +75,14 @@ function initGalaxy() {
     const star = new THREE.Mesh(geometry, material);
 
     const [x, y, z] = Array(3)
-      .fill()
+      .fill(null)
       .map(() => THREE.MathUtils.randFloatSpread(100));
 
     star.position.set(x, y, z);
 
     scene.add(star);
   }
-  Array(50).fill().forEach(addStar);
+  Array(50).fill(null).forEach(addStar);
 
   // move camera
   function moveCamera() {
@@ -103,12 +109,12 @@ function initGalaxy() {
     torus.rotation.y += 0.0002;
     torus.rotation.z += 0.00001;
 
-    if (enableControls) controls.update();
+    if (enableControls && controls) controls.update();
 
     renderer.render(scene, camera);
   }
   animate();
-}
+};
 
 type ThreeProps = { props?: { [key: string]: any } };
 

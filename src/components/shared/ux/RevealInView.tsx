@@ -5,8 +5,8 @@ import { useInView } from "react-intersection-observer";
 type RevealInViewProps = {
   children: React.ReactNode;
   delay?: number;
-  variants?: Variants;
-  transition?: Transition;
+  variants?: Variants | null;
+  transition?: Transition | null;
   custom?: number;
   triggerOnce?: boolean;
   props?: { [key: string]: any };
@@ -14,9 +14,9 @@ type RevealInViewProps = {
 
 export const RevealInView = ({
   children,
-  _delay = 0,
-  variants = null,
-  transition = null,
+  delay: _delay = 0,
+  variants: initialVariants = null,
+  transition: initialTransition = null,
   custom = 1,
   triggerOnce = true,
   ...props
@@ -35,11 +35,11 @@ export const RevealInView = ({
     }
   }, [controls, inView]);
 
-  variants = variants || {
-    animate: (custom) => ({
+  const variants: Variants = initialVariants || {
+    animate: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: transition || {
+      transition: initialTransition || {
         delay: custom * 0.2,
         ease: [0.6, 0.05, -0.01, 0.9],
       },

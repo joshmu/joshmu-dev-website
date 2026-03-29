@@ -28,7 +28,7 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
   const [output, setOutput] = useState<[string, string, string]>(["", "", ""]);
   const [toggle, setToggle] = useState(false);
 
-  const { scrollProgress } = useGlobalContext();
+  const { scrollProgress } = useGlobalContext()!;
   const controls = useAnimation();
 
   useEffect(() => {
@@ -55,12 +55,7 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
   return (
     <p className="flex items-center justify-center whitespace-pre" {...props}>
       <span>{output[0]}</span>
-      <motion.span
-        // @ts-ignore
-        variants={animationVariants}
-        animate={controls}
-        className="overflow-hidden"
-      >
+      <motion.span variants={animationVariants} animate={controls} className="overflow-hidden">
         <span>{output[1]}</span>
       </motion.span>
       <span>{output[2]}</span>

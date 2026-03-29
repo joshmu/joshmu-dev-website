@@ -87,11 +87,11 @@ const Spray = ({ char, idx, scrollStart = 0, scrollEnd = 1, scrollYProgress }: S
   // spring motion to be used
   // * we make sure velocity will always be a reduction of distance or '1' so we don't pass our desired distance limit
   const xVel = useSpring(
-    useTransform(x, (value) => value * randomVelocityX.current),
+    useTransform(x, (value) => (value ?? 0) * randomVelocityX.current),
     springConfig,
   );
   const yVel = useSpring(
-    useTransform(y, (value) => value / randomVelocityY.current),
+    useTransform(y, (value) => (value ?? 0) / randomVelocityY.current),
     springConfig,
   );
 

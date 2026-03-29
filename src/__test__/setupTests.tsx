@@ -12,6 +12,14 @@ export const setupTests = (() => {
   // REQUIRED MOCKS
   ///////////////
 
+  // REACT-PLAYER MOCK (dynamic imports not supported in Jest 30)
+  jest.mock("react-player", () => {
+    return jest.fn(({ url }: { url: string }) => <div data-testid="react-player" data-url={url} />);
+  });
+  jest.mock("react-player/lazy", () => {
+    return jest.fn(({ url }: { url: string }) => <div data-testid="react-player" data-url={url} />);
+  });
+
   // INTERSECTION OBSERVER MOCK
   const intersectionObserverMock = () => ({
     observe: () => null,
@@ -37,7 +45,7 @@ export const setupTests = (() => {
     // helper
     const toLowerCaseList = ["whileHover"];
     const attrsToLowerCase = jest.fn((props) => {
-      return Object.entries(props).reduce((acc, [key, val]) => {
+      return Object.entries(props).reduce((acc: Record<string, unknown>, [key, val]) => {
         key = toLowerCaseList.includes(key) ? key.toLowerCase() : key;
         acc[key] = val;
         return acc;
@@ -75,7 +83,7 @@ export const setupTests = (() => {
   });
 
   // GLOBAL CONTEXT
-  jest.mock("@/context/GlobalContext", () => {
+  jest.mock("@/context/globalContext", () => {
     const scrollProgress = 0;
     const values = { scrollProgress };
     const useGlobalContext = jest.fn(() => values);
@@ -86,13 +94,20 @@ export const setupTests = (() => {
   });
 
   // THEME CONTEXT
-  jest.mock("@/context/ThemeContext", () => {
+  jest.mock("@/context/themeContext", () => {
     const toggleTheme = jest.fn();
-    const values = { toggleTheme };
+    const THEME_TYPE = {
+      dark: "theme-dark",
+      light: "theme-light",
+      alt: "theme-alt",
+      alt2: "theme-alt2",
+    };
+    const values = { toggleTheme, theme: "theme-dark", THEME_TYPE };
     const useThemeContext = jest.fn(() => values);
 
     return {
       useThemeContext,
+      ThemeProvider: ({ children }: { children: React.ReactNode }) => children,
     };
   });
 })();

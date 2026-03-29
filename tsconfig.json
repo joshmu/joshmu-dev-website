@@ -12,12 +12,12 @@
       "@/services/*": ["src/services/*"],
       "@/utils/*": ["utils/*"]
     },
-    "checkJs": true,
+    "checkJs": false,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -31,9 +31,8 @@
       {
         "name": "next"
       }
-    ],
-    "strictNullChecks": true
+    ]
   },
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -32,7 +32,7 @@ const metaData: { [key: string]: string } = {
 
 export const Layout = ({ children }: LayoutProps) => {
   // google analytics (placed in layout to include page/route data)
-  setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
+  setupGAService(process.env.NEXT_PUBLIC_GA_TRACKING_ID ?? "");
 
   const layoutVariants: Variants = {
     initial: { opacity: 0 },

@@ -18,7 +18,8 @@ type HeroProps = { props?: { [key: string]: any } };
 
 export const Hero = ({ ...props }: HeroProps) => {
   const scrollTo = useScrollTo();
-  const { toggleTheme } = useThemeContext();
+  const themeContext = useThemeContext();
+  const toggleTheme = themeContext!.toggleTheme;
   const cursorActions = useCursorPointer();
 
   const handleScrollDown = () => {

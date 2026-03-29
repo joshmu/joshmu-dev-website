@@ -39,7 +39,7 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
     let savedTheme = window.localStorage.getItem(LOCALSTORAGE_KEY);
 
     // validation check
-    if (!Object.values(THEME_TYPE).includes(savedTheme)) savedTheme = null;
+    if (!savedTheme || !Object.values(THEME_TYPE).includes(savedTheme)) savedTheme = null;
 
     // if we have a saved theme then set it
     // otherwise update localStorage with default initial theme
