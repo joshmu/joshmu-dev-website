@@ -36,8 +36,8 @@ importers:
         specifier: ^4.3.1
         version: 4.12.0(react@19.2.4)
       react-intersection-observer:
-        specifier: ^8.33.1
-        version: 8.34.0(react@19.2.4)
+        specifier: ^10.0.3
+        version: 10.0.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react-player:
         specifier: ^2.9.0
         version: 2.16.1(react@19.2.4)
@@ -3279,10 +3279,14 @@ packages:
     peerDependencies:
       react: '*'
 
-  react-intersection-observer@8.34.0:
-    resolution: {integrity: sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==}
+  react-intersection-observer@10.0.3:
+    resolution: {integrity: sha512-luICLMbs0zxTO/70Zy7K5jOXkABPEVSAF8T3FdZUlctsrIaPLmx8TZe2SSA+CY2HGWfz2INyNTnp82pxNNsShA==}
     peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -6810,9 +6814,11 @@ snapshots:
     dependencies:
       react: 19.2.4
 
-  react-intersection-observer@8.34.0(react@19.2.4):
+  react-intersection-observer@10.0.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       react: 19.2.4
+    optionalDependencies:
+      react-dom: 19.2.4(react@19.2.4)
 
   react-is@16.13.1: {}
 

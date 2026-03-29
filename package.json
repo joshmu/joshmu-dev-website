@@ -47,7 +47,7 @@
     "react-dom": "^19.2.4",
     "react-ga": "^3.3.0",
     "react-icons": "^4.3.1",
-    "react-intersection-observer": "^8.33.1",
+    "react-intersection-observer": "^10.0.3",
     "react-player": "^2.9.0",
     "react-scroll": "^1.8.4",
     "three": "^0.136.0"
