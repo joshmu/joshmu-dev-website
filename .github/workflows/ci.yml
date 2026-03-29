@@ -106,14 +106,17 @@ jobs:
   gitleaks:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
-        env:
-          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+      - name: Install gitleaks
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.22.1/gitleaks_8.22.1_linux_x64.tar.gz -o gitleaks.tar.gz
+          tar -xzf gitleaks.tar.gz
+          sudo mv gitleaks /usr/local/bin/
+      - name: Run gitleaks
+        run: gitleaks detect --source . --verbose
 
   knip:
     runs-on: ubuntu-latest
@@ -152,7 +155,7 @@ jobs:
       - run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
   ci-status:
-    needs: [typecheck, lint, format, test, build, coverage, lint-md]
+    needs: [typecheck, lint, format, test, build, coverage, lint-md, gitleaks]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 1
