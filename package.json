@@ -50,7 +50,7 @@
     "react-intersection-observer": "^10.0.3",
     "react-player": "^2.9.0",
     "react-scroll": "^1.8.4",
-    "three": "^0.136.0"
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
