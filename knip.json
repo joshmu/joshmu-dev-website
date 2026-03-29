@@ -1,4 +1,4 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "ignoreBinaries": ["knip", "audit"]
+  "ignoreDependencies": ["@vitest/coverage-v8"]
 }
