@@ -121,7 +121,6 @@ jobs:
   knip:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -155,7 +154,7 @@ jobs:
       - run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
   ci-status:
-    needs: [typecheck, lint, format, test, build, coverage, lint-md, gitleaks]
+    needs: [typecheck, lint, format, test, build, coverage, lint-md, gitleaks, knip]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 1

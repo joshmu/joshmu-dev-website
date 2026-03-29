@@ -110,7 +110,7 @@ On every commit, the following run automatically:
 
 ### CI Pipeline (GitHub Actions)
 
-Runs on push to `main` and on all PRs:
+Runs on push to `master` and on all PRs:
 
 | Job           | Blocking      | Purpose                          |
 | ------------- | ------------- | -------------------------------- |
@@ -122,7 +122,7 @@ Runs on push to `main` and on all PRs:
 | coverage      | Yes           | Jest with coverage thresholds    |
 | lint-md       | Yes           | Markdown linting                 |
 | gitleaks      | Yes           | Secret scanning                  |
-| knip          | No            | Dead code detection              |
+| knip          | Yes           | Dead code detection              |
 | audit         | No            | Dependency vulnerability scan    |
 | commitlint    | Yes (PR only) | Commit message validation        |
 | **ci-status** | Gate          | Aggregates all blocking jobs     |

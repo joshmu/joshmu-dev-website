@@ -6,7 +6,7 @@ const ReactPlayer = dynamic(() => import("react-player"), {
   loading: () => <div style={{ aspectRatio: "16/9", background: "#000" }} />,
 });
 
-export type ClientOnlyPlayerProps = ComponentProps<typeof ReactPlayer>;
+type ClientOnlyPlayerProps = ComponentProps<typeof ReactPlayer>;
 
 export default function ClientOnlyPlayer(props: ClientOnlyPlayerProps) {
   return <ReactPlayer {...props} />;

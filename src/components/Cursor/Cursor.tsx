@@ -33,7 +33,7 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
 
   return <CursorContext.Provider value={{ type, setType }}>{children}</CursorContext.Provider>;
 };
-export const useCursorContext = () => {
+const useCursorContext = () => {
   return useContext(CursorContext);
 };
 export const useCursorPointer = () => {
