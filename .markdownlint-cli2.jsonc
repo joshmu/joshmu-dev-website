@@ -1,11 +1,13 @@
 {
   "config": {
-    // Disable line length
     "MD013": false,
-    // Allow inline HTML
+    "MD024": { "siblings_only": true },
+    "MD026": { "punctuation": ".,;" },
     "MD033": false,
-    // Don't require first line to be H1
+    "MD034": false,
+    "MD036": false,
+    "MD040": false,
     "MD041": false,
+    "MD060": false,
   },
-  "ignores": ["node_modules/", ".next/", "plop-templates/"],
 }
