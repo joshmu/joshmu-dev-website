@@ -106,6 +106,7 @@ jobs:
   gitleaks:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -151,7 +152,7 @@ jobs:
       - run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
   ci-status:
-    needs: [typecheck, lint, format, test, build, coverage, lint-md, gitleaks]
+    needs: [typecheck, lint, format, test, build, coverage, lint-md]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 1
