@@ -1,6 +1,6 @@
-import twConfigFile from 'tailwind.config'
-import resolveConfig from 'tailwindcss/resolveConfig'
+import twConfigFile from "tailwind.config";
+import resolveConfig from "tailwindcss/resolveConfig";
 
-const twConfig = resolveConfig(twConfigFile)
+const twConfig = resolveConfig(twConfigFile);
 
-export const useTwConfig = () => twConfig
+export const useTwConfig = () => twConfig;

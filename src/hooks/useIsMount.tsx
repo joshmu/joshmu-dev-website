@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
 export const useIsMount = () => {
-  const isMountRef = useRef(true)
+  const isMountRef = useRef(true);
   useEffect(() => {
-    isMountRef.current = false
-  }, [])
-  return isMountRef.current
-}
+    isMountRef.current = false;
+  }, []);
+  return isMountRef.current;
+};

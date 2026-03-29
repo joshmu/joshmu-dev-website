@@ -1,16 +1,16 @@
-import { Transition, Variants, motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { Transition, Variants, motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 type RevealInViewProps = {
-  children: React.ReactNode
-  delay?: number
-  variants?: Variants
-  transition?: Transition
-  custom?: number
-  triggerOnce?: boolean
-  props?: { [key: string]: any }
-}
+  children: React.ReactNode;
+  delay?: number;
+  variants?: Variants;
+  transition?: Transition;
+  custom?: number;
+  triggerOnce?: boolean;
+  props?: { [key: string]: any };
+};
 
 export const RevealInView = ({
   children,
@@ -21,22 +21,22 @@ export const RevealInView = ({
   triggerOnce = true,
   ...props
 }: RevealInViewProps) => {
-  const controls = useAnimation()
+  const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce,
     threshold: 0.15,
-  })
+  });
 
   useEffect(() => {
     if (inView) {
-      controls.start('animate')
+      controls.start("animate");
     } else {
-      controls.start('initial')
+      controls.start("initial");
     }
-  }, [controls, inView])
+  }, [controls, inView]);
 
   variants = variants || {
-    animate: custom => ({
+    animate: (custom) => ({
       opacity: 1,
       y: 0,
       transition: transition || {
@@ -45,20 +45,20 @@ export const RevealInView = ({
       },
     }),
     initial: { opacity: 0, y: 25 },
-  }
+  };
 
   return (
-    <div className='inline-block' ref={ref}>
+    <div className="inline-block" ref={ref}>
       <motion.div
         animate={controls}
-        initial='initial'
+        initial="initial"
         custom={custom}
         variants={variants}
-        style={{ display: 'inline-block' }}
+        style={{ display: "inline-block" }}
         {...props}
       >
         {children}
       </motion.div>
     </div>
-  )
-}
+  );
+};

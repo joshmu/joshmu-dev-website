@@ -23,14 +23,14 @@ yarn test       # Run tests
 
 ## Validation
 
-| Tool | Command | Purpose |
-|------|---------|---------|
-| Oxlint | `yarn lint` | Linting (React, Next.js, a11y, TS) |
-| Oxfmt | `yarn format:check` | Formatting |
-| TypeScript | `yarn typecheck` | Type checking (strict) |
-| Jest | `yarn test:coverage` | Tests + coverage thresholds |
-| markdownlint | `yarn lint:md` | Markdown linting |
-| shellcheck | `yarn shellcheck` | Shell script linting |
+| Tool         | Command              | Purpose                            |
+| ------------ | -------------------- | ---------------------------------- |
+| Oxlint       | `yarn lint`          | Linting (React, Next.js, a11y, TS) |
+| Oxfmt        | `yarn format:check`  | Formatting                         |
+| TypeScript   | `yarn typecheck`     | Type checking (strict)             |
+| Jest         | `yarn test:coverage` | Tests + coverage thresholds        |
+| markdownlint | `yarn lint:md`       | Markdown linting                   |
+| shellcheck   | `yarn shellcheck`    | Shell script linting               |
 
 Pre-commit hooks enforce lint, format, typecheck, and commitlint automatically. CI runs the full validation matrix on every PR.
 

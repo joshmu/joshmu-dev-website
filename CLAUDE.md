@@ -112,20 +112,20 @@ On every commit, the following run automatically:
 
 Runs on push to `main` and on all PRs:
 
-| Job | Blocking | Purpose |
-|-----|----------|---------|
-| typecheck | Yes | `tsc --noEmit` (strict) |
-| lint | Yes | Oxlint |
-| format | Yes | Oxfmt/Prettier check |
-| test | Yes | Jest test suite |
-| build | Yes | `next build` (type errors block) |
-| coverage | Yes | Jest with coverage thresholds |
-| lint-md | Yes | Markdown linting |
-| gitleaks | Yes | Secret scanning |
-| knip | No | Dead code detection |
-| audit | No | Dependency vulnerability scan |
-| commitlint | Yes (PR only) | Commit message validation |
-| **ci-status** | Gate | Aggregates all blocking jobs |
+| Job           | Blocking      | Purpose                          |
+| ------------- | ------------- | -------------------------------- |
+| typecheck     | Yes           | `tsc --noEmit` (strict)          |
+| lint          | Yes           | Oxlint                           |
+| format        | Yes           | Oxfmt/Prettier check             |
+| test          | Yes           | Jest test suite                  |
+| build         | Yes           | `next build` (type errors block) |
+| coverage      | Yes           | Jest with coverage thresholds    |
+| lint-md       | Yes           | Markdown linting                 |
+| gitleaks      | Yes           | Secret scanning                  |
+| knip          | No            | Dead code detection              |
+| audit         | No            | Dependency vulnerability scan    |
+| commitlint    | Yes (PR only) | Commit message validation        |
+| **ci-status** | Gate          | Aggregates all blocking jobs     |
 
 Branch protection should target the `ci-status` gate job.
 

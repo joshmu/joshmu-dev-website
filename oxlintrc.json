@@ -9,12 +9,5 @@
     "restriction": "off"
   },
   "plugins": ["react", "react-perf", "nextjs", "jsx-a11y", "typescript"],
-  "ignorePatterns": [
-    ".next/",
-    "node_modules/",
-    "coverage/",
-    "out/",
-    "build/",
-    "plop-templates/"
-  ]
+  "ignorePatterns": [".next/", "node_modules/", "coverage/", "out/", "build/", "plop-templates/"]
 }

@@ -3,14 +3,14 @@
 // setupTests.tsx
 
 // import react-testing methods
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
 // the component to test
-import { Hero } from './Hero'
+import { Hero } from "./Hero";
 
 // logo
-test('renders Hero component with logo', () => {
-  render(<Hero />)
+test("renders Hero component with logo", () => {
+  render(<Hero />);
   // const logo = screen.getByTestId('heroLogo')
 
   // this should work but initial animation + state is hidden
@@ -19,5 +19,5 @@ test('renders Hero component with logo', () => {
 
   // let's just check my surname is somehwere in this component
   // * in this case in the background
-  expect(screen.getByText(/mu/i)).toBeInTheDocument()
-})
+  expect(screen.getByText(/mu/i)).toBeInTheDocument();
+});

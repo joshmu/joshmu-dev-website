@@ -3,59 +3,47 @@
 // setupTests.tsx
 
 // import react-testing methods
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
 // the component to test
-import { Projects } from './Projects'
+import { Projects } from "./Projects";
 
 // projects
 // include as many test cases as you want here
 const projects = [
   {
-    title: 'videonote',
-    href: 'https://videonote.app',
-    github: 'https://github.com/joshmu/videonote',
+    title: "videonote",
+    href: "https://videonote.app",
+    github: "https://github.com/joshmu/videonote",
   },
   {
-    title: 'joshmu.com',
-    href: 'https://joshmu.com',
-    github: 'https://github.com/joshmu/joshmu-dance-website',
+    title: "joshmu.com",
+    href: "https://joshmu.com",
+    github: "https://github.com/joshmu/joshmu-dance-website",
   },
   {
-    title: 'aid-online',
-    href: 'http://aid.alisdairmacindoe.com',
-    github: 'https://github.com/joshmu/aid-online-code-sample',
+    title: "aid-online",
+    href: "http://aid.alisdairmacindoe.com",
+    github: "https://github.com/joshmu/aid-online-code-sample",
   },
-]
+];
 
 // check if each project title is present
-test.each(projects)(
-  'Check if Project title exists in "%s" project.',
-  project => {
-    render(<Projects />)
-    expect(
-      screen.getAllByText(new RegExp(project.title, 'i')).length
-    ).toBeGreaterThan(0)
-  }
-)
+test.each(projects)('Check if Project title exists in "%s" project.', (project) => {
+  render(<Projects />);
+  expect(screen.getAllByText(new RegExp(project.title, "i")).length).toBeGreaterThan(0);
+});
 
 // check among the links that we are linking to the correct places
-test.each(projects)('Check if Project url exists in "%s" project.', project => {
-  render(<Projects />)
-  const elems = screen.getAllByRole('link')
-  expect(
-    elems.some(elem => elem.getAttribute('href') === project.href)
-  ).toBeTruthy()
-})
+test.each(projects)('Check if Project url exists in "%s" project.', (project) => {
+  render(<Projects />);
+  const elems = screen.getAllByRole("link");
+  expect(elems.some((elem) => elem.getAttribute("href") === project.href)).toBeTruthy();
+});
 
 // check among the links that we are linking to the correct places
-test.each(projects)(
-  'Check if Project Github link exists in "%s" project.',
-  project => {
-    render(<Projects />)
-    const elems = screen.getAllByRole('link')
-    expect(
-      elems.some(elem => elem.getAttribute('href') === project.github)
-    ).toBeTruthy()
-  }
-)
+test.each(projects)('Check if Project Github link exists in "%s" project.', (project) => {
+  render(<Projects />);
+  const elems = screen.getAllByRole("link");
+  expect(elems.some((elem) => elem.getAttribute("href") === project.github)).toBeTruthy();
+});

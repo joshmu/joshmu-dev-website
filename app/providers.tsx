@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { AnimatePresence } from 'framer-motion'
-import { GlobalProvider } from '@/context/globalContext'
-import { ThemeProvider } from '@/context/themeContext'
-import { Cursor, CursorProvider } from '@/components/Cursor/Cursor'
-import { ScrollToTop } from './scroll-to-top'
+import { AnimatePresence } from "framer-motion";
+import { GlobalProvider } from "@/context/globalContext";
+import { ThemeProvider } from "@/context/themeContext";
+import { Cursor, CursorProvider } from "@/components/Cursor/Cursor";
+import { ScrollToTop } from "./scroll-to-top";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -19,5 +19,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </CursorProvider>
       </ThemeProvider>
     </GlobalProvider>
-  )
+  );
 }

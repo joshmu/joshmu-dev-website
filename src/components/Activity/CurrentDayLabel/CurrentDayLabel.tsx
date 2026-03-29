@@ -10,62 +10,56 @@
  * @copyright © 2020 - 2020 MU
  */
 
-import { Variants, motion, useAnimation } from 'framer-motion'
-import { useEffect } from 'react'
-import { VscGithubAlt as GithubIcon } from 'react-icons/vsc'
+import { Variants, motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { VscGithubAlt as GithubIcon } from "react-icons/vsc";
 
-export const CurrentDayLabel = ({
-  date,
-  ready,
-}: {
-  date: string
-  ready: boolean
-}) => {
-  const controls = useAnimation()
+export const CurrentDayLabel = ({ date, ready }: { date: string; ready: boolean }) => {
+  const controls = useAnimation();
 
   // initial load will fire 'initial' animation setup
   // then we will wait for 'ready' to trigger label animation
   useEffect(() => {
     if (ready) {
-      controls.start('animate')
+      controls.start("animate");
     } else {
-      controls.start('initial')
+      controls.start("initial");
     }
-  }, [ready])
+  }, [ready]);
 
   return (
-    <div className='absolute top-0 right-0'>
+    <div className="absolute top-0 right-0">
       <motion.div
-        key='currentDayLabel'
-        initial='initial'
+        key="currentDayLabel"
+        initial="initial"
         animate={controls}
         variants={labelVariants}
       >
-        <div className='flex flex-col items-center justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText'>
+        <div className="flex flex-col items-center justify-center h-full pl-2 leading-3 transform translate-x-full opacity-75 text-themeText">
           {/* arrow left */}
           <svg
-            className='w-4 h-4'
-            fill='none'
-            stroke='currentColor'
-            viewBox='0 0 24 24'
-            xmlns='http://www.w3.org/2000/svg'
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
+              strokeLinecap="round"
+              strokeLinejoin="round"
               strokeWidth={2}
-              d='M7 16l-4-4m0 0l4-4m-4 4h18'
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
             />
           </svg>
-          <div className='absolute transform -top-1/2 left-2/3 -rotate-22'>
-            <GithubIcon className='mx-auto mb-px' />
-            <p className='text-themeText'>{formatDate(date)}</p>
+          <div className="absolute transform -top-1/2 left-2/3 -rotate-22">
+            <GithubIcon className="mx-auto mb-px" />
+            <p className="text-themeText">{formatDate(date)}</p>
           </div>
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
 const labelVariants: Variants = {
   initial: { opacity: 0, scale: 0 },
@@ -73,11 +67,10 @@ const labelVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: "spring",
       duration: 0.6,
     },
   },
-}
+};
 
-const formatDate = (dateStr: string): string =>
-  dateStr.split('-').slice(1).reverse().join('/')
+const formatDate = (dateStr: string): string => dateStr.split("-").slice(1).reverse().join("/");

@@ -12,58 +12,54 @@
 
 // src/components/Activity/Activity.tsx
 
-import {
-  motion,
-  useAnimation,
-  TargetAndTransition,
-} from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { motion, useAnimation, TargetAndTransition } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
-import { ActivityDayInterface } from '@/app/api/github/route'
+import { ActivityDayInterface } from "@/app/api/github/route";
 
-import { CurrentDayLabel } from './CurrentDayLabel/CurrentDayLabel'
+import { CurrentDayLabel } from "./CurrentDayLabel/CurrentDayLabel";
 
 export const Activity = () => {
-  const [calendar, setCalendar] = useState<ActivityDayInterface[]>(null!)
-  const [status, setStatus] = useState<'loading' | 'ready' | 'done'>('loading')
-  const [finalAnimation, setFinalAnimation] = useState<boolean>(false)
-  const controls = useAnimation()
+  const [calendar, setCalendar] = useState<ActivityDayInterface[]>(null!);
+  const [status, setStatus] = useState<"loading" | "ready" | "done">("loading");
+  const [finalAnimation, setFinalAnimation] = useState<boolean>(false);
+  const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false, // keep checking in case data has not loaded yet
     threshold: 0.15,
-  })
+  });
 
   useEffect(() => {
-    fetch('/api/github')
-      .then(res => res.json())
-      .then(data => {
-        setCalendar(data)
-        setStatus('ready')
-      })
-  }, [])
+    fetch("/api/github")
+      .then((res) => res.json())
+      .then((data) => {
+        setCalendar(data);
+        setStatus("ready");
+      });
+  }, []);
 
   // stagger animation when container is in view
   useEffect(() => {
-    if (inView && status === 'ready') {
+    if (inView && status === "ready") {
       controls.start(activityStaggerAnimation).finally(() => {
-        setFinalAnimation(true)
-      })
+        setFinalAnimation(true);
+      });
     }
-  }, [controls, inView, status])
+  }, [controls, inView, status]);
 
   // mark animations complete
   useEffect(() => {
-    if (!finalAnimation) return
-    setStatus('done')
-  }, [finalAnimation])
+    if (!finalAnimation) return;
+    setStatus("done");
+  }, [finalAnimation]);
 
-  if (!calendar) return null
+  if (!calendar) return null;
 
   return (
     <div
       ref={ref}
-      className='container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8'
+      className="container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8"
     >
       {calendar.map(({ date, grade }, idx) => (
         <motion.div
@@ -71,23 +67,18 @@ export const Activity = () => {
           custom={idx}
           animate={controls}
           initial={{ opacity: 0, y: 20, x: 20 }}
-          className='relative flex items-center justify-center h-4 m-px md:h-6'
+          className="relative flex items-center justify-center h-4 m-px md:h-6"
         >
           {/* background */}
-          <div
-            style={{ opacity: grade * 0.12 }}
-            className='w-full h-full bg-themeText'
-          ></div>
+          <div style={{ opacity: grade * 0.12 }} className="w-full h-full bg-themeText"></div>
 
           {/* current day */}
-          {idx === calendar.length - 1 && (
-            <CurrentDayLabel date={date} ready={finalAnimation} />
-          )}
+          {idx === calendar.length - 1 && <CurrentDayLabel date={date} ready={finalAnimation} />}
         </motion.div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 function activityStaggerAnimation(custom: number): TargetAndTransition {
   return {
@@ -95,9 +86,9 @@ function activityStaggerAnimation(custom: number): TargetAndTransition {
     y: 0,
     x: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       delay: custom * 0.01,
       ease: [0.6, 0.05, -0.01, 0.9],
     },
-  }
+  };
 }
