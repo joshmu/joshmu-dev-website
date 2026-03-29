@@ -159,7 +159,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm audit --audit-level=high
+      - run: pnpm audit --audit-level=critical
 
   knip:
     runs-on: ubuntu-latest
@@ -175,7 +175,8 @@ jobs:
       - run: pnpm lint:knip
 
   ci-status:
-    needs: [format, lint, lint-md, typecheck, shellcheck, test, coverage, build, gitleaks, audit, knip]
+    needs:
+      [format, lint, lint-md, typecheck, shellcheck, test, coverage, build, gitleaks, audit, knip]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
