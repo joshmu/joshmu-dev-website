@@ -11,131 +11,121 @@
  * @copyright © 2020 - 2022 MU
  */
 
-import { useEffect, useLayoutEffect } from 'react'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { useEffect } from "react";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-function initGalaxy() {
-  const scene = new THREE.Scene()
+interface InitGalaxyFn {
+  (): void;
+  cleanUp?: () => void;
+}
+
+const initGalaxy: InitGalaxyFn = function () {
+  const scene = new THREE.Scene();
 
   // field of view / aspect ratio / near / far
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  )
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
   // render machine and target
+  const canvas = document.getElementById("galaxy") as HTMLCanvasElement | null;
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById('galaxy'),
-  })
+    canvas: canvas ?? undefined,
+  });
 
-  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setPixelRatio(window.devicePixelRatio);
   // full screen canvas
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(window.innerWidth, window.innerHeight);
   // render.setClearColor(0xffffff)
   // camera.position.z = 5
-  camera.position.set(0, 0, 30)
+  camera.position.set(0, 0, 30);
 
   // init renderer
-  renderer.render(scene, camera)
+  renderer.render(scene, camera);
 
-  const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
+  const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
   const material = new THREE.MeshBasicMaterial({
     color: 0xff6347,
     wireframe: true,
-  })
+  });
   // const material = new THREE.MeshStandardMaterial({
   //   color: 0xff6347,
   // })
-  const torus = new THREE.Mesh(geometry, material)
-  torus.position.x = 10
+  const torus = new THREE.Mesh(geometry, material);
+  torus.position.x = 10;
 
-  scene.add(torus)
+  scene.add(torus);
 
   // light (when using standard mesh)
-  const pointLight = new THREE.PointLight(0xffffff)
-  pointLight.position.set(5, 5, 5)
+  const pointLight = new THREE.PointLight(0xffffff);
+  pointLight.position.set(5, 5, 5);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 
-  scene.add(pointLight, ambientLight)
-
-  // helpers
-  function addHelpers() {
-    const lightHelper = new THREE.PointLightHelper(pointLight)
-    const gridHelper = new THREE.GridHelper(20, 20)
-    scene.add(lightHelper, gridHelper)
-  }
+  scene.add(pointLight, ambientLight);
 
   // controls
-  const enableControls = false
-  let controls
-  if (enableControls) controls = new OrbitControls(camera, renderer.domElement)
+  const enableControls = false;
+  let controls: OrbitControls | null = null;
+  if (enableControls) controls = new OrbitControls(camera, renderer.domElement);
 
   // add stars
   function addStar() {
-    const geometry = new THREE.SphereGeometry(0.1, 12, 12)
-    const material = new THREE.MeshStandardMaterial({ color: 0xffffff })
-    const star = new THREE.Mesh(geometry, material)
+    const geometry = new THREE.SphereGeometry(0.1, 12, 12);
+    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const star = new THREE.Mesh(geometry, material);
 
     const [x, y, z] = Array(3)
-      .fill()
-      .map(() => THREE.MathUtils.randFloatSpread(100))
+      .fill(null)
+      .map(() => THREE.MathUtils.randFloatSpread(100));
 
-    star.position.set(x, y, z)
+    star.position.set(x, y, z);
 
-    scene.add(star)
+    scene.add(star);
   }
-  Array(50).fill().forEach(addStar)
+  Array(50).fill(null).forEach(addStar);
 
   // move camera
   function moveCamera() {
-    const t = document.body.getBoundingClientRect().top
+    const t = document.body.getBoundingClientRect().top;
 
-    torus.rotation.z += 0.001
+    torus.rotation.z += 0.001;
 
-    camera.position.x = t * -0.002
-    camera.position.y = t * -0.005
-    camera.position.z = t * -0.01
+    camera.position.x = t * -0.002;
+    camera.position.y = t * -0.005;
+    camera.position.z = t * -0.01;
   }
-  moveCamera()
-  document.addEventListener('scroll', moveCamera)
+  moveCamera();
+  document.addEventListener("scroll", moveCamera);
 
   // external clean up when react component unmounts
   initGalaxy.cleanUp = () => {
-    document.removeEventListener('scroll', moveCamera)
-  }
+    document.removeEventListener("scroll", moveCamera);
+  };
 
   // animation loop
   function animate() {
-    requestAnimationFrame(animate)
-    torus.rotation.x += 0.0004
-    torus.rotation.y += 0.0002
-    torus.rotation.z += 0.00001
+    requestAnimationFrame(animate);
+    torus.rotation.x += 0.0004;
+    torus.rotation.y += 0.0002;
+    torus.rotation.z += 0.00001;
 
-    if (enableControls) controls.update()
+    if (enableControls && controls) controls.update();
 
-    renderer.render(scene, camera)
+    renderer.render(scene, camera);
   }
-  animate()
-}
+  animate();
+};
 
-type ThreeProps = { props?: { [key: string]: any } }
+type ThreeProps = { props?: { [key: string]: any } };
 
 export const Galaxy = ({ ...props }: ThreeProps) => {
   useEffect(() => {
-    initGalaxy()
+    initGalaxy();
 
-    return initGalaxy.cleanUp
-  }, [])
+    return initGalaxy.cleanUp;
+  }, []);
 
   return (
-    <canvas
-      id='galaxy'
-      className='fixed top-0 left-0 cursor-none opacity-20'
-      {...props}
-    ></canvas>
-  )
-}
+    <canvas id="galaxy" className="fixed top-0 left-0 cursor-none opacity-20" {...props}></canvas>
+  );
+};

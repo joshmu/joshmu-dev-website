@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-  background-color: theme('colors.themeBg');
-  color: theme('colors.themeText');
+  background-color: theme("colors.themeBg");
+  color: theme("colors.themeText");
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -27,7 +27,7 @@ body {
   --text2: #868585;
 
   --background: #f3f3f3;
-  --background2: theme('colors.gray.50');
+  --background2: theme("colors.gray.50");
 
   --accent: #c68400;
 }
@@ -37,27 +37,27 @@ body {
   --text2: #444;
 
   --background: #010101;
-  --background2: theme('colors.gray.900');
+  --background2: theme("colors.gray.900");
 
   --accent: #1973cc;
 }
 
 .theme-alt {
-  --text: theme('colors.blue.800');
-  --text2: theme('colors.blue.500');
+  --text: theme("colors.blue.800");
+  --text2: theme("colors.blue.500");
 
   --background: #ebf6f1;
-  --background2: theme('colors.green.300');
+  --background2: theme("colors.green.300");
 
-  --accent: theme('colors.purple.700');
+  --accent: theme("colors.purple.700");
 }
 
 .theme-alt2 {
-  --text: theme('colors.red.200');
-  --text2: theme('colors.red.100');
+  --text: theme("colors.red.200");
+  --text2: theme("colors.red.100");
 
-  --background: theme('colors.indigo.800');
-  --background2: theme('colors.indigo.400');
+  --background: theme("colors.indigo.800");
+  --background2: theme("colors.indigo.400");
 
   --accent: #010101;
 }
@@ -66,8 +66,8 @@ body {
 
 .radial-bg {
   background-image: radial-gradient(
-    theme('colors.themeAccent'),
-    theme('colors.themeBg'),
-    theme('colors.themeBg')
+    theme("colors.themeAccent"),
+    theme("colors.themeBg"),
+    theme("colors.themeBg")
   );
 }

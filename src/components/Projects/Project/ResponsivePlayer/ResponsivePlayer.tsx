@@ -1,29 +1,28 @@
-import { isMobile } from 'react-device-detect'
+import { isMobile } from "react-device-detect";
 
-import ClientOnlyPlayer from './ClientOnlyPlayer'
-import { PlayIcon } from './PlayIcon/PlayIcon'
+import ClientOnlyPlayer from "./ClientOnlyPlayer";
+import { PlayIcon } from "./PlayIcon/PlayIcon";
 
 type ResponsivePlayerProps = {
-  video: { src: string; width: number; height: number }
-  img: { src: string; width: number; height: number }
-}
+  video: { src: string; width: number; height: number };
+  img: { src: string; width: number; height: number };
+};
 
 export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
   return (
     <div
-      // @ts-ignore
       style={{
         ...style.playerWrapper,
-        paddingTop: calcVidRatio(img.width, img.height) + '%',
+        paddingTop: calcVidRatio(img.width, img.height) + "%",
       }}
-      className='w-full'
+      className="w-full"
     >
       <ClientOnlyPlayer
         playing={true}
         url={video.src}
         style={style.reactPlayer}
-        width='100%'
-        height='100%'
+        width="100%"
+        height="100%"
         // width={video.width}
         // height={video.height}
         muted
@@ -33,23 +32,18 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
         playIcon={<PlayIcon motionKey={img.src} />}
       />
     </div>
-  )
-}
+  );
+};
 
-const calcVidRatio = (width: number, height: number): number =>
-  100 / (width / height)
+const calcVidRatio = (width: number, height: number): number => 100 / (width / height);
 
 const style = {
   playerWrapper: {
-    position: 'relative',
-    // Player ratio: 100 / (1280 / 720)
-    // paddingTop: '56.25%',
-    // the ratio is slightly out so we hide
-    // overflow: 'hidden',
+    position: "relative" as const,
   },
   reactPlayer: {
-    position: 'absolute',
+    position: "absolute" as const,
     top: 0,
     left: 0,
   },
-}
+};

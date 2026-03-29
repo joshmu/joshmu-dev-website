@@ -1,47 +1,45 @@
-import { MotionValue, useScroll } from 'framer-motion'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { MotionValue, useScroll } from "framer-motion";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface GlobalContextInterface {
-  scrollYProgress: MotionValue
-  scrollProgress: number
+  scrollYProgress: MotionValue;
+  scrollProgress: number;
 }
 
-const globalContext = createContext<GlobalContextInterface | null>(null)
+const globalContext = createContext<GlobalContextInterface | null>(null);
 
 type GlobalProviderProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export const GlobalProvider = ({ children }: GlobalProviderProps) => {
-  const { scrollYProgress } = useScroll()
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const { scrollYProgress } = useScroll();
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // initial scroll
   useEffect(() => {
     // handle motion
     function handleScroll() {
-      setScrollProgress(scrollYProgress.get())
+      setScrollProgress(scrollYProgress.get());
     }
 
     // subscribe
-    const unsubscribeY = scrollYProgress.onChange(handleScroll)
+    const unsubscribeY = scrollYProgress.onChange(handleScroll);
 
     // destroy
     return () => {
-      unsubscribeY()
-    }
-  }, [])
+      unsubscribeY();
+    };
+  }, []);
 
   const value: GlobalContextInterface = {
     scrollYProgress,
     scrollProgress,
-  }
+  };
 
-  return (
-    <globalContext.Provider value={value}>{children}</globalContext.Provider>
-  )
-}
+  return <globalContext.Provider value={value}>{children}</globalContext.Provider>;
+};
 
 export const useGlobalContext = () => {
-  return useContext(globalContext)
-}
+  return useContext(globalContext);
+};
