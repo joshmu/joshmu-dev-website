@@ -110,7 +110,7 @@ On every commit, the following run automatically:
 
 ### CI Pipeline (GitHub Actions)
 
-Runs on push to `master` and on all PRs:
+Runs on push to `main` and on all PRs:
 
 | Job           | Blocking      | Purpose                          |
 | ------------- | ------------- | -------------------------------- |
