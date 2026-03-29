@@ -36,7 +36,7 @@ Pre-commit hooks enforce lint, format, typecheck, and commitlint automatically. 
 
 ## Commit Convention
 
-```
+```text
 type(scope): description
 ```
 

@@ -101,7 +101,7 @@ Each commit is self-contained, builds on the previous, and the repo should be in
 "format:check": "oxfmt --check ."
 ```
 
-**Note**: If `oxfmt` is not yet available as a standalone npm package (it's newer than oxlint), fall back to Prettier as an interim solution and document the planned migration. Check https://oxc.rs for current status.
+**Note**: If `oxfmt` is not yet available as a standalone npm package (it's newer than oxlint), fall back to Prettier as an interim solution and document the planned migration. Check <https://oxc.rs> for current status.
 
 **Fallback scripts (Prettier)**:
 
@@ -565,7 +565,7 @@ updates:
 
 ## Execution Order & Dependencies
 
-```
+```text
 Commit 1 (oxlint) ─────────────────┐
 Commit 2 (oxfmt) ──────────────────┤
 Commit 3 (strict TS) ──────────────┤

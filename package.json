@@ -32,6 +32,7 @@
     "typecheck": "tsc --noEmit",
     "shellcheck": "git ls-files '*.sh' | xargs shellcheck",
     "bash32-compat": "bash scripts/check-bash32-compat.sh",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules' '#.next'",
     "postinstall": "husky install",
     "plop": "plop"
   },
@@ -75,6 +76,7 @@
     "jest-axe": "^5.0.1",
     "jest-environment-jsdom": "^30.0.4",
     "lint-staged": "^16.4.0",
+    "markdownlint-cli2": "^0.22.0",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
     "plop": "^3.0.5",
