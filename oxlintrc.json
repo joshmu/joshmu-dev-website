@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicolo-ribaudo/oxc/json-schema/npm/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "pedantic": "off",
+    "style": "off",
+    "restriction": "off"
+  },
+  "plugins": ["react", "react-perf", "nextjs", "jsx-a11y", "typescript"],
+  "ignorePatterns": [
+    ".next/",
+    "node_modules/",
+    "coverage/",
+    "out/",
+    "build/",
+    "plop-templates/"
+  ]
+}

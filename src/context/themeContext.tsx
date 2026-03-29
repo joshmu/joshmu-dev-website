@@ -43,9 +43,11 @@ export const ThemeProvider = (props: { [key: string]: any }) => {
 
     // if we have a saved theme then set it
     // otherwise update localStorage with default initial theme
-    savedTheme
-      ? setTheme(savedTheme)
-      : window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else {
+      window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
+    }
   }, [])
 
   // when theme changes then assign to body tag

@@ -11,7 +11,7 @@
  * @copyright © 2020 - 2022 MU
  */
 
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
@@ -61,13 +61,6 @@ function initGalaxy() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 
   scene.add(pointLight, ambientLight)
-
-  // helpers
-  function addHelpers() {
-    const lightHelper = new THREE.PointLightHelper(pointLight)
-    const gridHelper = new THREE.GridHelper(20, 20)
-    scene.add(lightHelper, gridHelper)
-  }
 
   // controls
   const enableControls = false

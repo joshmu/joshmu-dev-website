@@ -14,7 +14,7 @@ type RevealInViewProps = {
 
 export const RevealInView = ({
   children,
-  delay = 0,
+  _delay = 0,
   variants = null,
   transition = null,
   custom = 1,
@@ -28,7 +28,11 @@ export const RevealInView = ({
   })
 
   useEffect(() => {
-    inView ? controls.start('animate') : controls.start('initial')
+    if (inView) {
+      controls.start('animate')
+    } else {
+      controls.start('initial')
+    }
   }, [controls, inView])
 
   variants = variants || {

@@ -26,7 +26,11 @@ export const CurrentDayLabel = ({
   // initial load will fire 'initial' animation setup
   // then we will wait for 'ready' to trigger label animation
   useEffect(() => {
-    ready ? controls.start('animate') : controls.start('initial')
+    if (ready) {
+      controls.start('animate')
+    } else {
+      controls.start('initial')
+    }
   }, [ready])
 
   return (

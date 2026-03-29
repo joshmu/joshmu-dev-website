@@ -37,7 +37,11 @@ export const Contact = ({ ...props }: ContactProps) => {
   const cursorActions = useCursorPointer()
 
   useEffect(() => {
-    inView ? controls.start('visible') : controls.start('initial')
+    if (inView) {
+      controls.start('visible')
+    } else {
+      controls.start('initial')
+    }
   }, [controls, inView])
 
   return (
