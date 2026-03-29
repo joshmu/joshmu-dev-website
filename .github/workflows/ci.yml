@@ -178,7 +178,7 @@ jobs:
     needs: [format, lint, lint-md, typecheck, shellcheck, test, coverage, build, gitleaks, audit, knip]
     if: always()
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 5
     steps:
       - if: contains(needs.*.result, 'failure')
         run: exit 1
