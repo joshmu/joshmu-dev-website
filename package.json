@@ -30,6 +30,8 @@
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "typecheck": "tsc --noEmit",
+    "shellcheck": "git ls-files '*.sh' | xargs shellcheck",
+    "bash32-compat": "bash scripts/check-bash32-compat.sh",
     "postinstall": "husky install",
     "plop": "plop"
   },
