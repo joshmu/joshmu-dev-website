@@ -19,7 +19,7 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
     >
       <ClientOnlyPlayer
         playing={true}
-        url={video.src}
+        src={video.src}
         style={style.reactPlayer}
         width="100%"
         height="100%"
