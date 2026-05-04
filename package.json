@@ -70,7 +70,7 @@
     "jsdom": "^29.0.1",
     "knip": "^6.1.0",
     "lint-staged": "^16.4.0",
-    "markdownlint-cli2": "^0.22.0",
+    "markdownlint-cli2": "^0.22.1",
     "oxfmt": "^0.43.0",
     "oxlint": "^1.60.0",
     "plop": "^4.0.5",
