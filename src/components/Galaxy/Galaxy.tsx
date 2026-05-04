@@ -120,7 +120,14 @@ type ThreeProps = { props?: { [key: string]: any } };
 
 export const Galaxy = ({ ...props }: ThreeProps) => {
   useEffect(() => {
-    initGalaxy();
+    try {
+      initGalaxy();
+    } catch (err) {
+      // WebGL context creation can fail in sandboxed/privacy browsers (Arc, Brave shields,
+      // hardware-accel disabled). The galaxy is decorative — swallow the error so the
+      // rest of the page keeps rendering.
+      console.warn("Galaxy disabled: WebGL unavailable", err);
+    }
 
     return initGalaxy.cleanUp;
   }, []);
