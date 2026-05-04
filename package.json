@@ -50,7 +50,7 @@
     "react-intersection-observer": "^10.0.3",
     "react-player": "^3.4.0",
     "react-scroll": "^1.8.4",
-    "three": "^0.183.2"
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
@@ -62,7 +62,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-scroll": "^1.8.3",
-    "@types/three": "^0.136.1",
+    "@types/three": "^0.184.0",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-v8": "^4.1.2",
     "autoprefixer": "^10.4.2",
