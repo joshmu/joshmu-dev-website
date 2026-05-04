@@ -30,9 +30,14 @@ const initGalaxy: InitGalaxyFn = function () {
   const canvas = document.getElementById("galaxy") as HTMLCanvasElement | null;
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas ?? undefined,
+    powerPreference: "low-power",
+    antialias: false,
   });
 
-  renderer.setPixelRatio(window.devicePixelRatio);
+  // Cap DPR. Uncapped, 3x retina renders 9x the pixels of 1x — on browsers
+  // without hardware-accelerated WebGL (Arc sandbox, software fallback) this
+  // tanks the framerate.
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   // full screen canvas
   renderer.setSize(window.innerWidth, window.innerHeight);
   // render.setClearColor(0xffffff)
@@ -84,34 +89,59 @@ const initGalaxy: InitGalaxyFn = function () {
   }
   Array(50).fill(null).forEach(addStar);
 
-  // move camera
-  function moveCamera() {
-    const t = document.body.getBoundingClientRect().top;
-
-    torus.rotation.z += 0.001;
-
-    camera.position.x = t * -0.002;
-    camera.position.y = t * -0.005;
-    camera.position.z = t * -0.01;
+  // Track scroll top via rAF instead of reading getBoundingClientRect on every
+  // scroll event (forced reflow). Update only when a new frame is requested.
+  let scrollTop = 0;
+  let scrollDirty = false;
+  function onScroll() {
+    if (scrollDirty) return;
+    scrollDirty = true;
+    requestAnimationFrame(() => {
+      scrollTop = document.body.getBoundingClientRect().top;
+      scrollDirty = false;
+    });
   }
-  moveCamera();
-  document.addEventListener("scroll", moveCamera);
+  scrollTop = document.body.getBoundingClientRect().top;
+  document.addEventListener("scroll", onScroll, { passive: true });
+
+  // Pause the animation loop when the canvas is offscreen — no point burning
+  // GPU/CPU rendering pixels nobody can see.
+  let visible = true;
+  let observer: IntersectionObserver | null = null;
+  if (canvas && typeof IntersectionObserver !== "undefined") {
+    observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) visible = entry.isIntersecting;
+      },
+      { threshold: 0 },
+    );
+    observer.observe(canvas);
+  }
+
+  let rafId = 0;
 
   // external clean up when react component unmounts
   initGalaxy.cleanUp = () => {
-    document.removeEventListener("scroll", moveCamera);
+    document.removeEventListener("scroll", onScroll);
+    observer?.disconnect();
+    cancelAnimationFrame(rafId);
   };
 
   // animation loop
   function animate() {
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
+
     torus.rotation.x += 0.0004;
     torus.rotation.y += 0.0002;
     torus.rotation.z += 0.00001;
 
+    camera.position.x = scrollTop * -0.002;
+    camera.position.y = scrollTop * -0.005;
+    camera.position.z = scrollTop * -0.01;
+
     if (enableControls && controls) controls.update();
 
-    renderer.render(scene, camera);
+    if (visible) renderer.render(scene, camera);
   }
   animate();
 };
@@ -120,6 +150,8 @@ type ThreeProps = { props?: { [key: string]: any } };
 
 export const Galaxy = ({ ...props }: ThreeProps) => {
   useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+
     try {
       initGalaxy();
     } catch (err) {
