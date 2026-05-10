@@ -3,7 +3,7 @@ import { ComponentProps } from "react";
 
 const ReactPlayer = dynamic(() => import("react-player"), {
   ssr: false,
-  loading: () => <div style={{ aspectRatio: "16/9", background: "#000" }} />,
+  loading: () => <div style={{ position: "absolute", inset: 0, background: "#000" }} />,
 });
 
 type ClientOnlyPlayerProps = ComponentProps<typeof ReactPlayer>;
