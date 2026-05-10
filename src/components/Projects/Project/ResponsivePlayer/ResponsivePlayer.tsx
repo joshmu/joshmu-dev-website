@@ -10,21 +10,14 @@ type ResponsivePlayerProps = {
 
 export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
   return (
-    <div
-      style={{
-        ...style.playerWrapper,
-        paddingTop: calcVidRatio(img.width, img.height) + "%",
-      }}
-      className="w-full"
-    >
+    <div className="relative w-full" style={{ aspectRatio: `${img.width} / ${img.height}` }}>
       <ClientOnlyPlayer
+        wrapper="div"
         playing={true}
         src={video.src}
-        style={style.reactPlayer}
+        style={{ position: "absolute", inset: 0 }}
         width="100%"
         height="100%"
-        // width={video.width}
-        // height={video.height}
         muted
         loop
         controls
@@ -33,17 +26,4 @@ export const ResponsivePlayer = ({ video, img }: ResponsivePlayerProps) => {
       />
     </div>
   );
-};
-
-const calcVidRatio = (width: number, height: number): number => 100 / (width / height);
-
-const style = {
-  playerWrapper: {
-    position: "relative" as const,
-  },
-  reactPlayer: {
-    position: "absolute" as const,
-    top: 0,
-    left: 0,
-  },
 };
