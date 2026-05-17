@@ -16,34 +16,34 @@ importers:
         version: 2.5.1
       framer-motion:
         specifier: ^6.2.1
-        version: 6.5.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 6.5.1(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       next:
         specifier: 16.2.2
-        version: 16.2.2(@babel/core@7.28.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0)
+        version: 16.2.2(@babel/core@7.28.0)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)(sass@1.99.0)
       react:
-        specifier: ^19.2.5
-        version: 19.2.5
+        specifier: ^19.2.6
+        version: 19.2.6
       react-device-detect:
         specifier: ^2.1.2
-        version: 2.2.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 2.2.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       react-dom:
         specifier: ^19.2.5
-        version: 19.2.5(react@19.2.5)
+        version: 19.2.5(react@19.2.6)
       react-ga:
         specifier: ^3.3.0
-        version: 3.3.1(prop-types@15.8.1)(react@19.2.5)
+        version: 3.3.1(prop-types@15.8.1)(react@19.2.6)
       react-icons:
         specifier: ^5.6.0
-        version: 5.6.0(react@19.2.5)
+        version: 5.6.0(react@19.2.6)
       react-intersection-observer:
         specifier: ^10.0.3
-        version: 10.0.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 10.0.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       react-player:
         specifier: ^3.4.0
-        version: 3.4.0(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 3.4.0(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       react-scroll:
         specifier: ^1.8.4
-        version: 1.9.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 1.9.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       three:
         specifier: ^0.184.0
         version: 0.184.0
@@ -65,7 +65,7 @@ importers:
         version: 6.9.1
       '@testing-library/react':
         specifier: ^16.3.2
-        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       '@types/node':
         specifier: ^25.6.0
         version: 25.6.0
@@ -3667,8 +3667,8 @@ packages:
       react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react@19.2.5:
-    resolution: {integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==}
+  react@19.2.6:
+    resolution: {integrity: sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@3.6.2:
@@ -5071,23 +5071,23 @@ snapshots:
     dependencies:
       mux-embed: 5.17.10
 
-  '@mux/mux-player-react@3.11.7(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@mux/mux-player-react@3.11.7(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@mux/mux-player': 3.11.7(react@19.2.5)
+      '@mux/mux-player': 3.11.7(react@19.2.6)
       '@mux/playback-core': 0.33.3
       prop-types: 15.8.1
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
     optionalDependencies:
       '@types/react': 19.2.14
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
 
-  '@mux/mux-player@3.11.7(react@19.2.5)':
+  '@mux/mux-player@3.11.7(react@19.2.6)':
     dependencies:
       '@mux/mux-video': 0.30.5
       '@mux/playback-core': 0.33.3
-      media-chrome: 4.18.3(react@19.2.5)
-      player.style: 0.3.1(react@19.2.5)
+      media-chrome: 4.18.3(react@19.2.6)
+      player.style: 0.3.1(react@19.2.6)
     transitivePeerDependencies:
       - react
 
@@ -5678,12 +5678,12 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@babel/runtime': 7.29.2
       '@testing-library/dom': 10.4.1
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
     optionalDependencies:
       '@types/react': 19.2.14
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
@@ -5970,9 +5970,9 @@ snapshots:
     dependencies:
       custom-media-element: 1.4.6
 
-  ce-la-react@0.3.2(react@19.2.5):
+  ce-la-react@0.3.2(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
 
   chai@6.2.2: {}
 
@@ -6320,14 +6320,14 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
-  framer-motion@6.5.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  framer-motion@6.5.1(react-dom@19.2.5(react@19.2.6))(react@19.2.6):
     dependencies:
       '@motionone/dom': 10.12.0
       framesync: 6.0.1
       hey-listen: 1.0.8
       popmotion: 11.0.3
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
       style-value-types: 5.0.0
       tslib: 2.8.1
     optionalDependencies:
@@ -6815,15 +6815,15 @@ snapshots:
 
   mdurl@2.0.0: {}
 
-  media-chrome@4.16.1(react@19.2.5):
+  media-chrome@4.16.1(react@19.2.6):
     dependencies:
-      ce-la-react: 0.3.2(react@19.2.5)
+      ce-la-react: 0.3.2(react@19.2.6)
     transitivePeerDependencies:
       - react
 
-  media-chrome@4.18.3(react@19.2.5):
+  media-chrome@4.18.3(react@19.2.6):
     dependencies:
-      ce-la-react: 0.3.2(react@19.2.5)
+      ce-la-react: 0.3.2(react@19.2.6)
     transitivePeerDependencies:
       - react
 
@@ -7038,16 +7038,16 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@16.2.2(@babel/core@7.28.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.99.0):
+  next@16.2.2(@babel/core@7.28.0)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)(sass@1.99.0):
     dependencies:
       '@next/env': 16.2.2
       '@swc/helpers': 0.5.15
       baseline-browser-mapping: 2.10.14
       caniuse-lite: 1.0.30001785
       postcss: 8.4.31
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
-      styled-jsx: 5.1.6(@babel/core@7.28.0)(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
+      styled-jsx: 5.1.6(@babel/core@7.28.0)(react@19.2.6)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.2.2
       '@next/swc-darwin-x64': 16.2.2
@@ -7271,9 +7271,9 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  player.style@0.3.1(react@19.2.5):
+  player.style@0.3.1(react@19.2.6):
     dependencies:
-      media-chrome: 4.16.1(react@19.2.5)
+      media-chrome: 4.16.1(react@19.2.6)
     transitivePeerDependencies:
       - react
 
@@ -7561,45 +7561,45 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-device-detect@2.2.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  react-device-detect@2.2.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6):
     dependencies:
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
       ua-parser-js: 1.0.40
 
-  react-dom@19.2.5(react@19.2.5):
+  react-dom@19.2.5(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
       scheduler: 0.27.0
 
-  react-ga@3.3.1(prop-types@15.8.1)(react@19.2.5):
+  react-ga@3.3.1(prop-types@15.8.1)(react@19.2.6):
     dependencies:
       prop-types: 15.8.1
-      react: 19.2.5
+      react: 19.2.6
 
-  react-icons@5.6.0(react@19.2.5):
+  react-icons@5.6.0(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
 
-  react-intersection-observer@10.0.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  react-intersection-observer@10.0.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
     optionalDependencies:
-      react-dom: 19.2.5(react@19.2.5)
+      react-dom: 19.2.5(react@19.2.6)
 
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
 
-  react-player@3.4.0(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  react-player@3.4.0(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6):
     dependencies:
-      '@mux/mux-player-react': 3.11.7(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@mux/mux-player-react': 3.11.7(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.6))(react@19.2.6)
       '@types/react': 19.2.14
       cloudflare-video-element: 1.3.5
       dash-video-element: 0.3.2(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)
       hls-video-element: 1.5.11
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
       spotify-audio-element: 1.0.4
       tiktok-video-element: 0.1.2
       twitch-video-element: 0.1.6
@@ -7614,14 +7614,14 @@ snapshots:
 
   react-refresh@0.17.0: {}
 
-  react-scroll@1.9.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  react-scroll@1.9.3(react-dom@19.2.5(react@19.2.6))(react@19.2.6):
     dependencies:
       lodash.throttle: 4.1.1
       prop-types: 15.8.1
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.5(react@19.2.6)
 
-  react@19.2.5: {}
+  react@19.2.6: {}
 
   readable-stream@3.6.2:
     dependencies:
@@ -7853,10 +7853,10 @@ snapshots:
       hey-listen: 1.0.8
       tslib: 2.8.1
 
-  styled-jsx@5.1.6(@babel/core@7.28.0)(react@19.2.5):
+  styled-jsx@5.1.6(@babel/core@7.28.0)(react@19.2.6):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.5
+      react: 19.2.6
     optionalDependencies:
       '@babel/core': 7.28.0
 
