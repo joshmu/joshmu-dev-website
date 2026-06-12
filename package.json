@@ -75,7 +75,7 @@
     "oxfmt": "^0.48.0",
     "oxlint": "^1.60.0",
     "plop": "^4.0.5",
-    "postcss": "^8.5.14",
+    "postcss": "^8.5.15",
     "postcss-preset-env": "^11.2.1",
     "sass": "^1.99.0",
     "tailwindcss": "^4.2.4",
