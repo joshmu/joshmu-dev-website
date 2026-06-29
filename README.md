@@ -1,6 +1,6 @@
 # joshmu-dev-website
 
-Personal developer portfolio website.
+My developer portfolio website.
 
 ## Tech Stack
 
