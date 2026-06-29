@@ -4,10 +4,10 @@ Personal developer portfolio website.
 
 ## Tech Stack
 
-- [Next.js 15](https://nextjs.org/) with Turbopack
+- [Next.js 16](https://nextjs.org/) with Turbopack
 - [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/) (strict mode)
-- [Tailwind CSS 3](https://tailwindcss.com/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Three.js](https://threejs.org/) for 3D graphics
 - [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
@@ -15,22 +15,24 @@ Personal developer portfolio website.
 ## Development
 
 ```bash
-yarn install    # Install dependencies
-yarn dev        # Start dev server (http://localhost:3000)
-yarn build      # Production build
-yarn test       # Run tests
+pnpm install    # Install dependencies
+pnpm dev        # Start dev server (http://localhost:3000)
+pnpm build      # Production build
+pnpm test       # Run tests (watch mode)
+pnpm test:run   # Run tests once
 ```
 
 ## Validation
 
 | Tool         | Command              | Purpose                            |
 | ------------ | -------------------- | ---------------------------------- |
-| Oxlint       | `yarn lint`          | Linting (React, Next.js, a11y, TS) |
-| Oxfmt        | `yarn format:check`  | Formatting                         |
-| TypeScript   | `yarn typecheck`     | Type checking (strict)             |
-| Jest         | `yarn test:coverage` | Tests + coverage thresholds        |
-| markdownlint | `yarn lint:md`       | Markdown linting                   |
-| shellcheck   | `yarn shellcheck`    | Shell script linting               |
+| Oxlint       | `pnpm lint`          | Linting (React, Next.js, a11y, TS) |
+| Oxfmt        | `pnpm format:check`  | Formatting                         |
+| TypeScript   | `pnpm typecheck`     | Type checking (strict)             |
+| Vitest       | `pnpm test:coverage` | Tests + coverage thresholds        |
+| markdownlint | `pnpm lint:md`       | Markdown linting                   |
+| shellcheck   | `pnpm shellcheck`    | Shell script linting               |
+| Knip         | `pnpm lint:knip`     | Dead code detection                |
 
 Pre-commit hooks enforce lint, format, typecheck, and commitlint automatically. CI runs the full validation matrix on every PR.
 
