@@ -73,7 +73,7 @@
     "lint-staged": "^17.0.8",
     "markdownlint-cli2": "^0.22.1",
     "oxfmt": "^0.55.0",
-    "oxlint": "^1.70.0",
+    "oxlint": "^1.71.0",
     "plop": "^4.0.5",
     "postcss": "^8.5.15",
     "postcss-preset-env": "^11.3.0",
