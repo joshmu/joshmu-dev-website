@@ -124,11 +124,11 @@ importers:
         specifier: ^1.101.0
         version: 1.101.0
       tailwindcss:
-        specifier: ^4.3.1
-        version: 4.3.1
+        specifier: ^4.3.2
+        version: 4.3.2
       tailwindcss-debug-screens:
         specifier: ^3.0.1
-        version: 3.0.1(tailwindcss@4.3.1)
+        version: 3.0.1(tailwindcss@4.3.2)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -8011,9 +8011,9 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
-  tailwindcss-debug-screens@3.0.1(tailwindcss@4.3.1):
+  tailwindcss-debug-screens@3.0.1(tailwindcss@4.3.2):
     dependencies:
-      tailwindcss: 4.3.1
+      tailwindcss: 4.3.2
 
   tailwindcss@4.3.1: {}
 
