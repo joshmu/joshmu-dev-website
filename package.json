@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "framer-motion": "^6.2.1",
+    "framer-motion": "^12.42.2",
     "next": "16.2.2",
     "react": "^19.2.7",
     "react-device-detect": "^2.1.2",
