@@ -1,46 +1,21 @@
 {
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "paths": {
-      "@/layout/*": [
-        "src/components/Layout/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/shared/*": [
-        "src/components/shared/*"
-      ],
-      "@/context/*": [
-        "src/context/*"
-      ],
-      "@/hooks/*": [
-        "src/hooks/*"
-      ],
-      "@/app/*": [
-        "app/*"
-      ],
-      "@/styles/*": [
-        "src/styles/*"
-      ],
-      "@/services/*": [
-        "src/services/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ]
+      "@/layout/*": ["./src/components/Layout/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/shared/*": ["./src/components/shared/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/app/*": ["./app/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/utils/*": ["./utils/*"]
     },
     "checkJs": false,
     "target": "es2017",
-    "types": [
-      "vitest/globals"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "types": ["vitest/globals"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -65,7 +40,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
