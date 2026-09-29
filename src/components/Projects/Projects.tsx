@@ -10,6 +10,7 @@
  * @copyright © 2020 - 2020 MU
  */
 
+import { SECTION } from "@/services/sections";
 import { RevealInView } from "@/shared/ux/RevealInView";
 
 import { Project } from "./Project/Project";
@@ -97,7 +98,7 @@ export const Projects = ({ ...props }: ProjectsProps) => {
   ];
 
   return (
-    <div id="projects" className="container py-12 mx-auto" {...props}>
+    <div id={SECTION.projects} className="container py-12 mx-auto" {...props}>
       <div className="flex flex-wrap items-center justify-center">
         {projects.map((project, idx) => (
           <RevealInView key={idx} custom={idx}>

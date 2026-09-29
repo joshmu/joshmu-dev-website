@@ -3,9 +3,9 @@ import React from "react";
 import { MdKeyboardArrowDown as ArrowDownIcon } from "react-icons/md";
 
 import { useThemeContext } from "@/context/themeContext";
-import { useScrollTo } from "@/hooks/useScrollTo";
 import { Curtain } from "@/shared/ux/Curtain";
 import { RevealInView } from "@/shared/ux/RevealInView";
+import { SECTION, scrollToSection } from "@/services/sections";
 import { useCursorPointer } from "../Cursor/Cursor";
 
 // // because we are dynamically calc dimension based on client we need to load this component on the client side, therefor disable server side rendering
@@ -17,16 +17,15 @@ import { useCursorPointer } from "../Cursor/Cursor";
 type HeroProps = { props?: { [key: string]: any } };
 
 export const Hero = ({ ...props }: HeroProps) => {
-  const scrollTo = useScrollTo();
   const { cycleTheme } = useThemeContext();
   const cursorActions = useCursorPointer();
 
   const handleScrollDown = () => {
-    scrollTo("banner");
+    scrollToSection(SECTION.banner);
   };
 
   return (
-    <div id="hero" className="relative w-full" style={{ height: "50rem" }} {...props}>
+    <div id={SECTION.hero} className="relative w-full" style={{ height: "50rem" }} {...props}>
       {/* center content */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
         <h1

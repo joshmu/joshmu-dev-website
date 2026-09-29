@@ -2,6 +2,7 @@ import { Variants, motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
+import { SECTION } from "@/services/sections";
 import { RevealInView } from "@/shared/ux/RevealInView";
 import { useCursorPointer } from "../Cursor/Cursor";
 
@@ -45,7 +46,7 @@ export const Contact = ({ ...props }: ContactProps) => {
   }, [controls, inView]);
 
   return (
-    <div ref={ref} className="pt-12 pb-24 text-center" id="contact" {...props}>
+    <div ref={ref} className="pt-12 pb-24 text-center" id={SECTION.contact} {...props}>
       <div className="relative inline-block px-8 py-4">
         <RevealInView triggerOnce={false}>
           <a className="hover:underline" href="mailto:hello@joshmu.dev" {...cursorActions}>
