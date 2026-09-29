@@ -90,7 +90,7 @@ pnpm plop       # Generate a new component from templates
   - react-player
   - IntersectionObserver
   - framer-motion
-  - Context providers
+- Theme-dependent components render through the real `ThemeProvider` via `src/__test__/renderWithProviders.tsx`
 
 ## Validation & CI/CD
 
