@@ -11,21 +11,11 @@
  */
 
 import { useCursorPointer } from "@/components/Cursor/Cursor";
+import type { Project as ProjectData } from "../catalogue";
 import { ResponsivePlayer } from "./ResponsivePlayer/ResponsivePlayer";
 
-type DataProps = {
-  title: string;
-  type: string;
-  description: string;
-  stack: string[];
-  website: string;
-  github: string;
-  img: { src: string; width: number; height: number };
-  video: { src: string; width: number; height: number };
-};
-
 type ProjectProps = {
-  data: DataProps;
+  data: ProjectData;
   props?: { [key: string]: any };
 };
 

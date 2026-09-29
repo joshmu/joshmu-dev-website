@@ -1,49 +1,40 @@
-// src/components/Projects/Projects.test.tsx
-
-// setupTests.tsx
-
-// import react-testing methods
 import { render, screen } from "@testing-library/react";
 
-// the component to test
 import { Projects } from "./Projects";
+import { PROJECTS } from "./catalogue";
 
-// projects
-// include as many test cases as you want here
-const projects = [
-  {
-    title: "videonote",
-    href: "https://videonote.app",
-    github: "https://github.com/joshmu/videonote",
-  },
-  {
-    title: "joshmu.com",
-    href: "https://joshmu.com",
-    github: "https://github.com/joshmu/joshmu-dance-website",
-  },
-  {
-    title: "aid-online",
-    href: "http://aid.alisdairmacindoe.com",
-    github: "https://github.com/joshmu/aid-online-code-sample",
-  },
-];
+const linkHrefs = () => screen.getAllByRole("link").map((link) => link.getAttribute("href"));
 
-// check if each project title is present
-test.each(projects)('Check if Project title exists in "%s" project.', (project) => {
-  render(<Projects />);
-  expect(screen.getAllByText(new RegExp(project.title, "i")).length).toBeGreaterThan(0);
+test("the catalogue keeps its order", () => {
+  expect(PROJECTS.map((project) => project.title)).toEqual([
+    "VideoNote",
+    "joshmu.com",
+    "AID Online",
+  ]);
 });
 
-// check among the links that we are linking to the correct places
-test.each(projects)('Check if Project url exists in "%s" project.', (project) => {
+test("renders VideoNote with its website and GitHub links", () => {
   render(<Projects />);
-  const elems = screen.getAllByRole("link");
-  expect(elems.some((elem) => elem.getAttribute("href") === project.href)).toBeTruthy();
+
+  expect(screen.getByRole("heading", { level: 1, name: "VideoNote" })).toBeInTheDocument();
+  expect(linkHrefs()).toContain("https://videonote.app");
+  expect(linkHrefs()).toContain("https://github.com/joshmu/videonote");
 });
 
-// check among the links that we are linking to the correct places
-test.each(projects)('Check if Project Github link exists in "%s" project.', (project) => {
+test.each(PROJECTS)("renders the $title title", (project) => {
   render(<Projects />);
-  const elems = screen.getAllByRole("link");
-  expect(elems.some((elem) => elem.getAttribute("href") === project.github)).toBeTruthy();
+
+  expect(screen.getByRole("heading", { level: 1, name: project.title })).toBeInTheDocument();
+});
+
+test.each(PROJECTS)("links $title to its website", (project) => {
+  render(<Projects />);
+
+  expect(linkHrefs()).toContain(project.website);
+});
+
+test.each(PROJECTS)("links $title to its GitHub repo", (project) => {
+  render(<Projects />);
+
+  expect(linkHrefs()).toContain(`https://${project.github}`);
 });
