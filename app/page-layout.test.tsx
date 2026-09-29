@@ -1,11 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+
+import { renderWithProviders } from "../src/__test__/renderWithProviders";
 
 import { PageLayout } from "./page-layout";
 
 test("renders its children without adding tracking globals to window", () => {
   const globalsBefore = new Set(Object.keys(window));
 
-  render(
+  renderWithProviders(
     <PageLayout>
       <p>page content</p>
     </PageLayout>,

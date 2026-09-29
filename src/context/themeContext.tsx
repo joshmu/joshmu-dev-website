@@ -11,77 +11,56 @@
  */
 
 import { createContext, useContext, useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import {
+  BsDropletFill as DropletIcon,
+  BsLightningFill as LightningIcon,
+  BsMoonFill as MoonIcon,
+  BsSunFill as SunIcon,
+} from "react-icons/bs";
 
-type ToggleThemeType = () => void;
+type Theme = { id: string; icon: IconType; label: string };
 
-interface ThemeContextInterface {
-  theme: string;
-  toggleTheme: ToggleThemeType;
-  THEME_TYPE: { [key: string]: string };
-}
+const STORAGE_KEY = "joshmu.dev:theme";
 
-const themeContext = createContext<ThemeContextInterface | null>(null);
+// Cycle order; the first entry is the default.
+const THEMES: readonly Theme[] = [
+  { id: "theme-dark", icon: MoonIcon, label: "theme-dark theme toggle" },
+  { id: "theme-light", icon: SunIcon, label: "theme-light theme toggle" },
+  { id: "theme-alt", icon: DropletIcon, label: "theme-alt theme toggle" },
+  { id: "theme-alt2", icon: LightningIcon, label: "theme-alt2 theme toggle" },
+];
 
-const LOCALSTORAGE_KEY = "joshmu.dev:theme";
-const THEME_TYPE = {
-  dark: "theme-dark",
-  light: "theme-light",
-  alt: "theme-alt",
-  alt2: "theme-alt2",
-};
+type ThemeContextValue = { theme: Theme; cycleTheme: () => void };
 
-export const ThemeProvider = (props: { [key: string]: any }) => {
-  const [theme, setTheme] = useState(Object.values(THEME_TYPE)[0]);
+const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-  // initial theme
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState(THEMES[0]);
+
   useEffect(() => {
-    // get locally stored theme
-    let savedTheme = window.localStorage.getItem(LOCALSTORAGE_KEY);
-
-    // validation check
-    if (!savedTheme || !Object.values(THEME_TYPE).includes(savedTheme)) savedTheme = null;
-
-    // if we have a saved theme then set it
-    // otherwise update localStorage with default initial theme
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      window.localStorage.setItem(LOCALSTORAGE_KEY, theme);
-    }
+    const saved = THEMES.find(({ id }) => id === window.localStorage.getItem(STORAGE_KEY));
+    if (saved) setTheme(saved);
+    else window.localStorage.setItem(STORAGE_KEY, THEMES[0].id);
   }, []);
 
-  // when theme changes then assign to body tag
   useEffect(() => {
-    Object.values(THEME_TYPE).forEach((className) =>
-      globalThis.document.body.classList.remove(className),
-    );
-    globalThis.document.body.classList.add(theme);
+    document.body.classList.remove(...THEMES.map(({ id }) => id));
+    document.body.classList.add(theme.id);
   }, [theme]);
 
-  const toggleTheme: ToggleThemeType = () => {
-    // get list of themeIds
-    const themeIdList = Object.values(THEME_TYPE);
-    const themeIndex = themeIdList.findIndex((themeId) => themeId === theme);
-    // logic to continuously cycle through array
-    const nextThemeIndex = themeIndex === themeIdList.length - 1 ? 0 : themeIndex + 1;
-    let newThemeId = themeIdList[nextThemeIndex];
-
-    // validation check & fallback
-    if (!themeIdList.includes(newThemeId)) newThemeId = themeIdList[0];
-
-    setTheme(newThemeId);
-    window.localStorage.setItem(LOCALSTORAGE_KEY, newThemeId);
+  const cycleTheme = () => {
+    const next = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
+    setTheme(next);
+    window.localStorage.setItem(STORAGE_KEY, next.id);
   };
 
-  const value: ThemeContextInterface = {
-    theme,
-    toggleTheme,
-    THEME_TYPE,
-  };
-
-  return <themeContext.Provider value={value} {...props} />;
+  return <ThemeContext.Provider value={{ theme, cycleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const useThemeContext = () => {
-  return useContext(themeContext);
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error("useThemeContext must be used within a ThemeProvider");
+  return context;
 };

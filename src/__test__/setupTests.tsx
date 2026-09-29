@@ -91,21 +91,3 @@ vi.mock("framer-motion", () => {
     useMotionValueEvent: vi.fn(),
   };
 });
-
-// THEME CONTEXT
-vi.mock("@/context/themeContext", () => {
-  const toggleTheme = vi.fn();
-  const THEME_TYPE = {
-    dark: "theme-dark",
-    light: "theme-light",
-    alt: "theme-alt",
-    alt2: "theme-alt2",
-  };
-  const values = { toggleTheme, theme: "theme-dark", THEME_TYPE };
-  return {
-    useThemeContext: vi.fn(() => values),
-    ThemeProvider: function MockThemeProvider({ children }: { children: React.ReactNode }) {
-      return children;
-    },
-  };
-});
