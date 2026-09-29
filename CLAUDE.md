@@ -65,7 +65,7 @@ pnpm plop       # Generate a new component from templates
 - **`src/components/`**: Feature-based component organization
   - Each component has its own folder with component and tests
   - `shared/ux/`: Reusable animation components (Curtain, Compressor, RevealInView)
-- **`src/context/`**: React Context providers (global state, theme)
+- **`src/context/`**: React Context providers (theme)
 - **`src/hooks/`**: Custom React hooks
 - **`src/services/`**: Non-UI modules
 - **`src/styles/`**: Global SCSS

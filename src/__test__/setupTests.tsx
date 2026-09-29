@@ -87,15 +87,9 @@ vi.mock("framer-motion", () => {
     useTransform: vi.fn(() => null),
     useSpring: vi.fn(() => null),
     useAnimation: vi.fn(() => ({ start: () => null })),
-    useScroll: vi.fn(() => ({ scrollYProgress: vi.fn(() => 0) })),
+    useScroll: vi.fn(() => ({ scrollYProgress: { get: () => 0 } })),
+    useMotionValueEvent: vi.fn(),
   };
-});
-
-// GLOBAL CONTEXT
-vi.mock("@/context/globalContext", () => {
-  const scrollProgress = 0;
-  const values = { scrollProgress };
-  return { useGlobalContext: vi.fn(() => values) };
 });
 
 // THEME CONTEXT

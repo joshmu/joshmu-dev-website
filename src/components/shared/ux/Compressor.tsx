@@ -1,7 +1,7 @@
 import { Variants, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { useGlobalContext } from "@/context/globalContext";
+import { useHasScrolled } from "@/hooks/useHasScrolled";
 
 const animationVariants: Variants = {
   hide: {
@@ -26,9 +26,7 @@ type CompressorProps = {
 
 export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
   const [output, setOutput] = useState<[string, string, string]>(["", "", ""]);
-  const [toggle, setToggle] = useState(false);
-
-  const { scrollProgress } = useGlobalContext()!;
+  const hasScrolled = useHasScrolled();
   const controls = useAnimation();
 
   useEffect(() => {
@@ -41,16 +39,8 @@ export const Compressor = ({ text, hide, ...props }: CompressorProps) => {
   }, []);
 
   useEffect(() => {
-    controls.start(toggle ? "hide" : "show");
-  }, [toggle]);
-
-  useEffect(() => {
-    if (!toggle && scrollProgress > 0) {
-      setToggle(true);
-    } else if (toggle && scrollProgress === 0) {
-      setToggle(false);
-    }
-  }, [scrollProgress]);
+    controls.start(hasScrolled ? "hide" : "show");
+  }, [hasScrolled]);
 
   return (
     <p className="flex items-center justify-center whitespace-pre" {...props}>
