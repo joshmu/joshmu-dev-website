@@ -16,13 +16,12 @@ import { motion, useAnimation, TargetAndTransition } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { ActivityDayInterface } from "@/app/api/github/route";
+import { useContributionCalendar } from "@/hooks/useContributionCalendar";
 
 import { CurrentDayLabel } from "./CurrentDayLabel/CurrentDayLabel";
 
 export const Activity = () => {
-  const [calendar, setCalendar] = useState<ActivityDayInterface[]>(null!);
-  const [status, setStatus] = useState<"loading" | "ready" | "done">("loading");
+  const calendar = useContributionCalendar();
   const [finalAnimation, setFinalAnimation] = useState<boolean>(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -30,38 +29,25 @@ export const Activity = () => {
     threshold: 0.15,
   });
 
+  // stagger animation when container is in view, once
   useEffect(() => {
-    fetch("/api/github")
-      .then((res) => res.json())
-      .then((data) => {
-        setCalendar(data);
-        setStatus("ready");
-      });
-  }, []);
-
-  // stagger animation when container is in view
-  useEffect(() => {
-    if (inView && status === "ready") {
+    if (inView && calendar.status === "ready" && !finalAnimation) {
       controls.start(activityStaggerAnimation).finally(() => {
         setFinalAnimation(true);
       });
     }
-  }, [controls, inView, status]);
+  }, [controls, inView, calendar.status, finalAnimation]);
 
-  // mark animations complete
-  useEffect(() => {
-    if (!finalAnimation) return;
-    setStatus("done");
-  }, [finalAnimation]);
+  if (calendar.status !== "ready") return null;
 
-  if (!calendar) return null;
+  const { days } = calendar;
 
   return (
     <div
       ref={ref}
       className="container flex flex-col flex-wrap justify-start h-32 pr-16 mx-auto my-24 md:h-48 md:px-8"
     >
-      {calendar.map(({ date, grade }, idx) => (
+      {days.map(({ date, grade }, idx) => (
         <motion.div
           key={date}
           custom={idx}
@@ -73,7 +59,7 @@ export const Activity = () => {
           <div style={{ opacity: grade * 0.12 }} className="w-full h-full bg-themeText"></div>
 
           {/* current day */}
-          {idx === calendar.length - 1 && <CurrentDayLabel date={date} ready={finalAnimation} />}
+          {idx === days.length - 1 && <CurrentDayLabel date={date} ready={finalAnimation} />}
         </motion.div>
       ))}
     </div>
