@@ -4,74 +4,79 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Josh Mu's personal developer portfolio website built with Next.js 15, React 19, and TypeScript. Features animations (Framer Motion), 3D graphics (Three.js), and a custom dark/light theme system.
+Josh Mu's personal developer portfolio website built with Next.js 16 (app router), React 19, and TypeScript. Features animations (Framer Motion), 3D graphics (Three.js), and a custom multi-theme system. Domain terms are defined in `CONTEXT.md`.
 
 ## Commands
 
 ### Development
 
 ```bash
-yarn dev        # Start development server (Turbopack) at http://localhost:3000
-yarn build      # Create production build
-yarn start      # Start production server
+pnpm dev        # Start development server (Turbopack) at http://localhost:3000
+pnpm build      # Create production build
+pnpm start      # Start production server
 ```
 
 ### Testing
 
 ```bash
-yarn test              # Run all tests once
-yarn test:watch        # Run tests in watch mode
-yarn test:coverage     # Generate coverage report (with thresholds)
+pnpm test              # Run Vitest in watch mode
+pnpm test:run          # Run all tests once
+pnpm test:coverage     # Run tests with a coverage report
 ```
 
 ### Validation
 
 ```bash
-yarn lint              # Run Oxlint
-yarn lint:fix          # Run Oxlint with auto-fix
-yarn format            # Format code with Oxfmt (or Prettier)
-yarn format:check      # Check formatting without writing
-yarn typecheck         # Run tsc --noEmit (strict mode)
-yarn lint:md           # Run markdownlint-cli2
-yarn shellcheck        # Run shellcheck on tracked .sh files
-yarn bash32-compat     # Check bash scripts for Bash 4+ features
+pnpm lint              # Run Oxlint on src/
+pnpm lint:fix          # Run Oxlint with auto-fix on src/
+pnpm format            # Format src/ with Oxfmt
+pnpm format:check      # Check src/ formatting without writing
+pnpm typecheck         # Run tsc --noEmit (strict mode)
+pnpm lint:md           # Run markdownlint-cli2
+pnpm lint:knip         # Run Knip dead code detection
+pnpm run audit         # Dependency vulnerability scan (critical only)
+pnpm shellcheck        # Run shellcheck on tracked .sh files
+pnpm bash32-compat     # Check bash scripts for Bash 4+ features
 ```
 
 ### Code Generation
 
 ```bash
-yarn plop       # Generate new components or pages from templates
+pnpm plop       # Generate a new component from templates
 ```
 
 ## Architecture
 
 ### Tech Stack
 
-- **Framework**: Next.js 15 with Turbopack (dev), TypeScript (strict mode)
-- **Styling**: Tailwind CSS 3 + SCSS modules
+- **Framework**: Next.js 16 app router with Turbopack (dev), TypeScript (strict mode)
+- **Styling**: Tailwind CSS 4 + SCSS
 - **Animation**: Framer Motion + Three.js for 3D graphics
-- **Testing**: Jest 30 + React Testing Library + jest-axe
+- **Testing**: Vitest 4 (jsdom) + React Testing Library + jest-dom matchers
 - **Linting**: Oxlint (React, Next.js, JSX-a11y, TypeScript plugins)
-- **Formatting**: Oxfmt (or Prettier as fallback)
-- **Package Manager**: Yarn
+- **Formatting**: Oxfmt
+- **Dead code**: Knip
+- **Package Manager**: pnpm (version pinned in `packageManager`); Node version in `.nvmrc`
 
 ### Project Structure
 
-- **`pages/`**: Next.js pages with file-based routing
-  - `api/`: API routes (github.ts for GitHub activity)
+- **`app/`**: Next.js app router (`layout.tsx`, `page.tsx`, `page-layout.tsx`, `providers.tsx`)
+  - `api/github/`: route handler serving GitHub contribution activity
 - **`src/components/`**: Feature-based component organization
-  - Each component has its own folder with component, styles, and tests
-  - `shared/ux/`: Reusable animation components (Parallax, Curtain, etc.)
+  - Each component has its own folder with component and tests
+  - `shared/ux/`: Reusable animation components (Curtain, Compressor, RevealInView)
 - **`src/context/`**: React Context providers (global state, theme)
 - **`src/hooks/`**: Custom React hooks
+- **`src/services/`**: Non-UI modules
+- **`src/styles/`**: Global SCSS
 - **`scripts/`**: Shell scripts (shellcheck + bash 3.2 compat checked)
 - **`plop-templates/`**: Templates for code generation
 - **`.github/workflows/`**: CI/CD pipeline
 
 ### Key Features
 
-- **Path Aliases**: Use `@/components`, `@/hooks`, etc. for imports
-- **Theme System**: Dark/light mode with CSS variables
+- **Path Aliases**: Use `@/components`, `@/shared`, `@/context`, `@/hooks`, `@/app`, `@/styles`, `@/services` for imports
+- **Theme System**: Four cycling themes (dark, light, alt, alt2) via CSS variables, persisted in localStorage
 - **Custom Cursor**: Interactive cursor implementation
 - **Animations**: Extensive use of Framer Motion and intersection observers
 - **Code Generation**: Plop templates for consistent component creation
@@ -79,12 +84,11 @@ yarn plop       # Generate new components or pages from templates
 ### Testing Conventions
 
 - Test files: `ComponentName.test.tsx` in same directory as component
-- Use `test()` not `it()`
+- Use `test()` not `it()` (Vitest globals are enabled)
 - Focus on user-visible behavior
-- Coverage thresholds enforced (statements, branches, functions, lines)
-- Extensive mocks in `src/__test__/setupTests.tsx` for:
+- Global mocks in `src/__test__/setupTests.tsx` for:
+  - react-player
   - IntersectionObserver
-  - react-ga (Google Analytics)
   - framer-motion
   - Context providers
 
@@ -94,55 +98,54 @@ yarn plop       # Generate new components or pages from templates
 
 All commits must follow: `type(scope): description`
 
-- **Scope is required** — enforced by commitlint (pre-commit hook + CI)
+- **Scope is required**: enforced by commitlint (commit-msg hook + CI)
 - Types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `perf`, `test`, `ci`, `build`
 - Examples: `feat(hero): add parallax scroll effect`, `fix(theme): correct dark mode toggle`
 
-### Pre-commit Hooks (Husky + lint-staged)
+### Git Hooks (Husky + lint-staged)
 
 On every commit, the following run automatically:
 
 1. **Oxlint + Oxfmt** on staged `.ts/.tsx/.js/.jsx` files
-2. **Markdownlint** on staged `.md` files
-3. **Shellcheck** on staged `.sh` files
-4. **TypeScript type check** (`tsc --noEmit`) on full project
-5. **Commitlint** validates commit message format
+2. **Oxfmt** on staged `.json/.jsonc/.yml/.yaml/.css/.scss/.md` files
+3. **TypeScript type check** (`tsc --noEmit`) on full project
+4. **Commitlint** validates the commit message (commit-msg hook)
 
 ### CI Pipeline (GitHub Actions)
 
 Runs on push to `main` and on all PRs:
 
-| Job           | Blocking      | Purpose                          |
-| ------------- | ------------- | -------------------------------- |
-| typecheck     | Yes           | `tsc --noEmit` (strict)          |
-| lint          | Yes           | Oxlint                           |
-| format        | Yes           | Oxfmt/Prettier check             |
-| test          | Yes           | Jest test suite                  |
-| build         | Yes           | `next build` (type errors block) |
-| coverage      | Yes           | Jest with coverage thresholds    |
-| lint-md       | Yes           | Markdown linting                 |
-| gitleaks      | Yes           | Secret scanning                  |
-| knip          | Yes           | Dead code detection              |
-| audit         | No            | Dependency vulnerability scan    |
-| commitlint    | Yes (PR only) | Commit message validation        |
-| **ci-status** | Gate          | Aggregates all blocking jobs     |
+| Job           | Gated by ci-status | Purpose                        |
+| ------------- | ------------------ | ------------------------------ |
+| format        | Yes                | Oxfmt check                    |
+| lint          | Yes                | Oxlint                         |
+| lint-md       | Yes                | Markdown linting               |
+| typecheck     | Yes                | `tsc --noEmit` (strict)        |
+| shellcheck    | Yes                | Shell script linting           |
+| test          | Yes                | Vitest suite                   |
+| coverage      | Yes                | Vitest with coverage report    |
+| gitleaks      | Yes                | Secret scanning                |
+| audit         | Yes                | Critical dependency advisories |
+| knip          | Yes                | Dead code detection            |
+| commitlint    | No (PR only)       | Commit message validation      |
+| **ci-status** | Gate               | Aggregates the gated jobs      |
 
-Branch protection should target the `ci-status` gate job.
+Branch protection should target the `ci-status` gate job. CI has no `next build` job, so run `pnpm build` locally before merging.
 
 ### Important Configuration
 
 - **TypeScript**: Strict mode enabled. `tsc --noEmit` enforced in CI and pre-commit.
-- **Next.js**: `ignoreBuildErrors` removed — type errors block builds.
+- **Next.js**: `ignoreBuildErrors` is not set, so type errors block builds.
 - **Tailwind**: Custom theme colors via CSS variables.
 - **Git Hooks**: Husky v9 + lint-staged for pre-commit; commitlint for commit-msg.
 
 ### Development Workflow
 
-1. Use `yarn plop` to generate new components/pages with consistent structure
+1. Use `pnpm plop` to generate new components with consistent structure
 2. Components should include TypeScript types and be co-located with tests
 3. Follow existing patterns for animations and theme integration
 4. Use path aliases for clean imports
 5. Test components focusing on user-facing behavior
 6. Commits must use `type(scope): description` format
 7. Pre-commit hooks validate lint, format, types, and commit message automatically
-8. CI runs full validation — check `ci-status` gate job before merging
+8. CI runs full validation: check the `ci-status` gate job before merging
