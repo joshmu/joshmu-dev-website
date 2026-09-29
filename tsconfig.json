@@ -2,15 +2,13 @@
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "paths": {
-      "@/layout/*": ["./src/components/Layout/*"],
       "@/components/*": ["./src/components/*"],
       "@/shared/*": ["./src/components/shared/*"],
       "@/context/*": ["./src/context/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/app/*": ["./app/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/services/*": ["./src/services/*"],
-      "@/utils/*": ["./utils/*"]
+      "@/services/*": ["./src/services/*"]
     },
     "checkJs": false,
     "target": "es2017",
