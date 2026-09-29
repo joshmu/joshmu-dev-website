@@ -12,18 +12,6 @@ const createComponentTest = {
   templateFile: "plop-templates/component.test.hbs",
 };
 
-const createPage = {
-  type: "add",
-  path: "pages/{{name}}.tsx",
-  templateFile: "plop-templates/page.hbs",
-};
-
-const createPageTest = {
-  type: "add",
-  path: "src/__test__/{{name}}.test.tsx",
-  templateFile: "plop-templates/page.test.hbs",
-};
-
 module.exports = function (
   /** @type {import('plop').NodePlopAPI} */
   plop,
@@ -38,30 +26,6 @@ module.exports = function (
       },
     ],
     actions: [createComponent, createComponentTest],
-  });
-
-  plop.setGenerator("page", {
-    description: "create page",
-    prompts: [
-      {
-        type: "input",
-        name: "name",
-        message: "page name please",
-      },
-    ],
-    actions: [createPage, createPageTest],
-  });
-
-  plop.setGenerator("page-test", {
-    description: "create page test",
-    prompts: [
-      {
-        type: "input",
-        name: "name",
-        message: "page name please",
-      },
-    ],
-    actions: [createPageTest],
   });
 
   // helper

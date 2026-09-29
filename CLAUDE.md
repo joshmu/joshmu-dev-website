@@ -70,7 +70,7 @@ pnpm plop       # Generate a new component from templates
 - **`src/services/`**: Non-UI modules
 - **`src/styles/`**: Global SCSS
 - **`scripts/`**: Shell scripts (shellcheck + bash 3.2 compat checked)
-- **`plop-templates/`**: Templates for code generation
+- **`plop-templates/`**: Component and component-test templates for `pnpm plop`
 - **`.github/workflows/`**: CI/CD pipeline
 
 ### Key Features
@@ -107,9 +107,10 @@ All commits must follow: `type(scope): description`
 On every commit, the following run automatically:
 
 1. **Oxlint + Oxfmt** on staged `.ts/.tsx/.js/.jsx` files
-2. **Oxfmt** on staged `.json/.jsonc/.yml/.yaml/.css/.scss/.md` files
-3. **TypeScript type check** (`tsc --noEmit`) on full project
-4. **Commitlint** validates the commit message (commit-msg hook)
+2. **Oxfmt** on staged `.json/.jsonc/.yml/.yaml/.css/.scss` files
+3. **Oxfmt, then markdownlint** on staged `.md` files
+4. **TypeScript type check** (`tsc --noEmit`) on full project
+5. **Commitlint** validates the commit message (commit-msg hook)
 
 ### CI Pipeline (GitHub Actions)
 
@@ -137,7 +138,7 @@ Branch protection should target the `ci-status` gate job. CI has no `next build`
 - **TypeScript**: Strict mode enabled. `tsc --noEmit` enforced in CI and pre-commit.
 - **Next.js**: `ignoreBuildErrors` is not set, so type errors block builds.
 - **Tailwind**: Custom theme colors via CSS variables.
-- **Git Hooks**: Husky v9 + lint-staged for pre-commit; commitlint for commit-msg.
+- **Git Hooks**: Husky v9 + lint-staged (configured in `.lintstagedrc.json`) for pre-commit; commitlint for commit-msg.
 
 ### Development Workflow
 

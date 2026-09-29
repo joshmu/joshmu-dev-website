@@ -23,7 +23,7 @@ GITHUB_TOKEN=invalid pnpm exec next start -p 3102   # failure path: GitHub answe
 - API: `curl localhost:3101/api/github` returns `[{date, grade}]`. On :3102 it returns 502, and a repeat request retries GitHub, so a failure is never cached.
 - Page: drive it with `playwright-cli -s=<name> run-code --filename=<script>`. Wait for `load`, not `networkidle`: the project videos stream forever.
 - Flows worth driving: theme toggle cycle (body class plus the `joshmu.dev:theme` key), Hero title click, reload persistence, header logo compressing on scroll, and the Activity grid (cells are `.bg-themeText.w-full.h-full`).
-- `app/scroll-to-top.tsx` forces every load to the top, so a mid-page reload always starts at the hero.
+- A reload does not always start at the hero: despite `app/scroll-to-top.tsx`, scroll restoration can land mid-page (seen at scrollY 2520). Read `scrollY` after load and check the header logo state for that position: compressed when scrolled, full at the top.
 
 ## Production
 
