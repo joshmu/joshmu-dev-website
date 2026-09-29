@@ -9,14 +9,16 @@
  */
 
 // import react-testing methods
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+
+import { renderWithProviders } from "../../__test__/renderWithProviders";
 
 // the component to test
 import { Header } from "./Header";
 
 // logo
 test("renders Header component with logo", () => {
-  render(<Header />);
+  renderWithProviders(<Header />);
   const logo = screen.getByTestId("logoTitle");
 
   expect(logo.textContent).toEqual("josh mu");
@@ -28,6 +30,6 @@ const links = ["projects", "contact"];
 
 // I use test.each to iterate the test cases above
 test.each(links)('Check if Header menu contains "%s" link.', (link) => {
-  render(<Header />);
+  renderWithProviders(<Header />);
   expect(screen.getByText(link)).toBeInTheDocument();
 });
