@@ -12,12 +12,6 @@
 
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import {
-  BsLightningFill as Alt2Icon,
-  BsMoonFill as MoonIcon,
-  BsDropletFill as DropletIcon,
-  BsSunFill as SunIcon,
-} from "react-icons/bs";
 
 import { useThemeContext } from "@/context/themeContext";
 import { useCursorPointer } from "../Cursor/Cursor";
@@ -29,71 +23,30 @@ const motionStyle = {
 };
 
 export const ThemeToggle = (props: { [key: string]: any }) => {
-  const { toggleTheme, theme, THEME_TYPE } = useThemeContext()!;
+  const { theme, cycleTheme } = useThemeContext();
   const cursorActions = useCursorPointer();
-
-  const handleClick = () => {
-    toggleTheme();
-  };
+  const Icon = theme.icon;
 
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
       key="themeToggle"
       {...motionStyle}
-      onClick={handleClick}
+      onClick={cycleTheme}
       className="relative flex items-center cursor-pointer"
       {...props}
       {...cursorActions}
     >
       <AnimatePresence mode="wait">
-        {theme === THEME_TYPE.dark && (
-          <motion.button
-            key={THEME_TYPE.dark}
-            {...motionStyle}
-            className="relative focus:outline-none"
-            type="button"
-            aria-label={`${THEME_TYPE.dark} theme toggle`}
-          >
-            <MoonIcon className="fill-current" />
-          </motion.button>
-        )}
-
-        {theme === THEME_TYPE.light && (
-          <motion.button
-            key={THEME_TYPE.light}
-            {...motionStyle}
-            className="relative focus:outline-none"
-            type="button"
-            aria-label={`${THEME_TYPE.light} theme toggle`}
-          >
-            <SunIcon className="fill-current" />
-          </motion.button>
-        )}
-
-        {theme === THEME_TYPE.alt && (
-          <motion.button
-            key={THEME_TYPE.alt}
-            {...motionStyle}
-            className="relative focus:outline-none"
-            type="button"
-            aria-label={`${THEME_TYPE.alt} theme toggle`}
-          >
-            <DropletIcon className="fill-current" />
-          </motion.button>
-        )}
-
-        {theme === THEME_TYPE.alt2 && (
-          <motion.button
-            key={THEME_TYPE.alt2}
-            {...motionStyle}
-            className="relative focus:outline-none"
-            type="button"
-            aria-label={`${THEME_TYPE.alt2} theme toggle`}
-          >
-            <Alt2Icon className="fill-current" />
-          </motion.button>
-        )}
+        <motion.button
+          key={theme.id}
+          {...motionStyle}
+          className="relative focus:outline-none"
+          type="button"
+          aria-label={theme.label}
+        >
+          <Icon className="fill-current" />
+        </motion.button>
       </AnimatePresence>
     </motion.div>
   );

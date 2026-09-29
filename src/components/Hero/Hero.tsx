@@ -18,8 +18,7 @@ type HeroProps = { props?: { [key: string]: any } };
 
 export const Hero = ({ ...props }: HeroProps) => {
   const scrollTo = useScrollTo();
-  const themeContext = useThemeContext();
-  const toggleTheme = themeContext!.toggleTheme;
+  const { cycleTheme } = useThemeContext();
   const cursorActions = useCursorPointer();
 
   const handleScrollDown = () => {
@@ -32,7 +31,7 @@ export const Hero = ({ ...props }: HeroProps) => {
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
         <h1
           data-testid="heroLogo"
-          onClick={toggleTheme}
+          onClick={cycleTheme}
           className="text-6xl font-semibold tracking-wide uppercase cursor-pointer md:text-8xl"
         >
           <Curtain>josh mu</Curtain>
