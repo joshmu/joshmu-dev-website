@@ -36,7 +36,7 @@ export const Hero = ({ ...props }: HeroProps) => {
         >
           <Curtain>josh mu</Curtain>
         </h1>
-        <RevealInView delay={1}>
+        <RevealInView>
           <span>I ♡ coffee & code.</span>
         </RevealInView>
       </div>
