@@ -12,24 +12,21 @@
 
 import { Variants, motion } from "framer-motion";
 
-import { useScrollTo } from "@/hooks/useScrollTo";
+import { NAV_SECTIONS, SECTION, type SectionId, scrollToSection } from "@/services/sections";
 import { Compressor } from "@/shared/ux/Compressor";
 
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import { useCursorPointer } from "../Cursor/Cursor";
 
-const menuItems = ["projects", "contact"];
-
 export const Header = () => {
-  const scrollTo = useScrollTo();
   const cursorActions = useCursorPointer();
 
-  const handleNavItemClick = (section: string): void => {
-    scrollTo(section);
+  const handleNavItemClick = (section: SectionId): void => {
+    scrollToSection(section);
   };
 
   const handleLogoClick = (): void => {
-    scrollTo("hero");
+    scrollToSection(SECTION.hero);
   };
 
   return (
@@ -54,7 +51,7 @@ export const Header = () => {
               variants={navVariants}
               className="flex items-center justify-center h-full px-8 py-1 overflow-hidden text-sm transition-all duration-200 rounded-sm bg-themeText text-themeBg"
             >
-              {menuItems.map((item) => (
+              {NAV_SECTIONS.map((item) => (
                 <li key={item}>
                   <motion.button
                     onClick={() => {

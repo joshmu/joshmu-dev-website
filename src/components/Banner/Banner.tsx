@@ -2,6 +2,7 @@ import { MotionValue, motion, useSpring, useTransform, useScroll } from "framer-
 import { useEffect, useRef } from "react";
 
 import { useRefScrollProgress } from "@/hooks/useRefScrollProgress";
+import { SECTION } from "@/services/sections";
 
 type BannerProps = { props?: { [key: string]: any } };
 
@@ -10,7 +11,7 @@ export const Banner = ({ ...props }: BannerProps) => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div id="banner" ref={ref} className="container z-0 mx-auto py-96" {...props}>
+    <div id={SECTION.banner} ref={ref} className="container z-0 mx-auto py-96" {...props}>
       <p className="ml-2">
         My adventures in web{" "}
         <CharSplit scrollStart={start} scrollEnd={end} scrollYProgress={scrollYProgress}>

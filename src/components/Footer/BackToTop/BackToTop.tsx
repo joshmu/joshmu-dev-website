@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 
-import { useScrollTo } from "@/hooks/useScrollTo";
+import { SECTION, scrollToSection } from "@/services/sections";
 import { useCursorPointer } from "@/components/Cursor/Cursor";
 
 export const BackToTop = () => {
-  const scrollTo = useScrollTo();
   const cursorActions = useCursorPointer();
 
-  const handleBackToTopClick = () => scrollTo("hero");
+  const handleBackToTopClick = () => scrollToSection(SECTION.hero);
 
   return (
     <button aria-label="back to top">
