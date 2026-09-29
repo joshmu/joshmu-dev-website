@@ -29,13 +29,6 @@ class MockIntersectionObserver {
 }
 window.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver;
 
-// REACT-GA
-vi.mock("react-ga", () => ({
-  initialize: vi.fn(),
-  set: vi.fn(),
-  pageview: vi.fn(),
-}));
-
 // FRAMER MOTION MOCK
 vi.mock("framer-motion", () => {
   const toLowerCaseList = ["whileHover"];
