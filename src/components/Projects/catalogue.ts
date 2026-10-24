@@ -28,9 +28,9 @@ export const PROJECTS: readonly Project[] = [
     website: "https://videonote.app",
     github: "github.com/joshmu/videonote",
     img: {
-      src: "/assets/videonote-hero.png",
-      width: 3186,
-      height: 2138,
+      src: "https://assets.joshmu.dev/sites/joshmu-dev-website/images/videonote-hero.webp",
+      width: 1600,
+      height: 1074,
     },
     video: {
       src: "https://assets.joshmu.dev/sites/joshmu-dev-website/videos/videonote.mp4",
@@ -46,9 +46,9 @@ export const PROJECTS: readonly Project[] = [
     website: "https://joshmu.com",
     github: "github.com/joshmu/joshmu-dance-website",
     img: {
-      src: "/assets/joshmu-hero.png",
-      width: 3166,
-      height: 2138,
+      src: "https://assets.joshmu.dev/sites/joshmu-dev-website/images/joshmu-hero.webp",
+      width: 1600,
+      height: 1081,
     },
     video: {
       src: "https://assets.joshmu.dev/sites/joshmu-dev-website/videos/joshmu-dance-website.mp4",
@@ -76,9 +76,9 @@ export const PROJECTS: readonly Project[] = [
     website: "http://aid.alisdairmacindoe.com",
     github: "github.com/joshmu/aid-online-code-sample",
     img: {
-      src: "/assets/aidOnline-hero.png",
-      width: 3186,
-      height: 2138,
+      src: "https://assets.joshmu.dev/sites/joshmu-dev-website/images/aidOnline-hero.webp",
+      width: 1600,
+      height: 1074,
     },
     video: {
       src: "https://assets.joshmu.dev/sites/joshmu-dev-website/videos/aid-online.mp4",
