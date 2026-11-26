@@ -75,7 +75,7 @@
     "oxlint": "^1.94.0",
     "plop": "^4.0.5",
     "postcss": "^8.5.30",
-    "postcss-preset-env": "^11.5.2",
+    "postcss-preset-env": "^11.6.3",
     "sass": "^1.105.0",
     "tailwindcss": "^4.3.5",
     "tailwindcss-debug-screens": "^3.0.1",
